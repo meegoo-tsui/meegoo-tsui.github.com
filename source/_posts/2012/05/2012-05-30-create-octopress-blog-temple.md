@@ -34,7 +34,8 @@ categories: octopress
 
 在`master`分支，执行如下命令：   
 	rake setup_github_pages
-意义如下：   
+意义如下：
+
 1. Ask you for your Github Pages repository url.
 2. Rename the remote pointing to imathis/octopress from ‘origin’ to ‘octopress’
 3. Add your Github Pages repository as the default origin remote.
