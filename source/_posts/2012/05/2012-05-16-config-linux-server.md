@@ -1,19 +1,23 @@
 ---
 layout: post
-title: "linux常用服务器的配置"
+title: "常用linux服务器的配置"
 date: 2012-05-16 14:11
 comments: true
 categories: linux
 ---
 
-安装平台： ubuntu 10.04    
-	ssh   - 远程登录    
-	samba - 文件共享    
-	nfs   - 网络文件系统    
-	tftp  - 简单文件传输协议    
-	ftp   - 文件传输协议    
+ubuntu 10.04
 
-## ssh ##
+*    [ssh   - 远程登录](#ssh)
+*    [samba - 文件共享](#samba)
+*    [nfs   - 网络文件系统](#nfs)
+*    [tftp  - 简单文件传输协议](#tftp)
+*    [ftp   - 文件传输协议](#ftp)
+
+<!---
+################################################################################
+-->
+<h2 id="ssh">ssh - 远程登录</h2>
 ### 1. 安装软件包 ####
 	sudo apt-get install openssh-server
 ### 2. 重启ssh服务 ###
@@ -21,7 +25,10 @@ categories: linux
 ### 3. 查看 ###
 	netstat -tlp | grep ssh
 
-## samba ##
+<!---
+################################################################################
+-->
+<h2 id="samba">samba - 文件共享</h2>
 ### 1. 安装软件包 ####
 	sudo apt-get install samba samba-common samba-common-bin system-config-samba
 ### 2. 运行 ###
@@ -64,7 +71,10 @@ categories: linux
 	sudo mkdir /mnt/samba
 	sudo mount -t smbfs -o username=meegoo //192.168.0.238/meegoo /mnt/samba
 
-## nfs ##
+<!---
+################################################################################
+-->
+<h2 id="nfs">nfs - 网络文件系统</h2>
 ### 1. 安装软件包 ####
 	sudo apt-get install nfs-kernel-server
 ### 2. 修改配置文件 ###
@@ -74,7 +84,10 @@ categories: linux
 配置文件生效：   
 	sudo /usr/sbin/exportfs -va
 
-## tftp ##
+<!---
+################################################################################
+-->
+<h2 id="tftp">tftp - 简单文件传输协议</h2>
 ### 1. 安装软件包 ####
 	sudo apt-get install tftpd tftp xinetd
 ### 2. 修改配置文件 ###
@@ -97,7 +110,10 @@ categories: linux
 	sudo chmod ugo+rwx /tftpboot
 	sudo /etc/init.d/xinetd restart 
 
-## ftp ##
+<!---
+################################################################################
+-->
+<h2 id="ftp">ftp - 文件传输协议</h2>
 ### 1. 安装软件包 ####
 	sudo apt-get install vsftpd
 ### 2. 创建ftp文件夹 ###

@@ -7,40 +7,39 @@ categories: markdown
 ---
 
 *   [概述](#overview)
-    *   [哲学](#philosophy)
+    *   [哲學](#philosophy)
     *   [行內 HTML](#html)
-    *   [特殊字符自动转换](#autoescape)
-*   [块元素](#block)
-    *   [段落和换行](#p)
-    *   [标题](#header)
-    *   [块引言](#blockquote)
-    *   [清单](#list)
-    *   [程序代码块](#precode)
-    *   [分隔线](#hr)
-*   [段元素](#span)
-    *   [连接](#link)
-    *   [强调](#em)
-    *   [代码](#code)
-    *   [图片](#img)
-*   [杂项](#misc)
-    *   [转义字符](#backslash)
-    *   [自动连接](#autolink)
+    *   [特殊字元自動轉換](#autoescape)
+*   [區塊元素](#block)
+    *   [段落和換行](#p)
+    *   [標題](#header)
+    *   [區塊引言](#blockquote)
+    *   [清單](#list)
+    *   [程式碼區塊](#precode)
+    *   [分隔線](#hr)
+*   [區段元素](#span)
+    *   [連結](#link)
+    *   [強調](#em)
+    *   [程式碼](#code)
+    *   [圖片](#img)
+*   [其它](#misc)
+    *   [跳脫字元](#backslash)
+    *   [自動連結](#autolink)
 
-**注意：**此文档使用Markdown编写，你可以阅读：   
-[英文原版](http://daringfireball.net/projects/markdown/syntax)   
-[繁体翻译](http://markdown.tw/)
+**注意：**這份文件是用 Markdown 寫的，你可以[看看它的原始檔][src] 。
+
+  [src]: https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md
+
 * * *
 
 <h2 id="overview">概述</h2>
 
-<h3 id="philosophy">哲学</h3>
+<h3 id="philosophy">哲學</h3>
 
-Markdown的目标是实现`易写易读`。
+Markdown 的目標是實現「易讀易寫」。
 
-不过最需要强调的就是它的可读性。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，
-并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，
-包括 [Setext] [1]、[atx] [2]、[Textile] [3]、[reStructuredText] [4]、[Grutatext] [5] 和 [EtText] [6]，
-然而最大灵感来源其实是纯文字的电子邮件格式。
+不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 語法受到一些既有 text-to-HTML 格式的影響，包括 [Setext] [1]、[atx] [2]、[Textile] [3]、[reStructuredText] [4]、[Grutatext] [5] 和 [EtText] [6]，然而最大靈感來源其實是純文字的電子郵件格式。
+
   [1]: http://docutils.sourceforge.net/mirror/setext.html
   [2]: http://www.aaronsw.com/2002/atx/
   [3]: http://textism.com/tools/textile/
@@ -48,25 +47,19 @@ Markdown的目标是实现`易写易读`。
   [5]: http://www.triptico.com/software/grutatxt.html
   [6]: http://ettext.taint.org/doc/
 
-因此 Markdown 的语法全由标点符号所组成，并经过谨慎选择，是为了让它们看起来就像所要表达的意思。
-像是在文字两旁加上星号，看起来就像\*强调\*。Markdown 的清单看起来，嗯，就是清单。假如你有使用过电子邮件，
-块引用看起来就真的像是引用一段文字。
+因此 Markdown 的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。像是在文字兩旁加上星號，看起來就像\*強調\*。Markdown 的清單看起來，嗯，就是清單。假如你有使用過電子郵件，區塊引言看起來就真的像是引用一段文字。
 
 <h3 id="html">行內 HTML</h3>
 
-Markdown 的语法有个主要的目的：用來作为一种网络內容的*写作*用语言。
+Markdown 的語法有個主要的目的：用來作為一種網路內容的*寫作*用語言。
 
-Markdown 不是要來取代 HTML，甚至也沒有要和它相似，它的语法种类不多，只和 HTML 的一部分有关系，
-重点*不是*要创造一种更容易写作 HTML 文件的语法，我认为 HTML 已經很容易写了，Markdown 的重点在于，
-它能让文件更容易阅读、编写。HTML 是一种*发布*的格式，Markdown 是一种*编写*的格式，因此，Markdown 的格式语法只涵盖纯文字可以涵盖的范围。
+Markdown 不是要來取代 HTML，甚至也沒有要和它相似，它的語法種類不多，只和 HTML 的一部分有關係，重點*不是*要創造一種更容易寫作 HTML 文件的語法，我認為 HTML 已經很容易寫了，Markdown 的重點在於，它能讓文件更容易閱讀、編寫。HTML 是一種*發佈*的格式，Markdown 是一種*編寫*的格式，因此，Markdown 的格式語法只涵蓋純文字可以涵蓋的範圍。
 
-不在 Markdown 涵盖范围之外的标签，都可以直接在文件里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。
+不在 Markdown 涵蓋範圍之外的標籤，都可以直接在文件裡面用 HTML 撰寫。不需要額外標註這是 HTML 或是 Markdown；只要直接加標籤就可以了。
 
-只有块元素，比如 `<div>`、`<table>`、`<pre>`、`<p>` 等标签，必须在前后加上空白，以利于内容区隔。
-而且这些（元素）的开始与结尾标签，不可以用 tab 或是空白来缩排。Markdown 的产生器有智能型判断，
-可以避免在块标签前后加上没有必要的 `<p>` 标签。
+只有區塊元素──比如 `<div>`、`<table>`、`<pre>`、`<p>` 等標籤，必需在前後加上空白，以利與內容區隔。而且這些（元素）的開始與結尾標籤，不可以用 tab 或是空白來縮排。Markdown 的產生器有智慧型判斷，可以避免在區塊標籤前後加上沒有必要的 `<p>` 標籤。
 
-举例说明，在 Markdown 文件里加上一段 HTML 表格：
+舉例來說，在 Markdown 文件裡加上一段 HTML 表格：
 
     This is a regular paragraph.
 
@@ -78,7 +71,7 @@ Markdown 不是要來取代 HTML，甚至也沒有要和它相似，它的语法
 
     This is another regular paragraph.
 
-注意，Markdown 语法在 HTML 块标签中将不会被进行处理。例如，你无法在 HTML 块內使用 Markdown 形式的`*强调*`。
+請注意，Markdown 語法在 HTML 區塊標籤中將不會被進行處理。例如，你無法在 HTML 區塊內使用 Markdown 形式的`*強調*`。
 
 HTML 的區段標籤如 `<span>`、`<cite>`、`<del>` 則不受限制，可以在 Markdown 的段落、清單或是標題裡任意使用。依照個人習慣，甚至可以不用Markdown 格式，而採用 HTML 標籤來格式化。舉例說明：如果比較喜歡 HTML 的  `<a>` 或 `<img>` 標籤，可以直接使用這些標籤，而不用 Markdown 提供的連結或是影像標示語法。
 
@@ -688,19 +681,19 @@ Markdown 可以利用反斜線來插入一些在語法中有其它意義的符�
 
     \*literal asterisks\*
 
-Markdown 支持在下面這些符号前面加上反斜杆來帮助插入普通的符号：
+Markdown 支援在下面這些符號前面加上反斜線來幫助插入普通的符號：
 
-    \   反斜杆
-    `   反引号
-    *   星号
-    _   下划线
-    {}  大括号
-    []  中括号
-    ()  括号
-    #   井号
-	+	加号
-	-	减号
-    .   英文句号
-    !   感叹号
+    \   反斜線
+    `   反引號
+    *   星號
+    _   底線
+    {}  大括號
+    []  方括號
+    ()  括號
+    #   井字號
+	+	加號
+	-	減號
+    .   英文句點
+    !   驚嘆號
 
 <hr />

@@ -1,12 +1,18 @@
 ---
 layout: post
-title: "在github上使用git"
+title: "git和github"
 date: 2012-05-15 13:11
 comments: true
 categories: github git
 ---
 
-## git工具的安装 - Windows 7 ##
+*    [git工具的安装 - Windows环境](#windows)
+*    [git工具的安装 - Ubuntu 10.04环境](#linux)
+
+<!---
+################################################################################
+-->
+<h2 id="windows">git工具的安装 - Windows环境</h2>
 ### 1. 安装命令行工具 msysgit ###
 msysgit为google上的托管项目，可以从[google](http://code.google.com/p/msysgit/downloads/list)下载安装包，
 选择最新版本(Git-1.7.8-preview20111206.exe)进行安装，安装时无特别要求，选择默认选项，一直“next”完成安装。
@@ -73,7 +79,10 @@ git config --global mergetool.prompt false
 TortoiseMerge -base:"$2" -theirs:"$5"
 {% endhighlight %}
 
-## git工具的安装 - Ubuntu 10.04 ##
+<!---
+################################################################################
+-->
+<h2 id="linux">git工具的安装 - Ubuntu 10.04环境</h2>
 ### 1. 安装 openssh ###
 如果不安装openssh，在导入ssh id_rsa私匙时，认证老是不成功，安装命令如下：
 	$ sudo apt-get install openssh-serve

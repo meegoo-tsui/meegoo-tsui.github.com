@@ -71,6 +71,11 @@ octopress的工作到此已经完成。
 	rake preview
 	rake deploy
 
+在`master`分支查看结果:    
+	git checkout master
+	git pull --rebase origin master
+	jekyll --server         # http://127.0.0.1:4000
+
 `master`分支为主页显示所需要的内容，因此需要在github上配置当前分支为`master`；    
 `source`分支为源代码，在此分支上写代码然后使用`rake deploy`就可以修改`master`的内容，也就
 更新了主页。
