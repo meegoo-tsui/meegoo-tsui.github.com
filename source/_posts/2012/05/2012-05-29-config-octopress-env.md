@@ -7,8 +7,60 @@ categories: octopress rvm
 ---
 
 [Octopress](http://octopress.org)的官方网站上有详细文档，可先参考此网站上的相关文档。
+配置完后，已安装jekyll。
 
-## ubuntu10.04安装rvm ##
+<hr />
+
+<!---
+################################################################################
+-->
+*    [Windows 环境](#windows)
+*    [Linux 环境](#linux)
+<hr />
+
+<!---
+################################################################################
+-->
+<h2 id="windows">配置Octopress - windows 环境</h2>
+
+### 1. 安装RailsInstaller ###
+下载[RailsInstaller](http://railsinstaller.org/)，
+然后安装，里面包含了Ruby、Rails、Bundler、Git、Sqlite、TinyTDS、SQL Server support和DevKit。
+
+### 2. 克隆`Octopress`的版本库 ###
+`Octopress`的版本库托管在`github`，使用如下命令`checkout`：    
+	git clone git://github.com/imathis/octopress.git octopress
+	cd octopress    # 当使用rvm时，提示是否信任.rvmrc文件，输入yes
+	ruby --version  # 显示 Ruby 1.9.2
+
+### 3. 安装依靠包 ###
+Windows环境安装了[RailsInstaller](http://railsinstaller.org/)，可直接安装下面内容，
+以下命令需要在`octopress`路径下执行，版本的锁定需要此路径下的`Gemfile`文件：   
+	gem install bundler
+	bundle install
+
+### 4. 修正 ###
+打开C:\RailsInstaller\Ruby1.9.3\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\tags\include.rb，
+将source = File.read(@file)修改为：
+	source = File.read(@file, :encoding => "utf-8")
+
+打开C:\RailsInstaller\Ruby1.9.3\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\convertible.rb，
+将self.content = File.read(File.join(base, name))修改为：
+	self.content = File.read(File.join(base, name), :encoding => "utf-8")
+
+到此已完成`Octopress`环境的配置，可以使用`Octopress`的相关命令：    
+	rake install
+	rake generate
+	rake preview
+
+查看：http://127.0.0.1:4000/
+<hr />
+
+<!---
+################################################################################
+-->
+<h2 id="linux">配置Octopress - linux 环境</h2>
+### ubuntu10.04安装rvm ###
 
 ### 1. 安装ruby依靠包、curl、ruby ###
 	sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
@@ -48,7 +100,7 @@ categories: octopress rvm
 	ruby-head
 如上所示，显示出可安装的ruby版本，至此rvm的安装完成。
 
-## ubuntu10.04安装ruby及依靠包 ##
+### ubuntu10.04安装ruby及依靠包 ###
 
 ### 1. 安装ruby ###
 `Octopress`当前使用的`ruby`版本为`1.9.2`，因此使用如下命令安装`ruby`：    
@@ -72,15 +124,5 @@ Windows环境安装了[RailsInstaller](http://railsinstaller.org/)，可直接�
 	rake install
 	rake generate
 	rake preview
-
-windows下问题:    
-	d:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/ffi-1.0.11/lib/ffi/library.
-	rb:121:in `block in ffi_lib': Could not open library 'c:\Python27/lib/python27.dll':  (LoadError)
-
-修改文件`D:\RailsInstaller\Ruby1.9.3\lib\ruby\gems\1.9.1\gems\rubypython-0.5.3\lib\rubypython\python.rb`:    
-    # ffi_lib_flags :lazy, :global
-    ffi_lib_flags  "python27"
-
-拷贝`python27.dll`到`c:\Python27\lib`即可。
-
+查看：http://127.0.0.1:4000/
 <hr />
