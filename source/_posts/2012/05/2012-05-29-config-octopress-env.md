@@ -3,7 +3,7 @@ layout: post
 title: "配置Octopress环境"
 date: 2012-05-29 13:11
 comments: true
-categories: octopress rvm
+categories: octopress jekyll
 ---
 
 [Octopress](http://octopress.org)的官方网站上有详细文档，可先参考此网站上的相关文档。
@@ -23,35 +23,48 @@ categories: octopress rvm
 -->
 <h2 id="windows">配置Octopress - windows 环境</h2>
 
-### 1. 安装RailsInstaller ###
-下载[RailsInstaller](http://railsinstaller.org/)，
-然后安装，里面包含了Ruby、Rails、Bundler、Git、Sqlite、TinyTDS、SQL Server support和DevKit。
+### 1. 安装msysgit ###
+下载[msysgit](http://code.google.com/p/msysgit/downloads/list)，当前版本为`Git-1.7.8-preview20111206.exe`,
+安装在D:\Git-1.7.8，默认安装即可，其他路径也可以，但是路径中不要包含中文和空格，免得自找麻烦。
 
-### 2. 克隆`Octopress`的版本库 ###
-`Octopress`的版本库托管在`github`，使用如下命令`checkout`：    
-	git clone git://github.com/imathis/octopress.git octopress
-	cd octopress    # 当使用rvm时，提示是否信任.rvmrc文件，输入yes
-	ruby --version  # 显示 Ruby 1.9.2
+### 2. 安装[yari](https://github.com/scottmuc/yari) ###
+使用刚才的工具下载，输入命令如下：    
+	$ git clone git://github.com/scottmuc/yari.git /d/yari
+完成后添加`D:\yari\bin`到windoes环境变量`PATH`，打开dos，运行命令如下：    
+	D:\yari>yari 1.9.2
 
-### 3. 安装依靠包 ###
-Windows环境安装了[RailsInstaller](http://railsinstaller.org/)，可直接安装下面内容，
-以下命令需要在`octopress`路径下执行，版本的锁定需要此路径下的`Gemfile`文件：   
+### 3. 安装[python2.7.3](http://www.python.org/getit/) ###
+安装路径：`D:\Python27`
+
+### 4. 添加git环境变量PATH ###
+修改文件`D:\Git-1.7.8\etc\profile`:    
+	export PATH="/d/Python27:/d/yari/ruby-1.9.2-p290-i386-mingw32/bin:$PATH"
+
+### 5. 安装gem包 ###
+	git clone git@github.com:meegoo-tsui/meegoo-tsui.github.com.git
+	git chehckout source
 	gem install bundler
 	bundle install
 
-### 4. 修正 ###
-打开C:\RailsInstaller\Ruby1.9.3\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\tags\include.rb，
-将source = File.read(@file)修改为：
+### 6. 解决rake generate的错误 ###
+错误内容如下：    
+	...
+	ruby-1.9.2-p290-i386-mingw32/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib
+	/jekyll/convertible.rb:29:in `read_yaml': invalid byte sequence in GB2312 (ArgumentError)
+	...
+
+修改`D:\yari\ruby-1.9.2-p290-i386-mingw32\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\tags\include.rb`    
+	source = File.read(@file)
+替换为    
 	source = File.read(@file, :encoding => "utf-8")
-
-打开C:\RailsInstaller\Ruby1.9.3\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\convertible.rb，
-将self.content = File.read(File.join(base, name))修改为：
-	self.content = File.read(File.join(base, name), :encoding => "utf-8")
-
-到此已完成`Octopress`环境的配置，可以使用`Octopress`的相关命令：    
-	rake install
-	rake generate
-	rake preview
+修改`D:\yari\ruby-1.9.2-p290-i386-mingw32\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\convertible.rb`     
+	self.content = File.read(File.join(base, name))
+替换为    
+	self.content = File.read(File.join(base, name), :encoding => "utf-8")	
+	
+### 7. 测试 ###
+	git generate
+	git preview
 
 查看：http://127.0.0.1:4000/
 <hr />
