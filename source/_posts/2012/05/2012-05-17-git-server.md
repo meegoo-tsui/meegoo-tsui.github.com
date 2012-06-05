@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "git服务器的配置"
+title: "git服务器配置"
 date: 2012-05-17 13:11
 comments: true
 categories: git
