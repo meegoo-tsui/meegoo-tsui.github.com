@@ -3,7 +3,7 @@ layout: post
 title: "git服务器配置"
 date: 2012-05-17 13:11
 comments: true
-categories: git
+categories: server
 ---
 
 安装平台： ubuntu 10.04    

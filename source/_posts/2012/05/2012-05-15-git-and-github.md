@@ -3,7 +3,7 @@ layout: post
 title: "git和github"
 date: 2012-05-15 13:11
 comments: true
-categories: github git
+categories: github
 ---
 
 *    [git工具的安装 - Windows环境](#windows)

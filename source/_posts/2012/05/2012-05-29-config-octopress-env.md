@@ -3,7 +3,7 @@ layout: post
 title: "配置Octopress环境"
 date: 2012-05-29 13:11
 comments: true
-categories: octopress jekyll
+categories: octopress
 ---
 
 [Octopress](http://octopress.org)的官方网站上有详细文档，可先参考此网站上的相关文档。

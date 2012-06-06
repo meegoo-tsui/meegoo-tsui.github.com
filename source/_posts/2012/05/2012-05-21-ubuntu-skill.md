@@ -3,7 +3,7 @@ layout: post
 title: "ubuntu常见问题集锦"
 date: 2012-05-21 13:11
 comments: true
-categories: ubuntu
+categories: linux
 ---
 
 <!---

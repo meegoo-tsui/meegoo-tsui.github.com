@@ -3,7 +3,7 @@ layout: post
 title: "svn服务器配置"
 date: 2012-05-15 15:11
 comments: true
-categories: svn
+categories: server
 ---
 
 <!---
