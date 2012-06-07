@@ -73,3 +73,9 @@ categories: server
 	cr		    macdef		passive		rmdir		verbose
 	delete		mdelete		proxy		runique		?
 
+### 3. mount ###
+现在`ftp`路径下创建文件夹：    
+	mkdir /home/ftp/work
+挂载：    
+	mount --bind /home/meegoo/work /home/ftp/work
+
