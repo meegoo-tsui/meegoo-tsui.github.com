@@ -1,22 +1,37 @@
 ---
 layout: post
-title: "eclipse°²×°¼°ÅäÖÃ"
+title: "eclipseå®‰è£…åŠé…ç½®"
 date: 2012-06-09 21:13
 comments: true
 categories: editor
 ---
 
-×ÊÔ´Á´½Ó£º
+å®˜ç½‘ä¸‹è½½ï¼š
 
-* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [eclipse](http://www.eclipse.org/downloads/)
+*    [oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+*    [eclipse](http://www.eclipse.org/downloads/)
 
-## 1. °²×° java sdk ##
-µ±Ç°×îĞÂ°æ±¾Îª[7u4](http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html)£¬
-Èçwindows 64Î»°æ±¾ - jdk-7u4-windows-x64.exe¡£
+#### 1. ä¸‹è½½ [java sdk - 7u4](http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html) ####
+linuxå¹³å°:
 
-## 2. °²×°eslipse ##
-ÔÚ[eclipse](http://www.eclipse.org/downloads/)ÓĞºÜ¶à°æ±¾¹©Ñ¡Ôñ£¬Ò»°ãÑ¡ÔñÏÂÔØ
-Eclipse Classic£¬µ±Ç°×îĞÂ°æ±¾Îª3.7.2£¬Íê³Éºó½âÑ¹¼´¿É£¬µ½´ËÒÑ¿ÉÔËĞĞeclipse¡£
+*    x86-32: [jdk-7u4-linux-i586.tar.gz](http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html)
+*    x64-64: [jdk-7u4-linux-x64.tar.gz](http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html)
+
+windowså¹³å°:
+
+*    x86-32: [jdk-7u4-windows-i586.exe](http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html)
+*    x64-64: [jdk-7u4-windows-x64.exe](http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html)
+
+#### 2. ä¸‹è½½ [eslipse](http://www.eclipse.org/downloads) ####
+linuxå¹³å°:
+
+*    x86-32: [eclipse-SDK-3.7.2-linux-gtk.tar.gz](http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-linux-gtk.tar.gz)
+*    x64-64: [eclipse-SDK-3.7.2-linux-gtk-x86_64.tar.gz](http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-linux-gtk-x86_64.tar.gz)
+
+windowså¹³å°:
+
+*    x86-32: [eclipse-SDK-3.7.2-win32.zip](http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-win32.zip)
+*    x64-64: [eclipse-SDK-3.7.2-win32-x86_64.zip](http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-win32-x86_64.zip)
 
 <hr />
+
