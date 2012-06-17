@@ -11,6 +11,8 @@ categories: linux
 -->
 <hr />
 *    [ubuntu 源](#ubuntu_sources)
+*    [静态IP](#static_ip)
+*    [grub启动项](#grub_boot)
 
 <!---
 ################################################################################
@@ -90,5 +92,50 @@ E: Unable to lock the list directory
 	$ ps -e | grep apt
 删除相关进程：    
 	$ sudo kill xxxx
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="static_ip">静态IP - ubuntu 12.04 server</h3>
+执行命令如下：
+
+	sudo vi /etc/network/interfaces
+
+替换：
+
+	auto eth0
+	iface eth0 inet dhcp
+
+为：
+
+	auto eth0
+	iface eth0 inet static
+		address 192.168.0.2
+		netmask 255.255.255.0
+		network 192.168.0.0
+		broadcast 192.168.0.255
+		gateway 192.168.0.1
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="grub_boot">grub启动项</h3>
+执行命令如下：
+
+	sudo vi /etc/default/grub
+
+替换：
+
+	GRUB_DEFAULT=0
+
+为：
+
+	GRUB_DEFAULT=4
+
+使设置生效：
+
+	sudo update-grub 
 
 <hr />
