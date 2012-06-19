@@ -14,6 +14,7 @@ categories: linux
 *    [静态IP](#static_ip)
 *    [grub启动项](#grub_boot)
 *    [MTA延时解决](#mta_delay)
+*    [firefox flash插件](#firefox_flash)
 
 <!---
 ################################################################################
@@ -107,5 +108,19 @@ E: Unable to lock the list directory
 
 	127.0.0.1       localhost.localdomain localhost
 	127.0.1.1       server.localdomain server
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="firefox_flash">firefox flash插件</h3>
+下载[ adobe flash player ](http://get.adobe.com/flashplayer/), 格式为*.tar.gz:
+
+1.    解压：`tar -zxf xxx.tar.gz`
+2.    拷贝：`sudo sudo cp -r usr/* /usr`
+3.    插件：`sudo cp libflashplayer.so /usr/lib/mozilla/plugins`
+4.    重启
+
+已测试： ubuntu 12.04
 
 <hr />
