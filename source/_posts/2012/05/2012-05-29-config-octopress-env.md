@@ -14,14 +14,14 @@ categories: octopress
 <!---
 ################################################################################
 -->
-*    [Windows 环境](#windows)
+*    [Windows7 环境](#windows7)
 *    [Linux 环境](#linux)
 <hr />
 
 <!---
 ################################################################################
 -->
-<h2 id="windows">配置Octopress - windows 环境</h2>
+<h2 id="windows7">配置Octopress - windows7 环境</h2>
 
 ### 1. 安装msysgit ###
 下载[msysgit](http://code.google.com/p/msysgit/downloads/list)，当前版本为`Git-1.7.8-preview20111206.exe`,
@@ -33,7 +33,7 @@ categories: octopress
 完成后添加`D:\yari\bin`到windoes环境变量`PATH`，打开dos，运行命令如下：    
 	D:\yari>yari 1.9.2
 
-### 3. 安装[python2.7.3](http://www.python.org/getit/) ###
+### 3. 安装[python2.7.3 - Python 2.7.3 Windows Installer ](http://www.python.org/getit/) ###
 安装路径：`D:\Python27`
 
 ### 4. 添加git环境变量PATH ###
