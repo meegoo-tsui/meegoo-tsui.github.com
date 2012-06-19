@@ -136,21 +136,45 @@ categories: server
 ### 四. 配置apache服务器 ###
 ### 1. 修改apache配置文件 ###
 	sudo vim /etc/apache2/mods-available/dav_svn.conf
-修改内容如下：     
+ubuntu 10.04修改内容如下：     
 	<Location /svn>
-  	DAV svn
-  	SVNParentPath /opt/svn_repos
+  		DAV svn
+  		SVNParentPath /opt/svn_repos
 	
-	AuthType Basic
-	AuthName "Subversion Repository"
-	AuthUserFile /opt/svn_repos/conf/dav_svn.passwd
-	AuthzSVNAccessFile /opt/svn_repos/conf/access.auth
+		AuthType Basic
+		AuthName "Subversion Repository"
+		AuthUserFile /opt/svn_repos/conf/dav_svn.passwd
+		AuthzSVNAccessFile /opt/svn_repos/conf/access.auth
 
-	#<LimitExcept GET PROPFIND OPTIONS REPORT>
-	Require valid-user
-	#</LimitExcept> 
-	
+		#<LimitExcept GET PROPFIND OPTIONS REPORT>
+			Require valid-user
+		#</LimitExcept> 
+
 	</Location>
+
+ubuntu 12.04版本修改如下：    
+	<Location /svn>
+		DAV svn
+		SVNParentPath /opt/svn_repos
+
+		AuthType Basic
+		AuthName "Subversion Repository"
+		AuthUserFile /opt/svn_repos/conf/dav_svn.passwd
+		<IfModule mod_authz_svn.c>
+			AuthzSVNAccessFile /opt/svn_repos/conf/access.auth
+		</IfModule>
+
+		#<LimitExcept GET PROPFIND OPTIONS REPORT>
+			Require valid-user
+		#</LimitExcept> 
+	</Location>
+
+修改加载文件：    
+	sudo vim /etc/apache2/mods-enabled/dav_svn.load
+
+添加内容：    
+	# Only needed if you decide to do "per-directory" access control
+	LoadModule authz_svn_module /usr/lib/apache2/modules/mod_authz_svn.so
 
 ### 2. 测试svn服务器 ###
 重启服务器，使配置文件生效：    
