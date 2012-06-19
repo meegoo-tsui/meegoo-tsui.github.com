@@ -13,6 +13,7 @@ categories: linux
 *    [ubuntu 源](#ubuntu_sources)
 *    [静态IP](#static_ip)
 *    [grub启动项](#grub_boot)
+*    [MTA延时解决](#mta_delay)
 
 <!---
 ################################################################################
@@ -92,5 +93,19 @@ E: Unable to lock the list directory
 使设置生效：
 
 	sudo update-grub 
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="mta_delay">MTA延时解决</h3>
+修改文件：
+
+	sudo vim /etc/hosts
+
+修改内容如下：
+
+	127.0.0.1       localhost.localdomain localhost
+	127.0.1.1       server.localdomain server
 
 <hr />
