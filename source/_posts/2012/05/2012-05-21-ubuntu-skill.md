@@ -15,6 +15,7 @@ categories: linux
 *    [grub启动项](#grub_boot)
 *    [MTA延时解决](#mta_delay)
 *    [firefox flash插件](#firefox_flash)
+*    [远程桌面](#remote_desktop)
 
 <!---
 ################################################################################
@@ -122,5 +123,17 @@ E: Unable to lock the list directory
 4.    重启
 
 已测试： ubuntu 12.04
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="remote_desktop">远程桌面</h3>
+1.    `sudo apt-get install xrdp`
+2.    `echo "gnome-session --session=ubuntu-2d" > ~/.xsession`
+3.    `sudo apt-get install gnome-session-fallback`
+4.    `sudo reboot`
+
+已测试： windows xp
 
 <hr />
