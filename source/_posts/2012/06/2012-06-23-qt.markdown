@@ -1,0 +1,20 @@
+---
+layout: post
+title: "Qt build"
+date: 2012-06-23 14:32
+comments: true
+categories: qt
+---
+
+### [Qt](http://qt.gitorious.org/qt) ###
+	git clone git://gitorious.org/qt/qt.git
+
+### [Qt Creator](http://qt.gitorious.org/qt-creator) ###
+	git clone git://gitorious.org/qt-creator/qt-creator.git
+
+<!---
+################################################################################
+-->
+
+
+
