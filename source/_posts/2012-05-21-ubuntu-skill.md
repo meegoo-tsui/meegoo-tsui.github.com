@@ -16,6 +16,8 @@ categories: linux
 *    [MTA延时解决](#mta_delay)
 *    [firefox flash插件](#firefox_flash)
 *    [远程桌面](#remote_desktop)
+*    [ramdisk](#ramdisk)
+*    [firefox cache](#firefox_cache)
 
 <!---
 ################################################################################
@@ -135,5 +137,28 @@ E: Unable to lock the list directory
 4.    `sudo reboot`
 
 已测试： windows xp
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="ramdisk">ramdisk</h3>
+修改文件`/etc/rc.local`	
+	mount -t tmpfs -o size=2048M tmpfs /mnt/ramdisk
+
+创建挂载点：	
+	sudo mkdir /mnt/ramdisk
+
+已测试： ubuntu 12.04
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="firefox_cache">firefox cache</h3>
+打开firefox输入：`about:config`	
+
+*    设置字符串browser.cache.disk.parent_directory，值为路径
+*    设置字符串browser.cache.offline.parent_directory，值为路径
 
 <hr />
