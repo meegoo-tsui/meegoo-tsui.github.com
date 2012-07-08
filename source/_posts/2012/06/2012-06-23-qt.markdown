@@ -15,6 +15,7 @@ categories: qt
 <!---
 ################################################################################
 -->
-
-
+### Qt x11 安装依赖 ###
+[gstreamer 错误参考](http://superuser.com/questions/124943/how-can-i-resolve-gstreamer-dependencies-in-ubuntu)
+	sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
 

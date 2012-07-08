@@ -18,6 +18,7 @@ categories: linux
 *    [远程桌面](#remote_desktop)
 *    [ramdisk](#ramdisk)
 *    [firefox cache](#firefox_cache)
+*    [ibus 消失](#ibus_repaire)
 
 <!---
 ################################################################################
@@ -161,4 +162,15 @@ E: Unable to lock the list directory
 *    设置字符串browser.cache.disk.parent_directory，值为路径
 *    设置字符串browser.cache.offline.parent_directory，值为路径
 
+<!---
+################################################################################
+-->
 <hr />
+<h3 id="ibus_repaire">ibus 消失</h3>
+在终端输入如下内容：
+	gconftool -- type boolean -s /desktop/ibus/panel/show_icon_on_systray true
+	gconftool -- type boolean -s /desktop/ibus/panel/show true
+	gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
+
+<hr />
+
