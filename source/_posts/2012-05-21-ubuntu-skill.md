@@ -19,6 +19,7 @@ categories: linux
 *    [ramdisk](#ramdisk)
 *    [firefox cache](#firefox_cache)
 *    [ibus 消失](#ibus_repaire)
+*    [ubuntu 12.04 桌面快捷方式](#ubuntu_quicklaunch)
 
 <!---
 ################################################################################
@@ -171,6 +172,19 @@ E: Unable to lock the list directory
 	gconftool -- type boolean -s /desktop/ibus/panel/show_icon_on_systray true
 	gconftool -- type boolean -s /desktop/ibus/panel/show true
 	gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
+
+<hr />
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="ubuntu_quicklaunch">ubuntu 12.04 桌面快捷方式</h3>
+安装：
+	sudo apt-get install --no-install-recommends gnome-panel
+
+运行：
+	gnome-desktop-item-edit ~/Desktop/ --create-new
 
 <hr />
 

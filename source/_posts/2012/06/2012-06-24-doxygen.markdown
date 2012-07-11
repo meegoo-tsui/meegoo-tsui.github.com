@@ -6,6 +6,9 @@ comments: true
 categories: doxygen
 ---
 
-### 安装 @ ubuntu 12.04 ###
+#### 安装 @ ubuntu 12.04 ####
 	sudo apt-get install doxygen-gui graphviz
+
+#### 下载源码 ####
+	svn co https://doxygen.svn.sourceforge.net/svnroot/doxygen/trunk
 
