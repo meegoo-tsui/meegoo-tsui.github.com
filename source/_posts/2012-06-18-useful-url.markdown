@@ -28,6 +28,7 @@ categories: url
 #### -=论坛=- ####
 [http://www.ibm.com/developerworks/](http://www.ibm.com/developerworks/) - developer works    
 [http://www.boobooke.com/](http://www.boobooke.com/) - boobooke    
+[http://www.chinaunix.net/](http://www.chinaunix.net/) - cu    
 
 <!---
 ################################################################################
