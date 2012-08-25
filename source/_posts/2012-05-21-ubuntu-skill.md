@@ -20,6 +20,7 @@ categories: linux
 *    [firefox cache](#firefox_cache)
 *    [ibus 消失](#ibus_repaire)
 *    [ubuntu 12.04 桌面快捷方式](#ubuntu_quicklaunch)
+*    [stardict 星际译王](#stardict)
 
 <!---
 ################################################################################
@@ -185,6 +186,19 @@ E: Unable to lock the list directory
 
 运行：
 	gnome-desktop-item-edit ~/Desktop/ --create-new
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="stardict">stardict 星际译王</h3>
+软件安装：
+	sudo apt-get install stardict
+
+字典下载地址 - [stardict](http://abloz.com/huzheng/stardict-dic/)
+
+字典安装：
+	sudo tar -xjvf a.tar.bz2 -C /usr/share/stardict/dic
 
 <hr />
 
