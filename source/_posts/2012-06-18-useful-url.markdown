@@ -10,6 +10,21 @@ categories: url
 ################################################################################
 -->
 <hr />
+#### -=私有=- ####
+#####meegoo-buildsys#####
+ssh  - git@github.com:meegoo-tsui/meegoo-buildsys.git    
+read - git://github.com/meegoo-tsui/meegoo-buildsys.git    
+http - https://github.com/meegoo-tsui/meegoo-buildsys.git    
+
+#####meegoo-tsui.github.com#####
+ssh  - git@github.com:meegoo-tsui/meegoo-tsui.github.com.git    
+read - git://github.com/meegoo-tsui/meegoo-tsui.github.com.git    
+http - https://github.com/meegoo-tsui/meegoo-tsui.github.com.git    
+
+<!---
+################################################################################
+-->
+<hr />
 #### -=开源=- ####
 [https://github.com/](https://github.com/) - github    
 [http://sourceforge.net/](http://sourceforge.net/) - sourceforge    
