@@ -21,6 +21,7 @@ categories: linux
 *    [ibus 消失](#ibus_repaire)
 *    [ubuntu 12.04 桌面快捷方式](#ubuntu_quicklaunch)
 *    [stardict 星际译王](#stardict)
+*    [terminal 终端快捷方式](#terminal)
 
 <!---
 ################################################################################
@@ -199,6 +200,16 @@ E: Unable to lock the list directory
 
 字典安装：
 	sudo tar -xjvf a.tar.bz2 -C /usr/share/stardict/dic
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="terminal">terminal 终端快捷方式</h3>
+快捷键方式：
+	ctrl + alt + t
+右键打开终端的工具安装，安装后需重启：
+	sudo apt-get install -y nautilus-open-terminal
 
 <hr />
 

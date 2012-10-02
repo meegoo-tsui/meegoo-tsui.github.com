@@ -9,7 +9,7 @@ categories: server
 安装平台： ubuntu 10.04    
 搭建git服务器，需要如下软件：    
 	$ sudo apt-get install openssh-server openssh-client
-	$ sudo apt-get install git-core
+	$ sudo apt-get install git
 	$ sudo apt-get install python-setuptools
 
 ## 源码安装gitosis ##
