@@ -27,8 +27,8 @@ categories: server
 	$ sudo chown git:git /home/git/repositories
 	$ sudo chmod 755 /home/git/repositories
 初始化全局设置    
-	$ git config --global usre.name     "meegoo tsui"
-	$ git config --global usre.email    meegoo.tsui@gmail.com
+	$ git config --global user.name     "meegoo tsui"
+	$ git config --global user.email    meegoo.tsui@gmail.com
 	$ git config --global core.fileMode false
 	$ git config --global core.editor   vim
 * 配置用户名称
