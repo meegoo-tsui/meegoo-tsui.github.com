@@ -15,7 +15,11 @@ categories: qt
 <!---
 ################################################################################
 -->
-### Qt x11 安装依赖 ###
-[gstreamer 错误参考](http://superuser.com/questions/124943/how-can-i-resolve-gstreamer-dependencies-in-ubuntu)
-	sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+### Qt x11 - ubuntu 12.04安装依赖 ###
+	sudo apt-get install -y libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+	sudo apt-get install -y debhelper dpatch flex libaudio-dev libcups2-dev libfontconfig1-dev libfreetype6-dev libdbus-1-dev libxtst-dev
+	sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev libice-dev libiodbc2-dev libjpeg-dev libmng-dev
+	sudo apt-get install -y libmysqlclient-dev libpng12-dev libpq-dev libsm-dev libsqlite3-dev libx11-dev libxcursor-dev libasound2-dev
+	sudo apt-get install -y libxext-dev libxft-dev libxi-dev libxinerama-dev libxmu-dev libxrandr-dev libxrender-dev libxt-dev zlib1g-dev
+	sudo apt-get install -y libtiff4-dev
 
