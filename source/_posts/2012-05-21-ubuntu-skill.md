@@ -22,6 +22,8 @@ categories: linux
 *    [ubuntu 12.04 桌面快捷方式](#ubuntu_quicklaunch)
 *    [stardict 星际译王](#stardict)
 *    [terminal 终端快捷方式](#terminal)
+*    [gedit 乱码](#gedit)
+*    [ldconfig - 动态库](#ldconfig)
 
 <!---
 ################################################################################
@@ -210,6 +212,23 @@ E: Unable to lock the list directory
 	ctrl + alt + t
 右键打开终端的工具安装，安装后需重启：
 	sudo apt-get install -y nautilus-open-terminal
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="gedit">gedit 乱码</h3>
+执行如下命令：
+	gsettings set org.gnome.gedit.preferences.encodings auto-detected "['UTF-8','GB18030','GB2312','GBK','BIG5','CURRENT','UTF-16']" 
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="ldconfig">ldconfig - 动态库</h3>
+*    添加相关路径 - /etc/ld.so.conf.d     
+*    生成cache - sudo ldconfig    
+*    查看结果 - ldconfig -p    
 
 <hr />
 

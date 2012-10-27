@@ -11,6 +11,7 @@ categories: server
 -->
 *    [Windows 环境](#windows)
 *    [Linux 环境](#linux)
+*    [使用技巧](#skill)
 
 <!---
 ################################################################################
@@ -181,10 +182,15 @@ ubuntu 12.04版本修改如下：
 	sudo /etc/init.d/apache2 restart
 网页访问http://your_ip/svn/my_project，输入密码、访问。
 
-### 五. svn命令 ###
-以二进制文件上传：    
+<!---
+################################################################################
+-->
+<h2 id="skill">使用技巧</h2>
+*    以二进制文件上传：     
 	svn propset svn:mime-type application/octet-stream filename
-去除文件的执行属性：     
+*    去除文件的执行属性：     
 	svn propdel svn:executable filename.ext
+*    使用svn diff忽略空格、换行符区别的参数    
+	svn diff -r 3151 -x "-b --ignore-eol-style"
 
 <hr />

@@ -26,15 +26,16 @@ http - https://github.com/meegoo-tsui/meegoo-tsui.github.com.git
 -->
 <hr />
 #### -=开源=- ####
-[https://github.com/](https://github.com/) - github    
-[http://sourceforge.net/](http://sourceforge.net/) - sourceforge    
+[github](https://github.com/)    
+[sourceforge](http://sourceforge.net/)    
+[Network Research Group](http://ee.lbl.gov/)     
 
 <!---
 ################################################################################
 -->
 <hr />
 #### -=资源=- ####
-[http://www.iconarchive.com/](http://www.iconarchive.com/) - icons    
+[iconarchive](http://www.iconarchive.com/)    
 
 <!---
 ################################################################################
