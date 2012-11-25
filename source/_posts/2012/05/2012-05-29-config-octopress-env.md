@@ -82,16 +82,7 @@ categories: octopress
 ### 2. 通过下面指令安装rvm ###
 	bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
 
-### 3. 环境变量的配置 ###
-替换.bashrc：    
-	[ -z "$PS1" ] && return
-为   
-	if [[ -n "$PS1" ]]; then
-文件末尾添加内容：    
-	if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
-	fi
-
-### 4. 查询安装结果 ###
+### 3. 查询安装结果 ###
 重新进入终端或使用`. ~/.bashrc `使刚才设置的环境变量生效，然后运行如下命令：    
 	rvm list known
 	# MRI Rubies
@@ -116,7 +107,7 @@ categories: octopress
 ### ubuntu10.04安装ruby及依靠包 ###
 
 ### 1. 安装ruby ###
-`Octopress`当前使用的`ruby`版本为`1.9.2`，因此使用如下命令安装`ruby`：    
+`Octopress`当前使用的`ruby`版本为`1.9.2`，因此使用如下命令安装`ruby`，按提示安装相关软件包：    
 	rvm install 1.9.2 && rvm use 1.9.2
 需要重装时：   
 	rvm install 1.9.2 && rvm use 1.9.2
