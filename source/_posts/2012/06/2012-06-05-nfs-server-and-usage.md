@@ -24,6 +24,9 @@ categories: server
 	/home/meegoo/work/out/filesys *(rw,sync,no_root_squash,no_subtree_check)
 配置文件生效：   
 	sudo /usr/sbin/exportfs -va
+开机启动配置：    
+	chkconfig nfs --list
+	chkconfig nfs on
 
 <!---
 ################################################################################
