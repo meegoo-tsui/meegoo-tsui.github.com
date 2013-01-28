@@ -24,7 +24,8 @@ categories: linux
 *    [terminal 终端快捷方式](#terminal)
 *    [gedit 乱码](#gedit)
 *    [ldconfig - 动态库](#ldconfig)
-
+*    [Wireless is disabled - ubuntu 12.04](#wireless_en)
+*    
 <!---
 ################################################################################
 -->
@@ -229,6 +230,17 @@ E: Unable to lock the list directory
 *    添加相关路径 - /etc/ld.so.conf.d     
 *    生成cache - sudo ldconfig    
 *    查看结果 - ldconfig -p    
+
+<hr />
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="wireless_en">Wireless is disabled - ubuntu 12.04</h3>
+*    Enable - sudo rfkill unblock wifi     
+*    List - sudo rfkill list all    
+*    tool - sudo apt-get install wicd-daemon    
 
 <hr />
 
