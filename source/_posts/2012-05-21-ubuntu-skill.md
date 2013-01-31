@@ -213,6 +213,11 @@ E: Unable to lock the list directory
 	ctrl + alt + t
 右键打开终端的工具安装，安装后需重启：
 	sudo apt-get install -y nautilus-open-terminal
+minicom权限，需重启电脑：
+	ls -al /dev/ttyS0
+	id -Gn
+	sudo adduser meegoo dialout
+	minicom -c on -w
 
 <!---
 ################################################################################
