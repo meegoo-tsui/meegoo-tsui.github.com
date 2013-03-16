@@ -26,19 +26,14 @@ categories: server
 设置git仓库权限    
 	$ sudo chown git:git /home/git/repositories
 	$ sudo chmod 755 /home/git/repositories
-初始化全局设置    
-	$ git config --global user.name     "meegoo tsui"
-	$ git config --global user.email    meegoo.tsui@gmail.com
-	$ git config --global core.fileMode false
-	$ git config --global core.editor   vim
-* 配置用户名称
-* 配置用户邮件
-* 配置忽略文件的执行权限
-* 配置编辑器
+初始化全局设置
+{% include_code config_git.sh %}
 
 ## 初使化gitosis ##
 生成 SSH key：    
 	$ ssh-keygen -t rsa -C "meegoo.tsui@gmail.com"
+文件内容如下：
+{% include_code id_rsa.pub lang:sh %}
 拷贝到服务器/tmp下：   
 	$ cp  ~/.ssh/id_rsa.pub /tmp
 或：    
