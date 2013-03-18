@@ -14,7 +14,7 @@ categories: server
 
 ## 源码安装gitosis ##
 使用git下载源码：    
-	$ git clone https://github.com/ossxp-com/gitosis.git
+	$ git clone git@github.com:meegoo-tsui/gitosis.git
 	$ cd gitosis
 	$ sudo python setup.py install
 
