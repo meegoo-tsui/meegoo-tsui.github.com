@@ -3,5 +3,5 @@
 set -e
 ./clean.sh
 
-rake generate
-rake preview
+bundle exec rake generate
+bundle exec rake preview
