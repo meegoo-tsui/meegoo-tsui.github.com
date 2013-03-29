@@ -25,6 +25,7 @@ categories: linux
 *    [gedit 乱码](#gedit)
 *    [ldconfig - 动态库](#ldconfig)
 *    [Wireless is disabled - ubuntu 12.04](#wireless_en)
+*    [Add Open As Administrator to the Context Menu](#as_administrator)
 *    
 <!---
 ################################################################################
@@ -236,8 +237,6 @@ minicom权限，需重启电脑：
 *    生成cache - sudo ldconfig    
 *    查看结果 - ldconfig -p    
 
-<hr />
-
 <!---
 ################################################################################
 -->
@@ -246,6 +245,14 @@ minicom权限，需重启电脑：
 *    Enable - sudo rfkill unblock wifi     
 *    List - sudo rfkill list all    
 *    tool - sudo apt-get install wicd-daemon    
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="as_administrator">Add Open As Administrator to the Context Menu</h3>
+	wget http://www.liberiangeek.net/blog/tools/libnautilus-gksu.so     
+	sudo cp libnautilus-gksu.so /usr/lib/nautilus/extensions-3.0/    
 
 <hr />
 
