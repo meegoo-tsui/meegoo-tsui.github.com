@@ -47,6 +47,12 @@ categories: linux
 	$ sudo apt-get update
 	$ sudo spt-get upgrade
 
+代理设置：    
+	meegoo@mg:~$ cat /etc/apt/apt.conf
+	Acquire::http::proxy "http://192.168.15.1:8080/"; 
+	Acquire::ftp::proxy "ftp://192.168.15.1:8080/"; 
+	Acquire::https::proxy "https://192.168.15.1:8080/";
+
 ### 修改更新错误 ###
 ### error 1 ###
 E: Could not get lock /var/lib/apt/lists/lock - open (11: Resource temporarily unavailable)     
