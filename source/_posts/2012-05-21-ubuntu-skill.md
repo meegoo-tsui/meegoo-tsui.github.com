@@ -26,7 +26,8 @@ categories: linux
 *    [ldconfig - 动态库](#ldconfig)
 *    [Wireless is disabled - ubuntu 12.04](#wireless_en)
 *    [Add Open As Administrator to the Context Menu](#as_administrator)
-*    
+*    [Aptget proxy](#aptget_proxy)
+
 <!---
 ################################################################################
 -->
@@ -259,6 +260,19 @@ minicom权限，需重启电脑：
 <h3 id="as_administrator">Add Open As Administrator to the Context Menu</h3>
 	wget http://www.liberiangeek.net/blog/tools/libnautilus-gksu.so     
 	sudo cp libnautilus-gksu.so /usr/lib/nautilus/extensions-3.0/    
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="aptget_proxy">Aptget proxy</h3>
+配置firefox使用代理上网,然后修改配置文件
+	sudo vim /etc/apt/apt.conf
+
+内容如下：
+	Acquire::http::proxy "http://192.168.15.1:8080/"; 
+	Acquire::ftp::proxy "ftp://192.168.15.1:8080/"; 
+	Acquire::https::proxy "https://192.168.15.1:8080/";
 
 <hr />
 
