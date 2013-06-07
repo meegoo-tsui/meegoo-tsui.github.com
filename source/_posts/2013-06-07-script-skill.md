@@ -25,6 +25,9 @@ styles: [data-table]
 
 replace all the words "ugly" with "beautiful"：
 	sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt
-
+replace all the words "ugly*" with "beautiful"：
+	sed -i 's/ugly.*/beautiful/g' /home/bruno/old-friends/sue.txt
+replace all the words "ugly*" with $VAR：
+	sed -i 's/ugly.*/'"$VAR"'/g' /home/bruno/old-friends/sue.txt
 <hr />
 
