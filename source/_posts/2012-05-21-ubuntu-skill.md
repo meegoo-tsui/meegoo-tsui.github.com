@@ -4,29 +4,20 @@ title: "ubuntu常见问题集锦"
 date: 2012-05-21 13:11
 comments: true
 categories: linux
+styles: [data-table]
 ---
 
 <!---
 ################################################################################
 -->
 <hr />
-*    [ubuntu 源](#ubuntu_sources)
-*    [静态IP](#static_ip)
-*    [grub启动项](#grub_boot)
-*    [MTA延时解决](#mta_delay)
-*    [firefox flash插件](#firefox_flash)
-*    [远程桌面](#remote_desktop)
-*    [ramdisk](#ramdisk)
-*    [firefox cache](#firefox_cache)
-*    [ibus 消失](#ibus_repaire)
-*    [ubuntu 12.04 桌面快捷方式](#ubuntu_quicklaunch)
-*    [stardict 星际译王](#stardict)
-*    [terminal 终端快捷方式](#terminal)
-*    [gedit 乱码](#gedit)
-*    [ldconfig - 动态库](#ldconfig)
-*    [Wireless is disabled - ubuntu 12.04](#wireless_en)
-*    [Add Open As Administrator to the Context Menu](#as_administrator)
-*    [Aptget proxy](#aptget_proxy)
+1                 |2                 |3                 |4
+:-----------------|:----------------:|:----------------:|-----------------:
+[ubuntu 源](#ubuntu_sources)|[静态IP](#static_ip)|[grub启动项](#grub_boot)|[MTA延时解决](#mta_delay)
+[firefox flash插件](#firefox_flash)|[远程桌面](#remote_desktop)|[ramdisk](#ramdisk)|[firefox cache](#firefox_cache)
+[ibus 消失](#ibus_repaire)|[ubuntu 桌面快捷方式](#ubuntu_quicklaunch)|[stardict 星际译王](#stardict)|[terminal 终端快捷方式](#terminal)
+[gedit 乱码](#gedit)|[ldconfig - 动态库](#ldconfig)|[Wireless is disabled](#wireless_en)|[Open As Administrator](#as_administrator)
+[Aptget proxy](#aptget_proxy)|||
 
 <!---
 ################################################################################
