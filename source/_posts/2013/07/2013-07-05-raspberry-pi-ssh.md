@@ -10,7 +10,7 @@ categories: RaspberryPi
 
 [http://www.raspberrypi.org/](http://www.raspberrypi.org/)
 
-*	使能路由器hdcp功能，查看raspberry pi的ip地址，且ping成功
+*	使能路由器dhcp功能，查看raspberry pi的ip地址，且ping成功
 *	ssh登录raspberry pi, Username: pi Password: raspberry
 
 登录过程如下：    
