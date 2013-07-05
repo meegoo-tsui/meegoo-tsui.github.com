@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Raspberry pi install"
+title: "1. Raspberry pi install"
 date: 2013-07-05 20:23
 comments: true
 categories: RaspberryPi
@@ -35,4 +35,5 @@ categories: RaspberryPi
 
 至此完成镜像的安装，拔出SD卡，插入raspberry pi。
 
+{% img http://images.weiphone.com/attachments/Day_130504/0_3600269_a9f76102b632c5a.jpg %}
 

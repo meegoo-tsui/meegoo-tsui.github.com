@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Raspberry pi ssh"
+title: "2. Raspberry pi ssh"
 date: 2013-07-05 21:23
 comments: true
 categories: RaspberryPi
