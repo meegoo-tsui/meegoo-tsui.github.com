@@ -23,3 +23,16 @@ To uninstall a previously installed package
 To update all current packages with the latest version    
 	sudo apt-get upgrade
 
+执行：    
+	sudo apt-get update
+	sudo apt-get upgrade
+
+*	local配置
+
+执行：    
+	sudo apt-get install locales
+	export LANGUAGE='en_US'
+	export LC_ALL="en_US.UTF-8"
+	sudo dpkg-reconfigure locales
+
+SD卡兼容表： [http://elinux.org/RPi_SD_cards](http://elinux.org/RPi_SD_cards)
