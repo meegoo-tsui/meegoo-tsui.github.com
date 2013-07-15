@@ -51,15 +51,22 @@ clone gitosis管理平台，切换到本地：
 上传即可。
 
 ## 创建版本库 ##
-客服端修改权限文件gitosis-admin.git/gitosis.conf，关键字admin允许创建，添加内容如下：    
-	[group my_project-admin]
+客服端修改权限文件gitosis-admin.git/gitosis.conf，关键字admin允许创建，内容如下：    
+	[gitosis]
+	loglevel = DEBUG
+	
+	[group gitosis-admin]
 	members = meegoo.tsui@gmail.com
-	admin = my_project
+	writable = gitosis-admin
+	
+	[group test]
+	members = meegoo.tsui@gmail.com
+	writable = test
 创建版本项目：    
-	$ mkdir my_project;cd my_project
+	$ mkdir test.git;cd test.git
 	$ git init
 	$ git commit --allow-empty -m "create the repos."
-	$ git remote add origin git@192.168.0.2:my_project.git
+	$ git remote add origin git@192.168.0.2:test.git
 	$ git push -u origin master
 
 ## gitweb安装及配置 ##
