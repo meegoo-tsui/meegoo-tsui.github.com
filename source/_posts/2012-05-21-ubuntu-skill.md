@@ -11,13 +11,13 @@ styles: [data-table]
 ################################################################################
 -->
 <hr />
-1                 |2                 |3                 |4
-:-----------------|:----------------:|:----------------:|-----------------:
+1                    |2                    |3                    |4
+:--------------------|:-------------------:|:-------------------:|--------------------:
 [ubuntu 源](#ubuntu_sources)|[静态IP](#static_ip)|[grub启动项](#grub_boot)|[MTA延时解决](#mta_delay)
 [firefox flash插件](#firefox_flash)|[远程桌面](#remote_desktop)|[ramdisk](#ramdisk)|[firefox cache](#firefox_cache)
 [ibus 消失](#ibus_repaire)|[ubuntu 桌面快捷方式](#ubuntu_quicklaunch)|[stardict 星际译王](#stardict)|[terminal 终端快捷方式](#terminal)
 [gedit 乱码](#gedit)|[ldconfig - 动态库](#ldconfig)|[Wireless is disabled](#wireless_en)|[Open As Administrator](#as_administrator)
-[Aptget proxy](#aptget_proxy)|||
+[Aptget proxy](#aptget_proxy)|[gnome-schedule](#gnome-schedule)||
 
 <!---
 ################################################################################
@@ -92,13 +92,21 @@ E: Unable to lock the list directory
 
 	sudo vi /etc/default/grub
 
-替换：
+修改启动项，替换：
 
 	GRUB_DEFAULT=0
 
 为：
 
 	GRUB_DEFAULT=4
+
+修改为文本模式启动，替换：
+
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+
+为：
+
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash text"
 
 使设置生效：
 
@@ -264,6 +272,32 @@ minicom权限，需重启电脑：
 	Acquire::http::proxy "http://192.168.15.1:8080/"; 
 	Acquire::ftp::proxy "ftp://192.168.15.1:8080/"; 
 	Acquire::https::proxy "https://192.168.15.1:8080/";
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="gnome-schedule">gnome-schedule</h3>
+安装软件：
+	sudo apt-get install gnome-schedule
+
+格式说明：
+	# *    *    *    *    *  command to execute
+	# ┬    ┬    ┬    ┬    ┬
+	# │    │    │    │    │
+	# │    │    │    │    │
+	# │    │    │    │    └───── day of week (0 - 6) (0 to 6 are Sunday to Saturday, or use names)
+	# │    │    │    └────────── month (1 - 12)
+	# │    │    └─────────────── day of month (1 - 31)
+	# │    └──────────────────── hour (0 - 23)
+	# └───────────────────────── min (0 - 59)
+
+添加：
+	sudo crontab -e
+
+内容如下：
+	0 12 * * * /sbin/poweroff
+	0 18 * * * /sbin/poweroff
 
 <hr />
 
