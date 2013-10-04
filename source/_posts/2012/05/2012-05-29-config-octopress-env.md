@@ -83,31 +83,17 @@ categories: octopress
 	bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
 
 ### 3. 查询安装结果 ###
-重新进入终端或使用`. ~/.bashrc `使刚才设置的环境变量生效，然后运行如下命令：    
+添加如下内容到`~/.bashrc`，删除`~/.bash_profile`：    
+	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+重新进入终端使环境变量生效，然后运行如下命令：    
 	rvm list known
-	# MRI Rubies
-	[ruby-]1.8.6[-p420]
-	[ruby-]1.8.7[-p358]
-	[ruby-]1.8.7-head
-	[ruby-]1.9.1[-p431]
-	[ruby-]1.9.2-p180
-	[ruby-]1.9.2-p290
-	[ruby-]1.9.2-p318
-	[ruby-]1.9.2[-p320]
-	[ruby-]1.9.2-head
-	[ruby-]1.9.3-preview1
-	[ruby-]1.9.3-rc1
-	[ruby-]1.9.3-p0
-	[ruby-]1.9.3-p125
-	[ruby-]1.9.3-[p194]
-	[ruby-]1.9.3-head
-	ruby-head
+	[ruby-]1.9.3-[xxx]
 如上所示，显示出可安装的ruby版本，至此rvm的安装完成。
 
 ### ubuntu10.04安装ruby及依靠包 ###
 
 ### 1. 安装ruby ###
-`Octopress`当前使用的`ruby`版本为`1.9.2`，因此使用如下命令安装`ruby`，按提示安装相关软件包：    
+`Octopress`当前使用的`ruby`版本为`1.9.3`，因此使用如下命令安装`ruby`，按提示安装相关软件包：    
 	rvm install 1.9.3
 需要重装时：   
 	rvm reinstall 1.9.3
@@ -119,7 +105,7 @@ categories: octopress
 `Octopress`的版本库托管在`github`，使用如下命令`checkout`：    
 	git clone git://github.com/imathis/octopress.git octopress
 	cd octopress    # 当使用rvm时，提示是否信任.rvmrc文件，输入yes
-	ruby --version  # 显示 Ruby 1.9.2
+	ruby --version  # 显示 Ruby 1.9.3
 
 ### 3. 安装依靠包 ###
 Windows环境安装了[RailsInstaller](http://railsinstaller.org/)，可直接安装下面内容，
