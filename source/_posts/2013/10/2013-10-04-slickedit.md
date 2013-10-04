@@ -61,6 +61,7 @@ categories: editor
 *	字体设置 - Tools -> Options -> Appearance -> Fonts -> Unicode Source Windows，SBCS/DBCS Source Windows
 *	单行显示 - Tools -> Options -> Languages -> All Languages -> Word Wrap, 全部不选
 *	特殊符号 - Tool -> Option -> Languages -> All Language -> View -> Special Characters
+*	显示竖线 - Tools->Options->Appearance->General, Vertical line column设成80，下面可以设置一个颜色。字体设置时，三个选项全选。
 
 <!---
 ################################################################################
@@ -81,19 +82,4 @@ categories: editor
 ################################################################################
 -->
 <hr />
-
-
-以下设置主要是用于linux kernel开发：
-
-1. 在80列的地方显示一道竖线：Tools->Options->Appearance->General, Vertical line column设成80，下面可以设置一个颜色。注意只有将编辑器的字体设置成SE能识别的几种等宽字体，这道竖线才能显示出来。比如设置成Deja Sans Mono, Ubuntu Mono等。
-
-2. Tools->Options->Languages->All languages->View，check "Special Characters"这个checkbox，这样便于编码的时候注意到tab的问题。
-
-3. Tools->Options->Languages->All languages->Intent，将Intent Style设成AUTO，Tabs写成+8，选中“Intent with tabs"
-
-4. 将#3在Tools->Options->Languages->ANSI C和Tools->Options->Languages->C/C++中都check一遍，保证设置正确。
-
-5. Tools->Options->File Options->Save，Expand tabs to spaces设成false，Strip trailing spaces设成strip trailing spaces only from modified lines。
-
-6. Tools->Beautify，Intenting标签，确认选中了"Intent with tabs"，以及tab size是8。这个是用于将代码做"c-beauty-selection"的时候用的。
 
