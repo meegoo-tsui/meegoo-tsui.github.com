@@ -62,6 +62,8 @@ categories: editor
 *	单行显示 - Tools -> Options -> Languages -> All Languages -> Word Wrap, 全部不选
 *	特殊符号 - Tool -> Option -> Languages -> All Language -> View -> Special Characters
 *	显示竖线 - Tools->Options->Appearance->General, Vertical line column设成80，下面可以设置一个颜色。字体设置时，三个选项全选。
+*	颜色方案 - Tools -> Options -> Appearance -> Colors, Black
+*	修改颜色 - Tool -> Option -> Languages -> All Language -> View， 全选
 
 <!---
 ################################################################################
