@@ -14,7 +14,7 @@ categories: editor
 2.	[系统设置](#system)
 3.	[显示设置](#display)
 4.	[编辑设置](#edit)
-5.	[快捷设置](#hotkey)
+5.	[快捷使用](#hotkey)
 
 <!---
 ################################################################################
@@ -53,7 +53,7 @@ categories: editor
 <hr />
 <h3 id="display">显示设置</h3>
 
-*	设置Tab宽度 - Tools -> Options -> Languages -> All Languages -> Formatting -> Indent, Tabs:4, 其余空
+*	设置Tab宽度 - Tools -> Options -> Languages -> All Languages -> Formatting -> Indent, 选择Indent，Syntax 4, Tabs:4,C++ -> formatting 修改My default
 *	显示行数 - Tool -> Option -> Languages -> All Language -> View
 *	折叠功能 - 在主窗口的工具栏上面右击，然后选择 Toolbars -> Selective Display
 *	编辑器风格 - Tool -> Option -> Keyboard and mouse -> Emulation -> Vim
@@ -78,7 +78,9 @@ categories: editor
 ################################################################################
 -->
 <hr />
-<h3 id="hotkey">快捷设置</h3>
+<h3 id="hotkey">快捷使用</h3>
+
+*	高亮显示 - 
 
 <!---
 ################################################################################
