@@ -9,6 +9,8 @@ categories: RaspberryPi
 *	安装基本命令
 
 To install a package where you already know the name    
+	pi@raspberrypi ~ $ cat  /etc/apt/sources.list
+	deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
 	sudo apt-get install <name of software>
 
 To search for software by name    
@@ -34,5 +36,21 @@ To update all current packages with the latest version
 	export LANGUAGE='en_US'
 	export LC_ALL="en_US.UTF-8"
 	sudo dpkg-reconfigure locales
+
+*	IP配置
+
+修改文件：    
+	pi@raspberrypi ~ $ cat /etc/network/interfaces
+	auto lo
+	iface lo inet loopback
+	auto eth0
+	iface eth0 inet static
+	address 192.168.55.111  
+	gateway 192.168.55.1
+	netmask 255.255.255.0
+	allow-hotplug wlan0
+	iface wlan0 inet manual
+	wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+	iface default inet dhcp
 
 SD卡兼容表： [http://elinux.org/RPi_SD_cards](http://elinux.org/RPi_SD_cards)
