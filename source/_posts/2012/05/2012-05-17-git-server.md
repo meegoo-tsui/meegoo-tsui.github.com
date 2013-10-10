@@ -12,11 +12,19 @@ categories: server
 	$ sudo apt-get install git
 	$ sudo apt-get install python-setuptools
 
-## 源码安装gitosis ##
+## 源码删除gitosis ##
 使用git下载源码：    
-	$ git clone https://github.com/meegoo-tsui/gitosis.git
-	$ cd gitosis
-	$ sudo python setup.py install
+	$ git clone https://github.com/meegoo-tsui/gitosis.git gitosis.git
+	$ cd gitosis.git
+	$ sudo python setup.py install --record uninstall.txt
+	$ cat uninstall.txt | xargs sudo rm -rf
+
+## 源码安装gitolite ##
+使用git下载源码：    
+	$ git clone git://github.com/sitaramc/gitolite gitolite.git
+	$ cd gitolite.git
+	$ sudo mkdir /usr/local/gitolite
+	$ sudo ./install -to /usr/local/gitolite
 
 ## 账户相关信息 ##
 创建用户git    
@@ -29,49 +37,31 @@ categories: server
 初始化全局设置
 {% include_code config_git.sh %}
 
-## 初使化gitosis ##
+## 初使化gitolite ##
 生成 SSH key：    
+	$ sudo su - git
 	$ ssh-keygen -t rsa -C "meegoo.tsui@gmail.com"
+	$ /usr/local/gitolite/gitolite setup -pk ~/.ssh/id_rsa.pub
 文件内容如下：
 {% include_code id_rsa.pub lang:sh %}
-拷贝到服务器/tmp下：   
-	$ cp  ~/.ssh/id_rsa.pub /tmp
-或：    
-	$ scp ~/.ssh/id_rsa.pub 用户名@主机:/tmp
-初使化gitosis，切回到服务器：   
-	$ sudo -H -u git gitosis-init < /tmp/id_rsa.pub
-修改post-update权限:    
-	$ sudo chmod 755 /home/git/repositories/gitosis-admin.git/hooks/post-update
+修改文件`sudo gedit /home/git/.gitolite.rc`:    
+	UMASK                           =>  0022,
+	GIT_CONFIG_KEYS                 =>  '.*',
+	GITWEB_PROJECTS_LIST            => '/home/git/projects.list',
 
-clone gitosis管理平台，切换到本地：    
-	$ git clone git@192.168.0.2:gitosis-admin.git
-或
-	$ git clone git@lenovo:gitosis-admin.git
-用户key在gitosis-admin/keydir/下，权限文件在gitosis-admin/gitosis.conf,添加*.pub且修改gitosis.conf，
-上传即可。
+clone gitolite管理平台：    
+	$ git clone git@127.0.0.1:gitolite-admin.git gitolite-admin.git
 
-## 创建版本库 ##
-客服端修改权限文件gitosis-admin.git/gitosis.conf，关键字admin允许创建，内容如下：    
-	[gitosis]
-	loglevel = DEBUG
-	
-	[group gitosis-admin]
-	members = meegoo.tsui@gmail.com
-	writable = gitosis-admin
-	
-	[group test]
-	members = meegoo.tsui@gmail.com
-	writable = test
 创建版本项目：    
 	$ mkdir test.git;cd test.git
 	$ git init
 	$ git commit --allow-empty -m "create the repos."
-	$ git remote add origin git@192.168.0.2:test.git
+	$ git remote add origin git@127.0.0.1:test.git
 	$ git push -u origin master
 
 ## gitweb安装及配置 ##
 安装gitweb：     
-	$ sudo apt-get install gitweb
+	$ sudo apt-get install highlight gitweb
 配置apache服务器:
 	$ sudo gedit /etc/apache2/mods-available/dav_svn.conf
 添加内容如下：      
@@ -101,17 +91,12 @@ clone gitosis管理平台，切换到本地：
 	$ sudo vim /etc/gitweb.conf
 	$ sudo /etc/init.d/apache2 restart
 	# 修改内容如下：
-	$projectroot = "/home/git";
+	$projectroot = "/home/git/repositories";
 	$home_text = "/home/git/indextext.html";
-客服端修改权限文件gitosis-admin.git/gitosis.conf：      
-	[repo gitosis-admin.git]
-	gitweb      = yes
-	description = git server admin
-服务器修改项目的配置文件，提供显示信息给gitweb，gitosis-admin.git/config：    
-	[gitweb]
-		owner = meegoo tsui <meegoo.tsui@gmail.com>
-		url   = git@192.168.0.2:gitosis-admin.git
-注：其他项目一样修改服务器xxx.git/config文件。   
-访问： http://192.168.0.2/gitweb
+	$projects_list = "/home/git/projects.list";
+	# Add Highlighting at the end
+	$feature{'highlight'}{'default'} = [1];
+
+访问： http://127.0.0.1/gitweb
 
 <hr />
