@@ -29,15 +29,12 @@ categories: server
 ## 账户相关信息 ##
 创建用户git    
 	$ sudo adduser --system --shell /bin/bash --disabled-password --group git
-创建git仓库存储目录    
-	$ sudo mkdir /home/git/repositories
-设置git仓库权限    
-	$ sudo chown git:git /home/git/repositories
-	$ sudo chmod 755 /home/git/repositories
+	$ sudo usermod -G git -a www-data
+
 初始化全局设置
 {% include_code config_git.sh %}
 
-## 初使化gitolite ##
+## 初始化gitolite ##
 生成 SSH key：    
 	$ sudo su - git
 	$ ssh-keygen -t rsa -C "meegoo.tsui@gmail.com"
