@@ -22,16 +22,23 @@ categories: RaspberryPi
 	/dev/sdb1       3.7G   19M  3.7G   1% /media/boot
 	
 	meegoo@mg:meegoo-tsui.github.com.git$ umount /dev/sdb1
+	meegoo@mg:meegoo-tsui.github.com.git$ umount /dev/sdb2
+	...
 
-*	使用`dd`写镜像到SD卡，此步骤要花点时间
+*	使用`dd`写镜像到SD卡
 
 运行如下：    
-	meegoo@mg:meegoo-tsui.github.com.git$ sudo dd bs=1M if=/mnt/ramdisk/2013-05-25-wheezy-raspbian.img of=/dev/sdb
+	meegoo@mg:~$ sudo dd bs=1M if=./2013-05-25-wheezy-raspbian.img of=/dev/sdb
 	1850+0 records in
 	1850+0 records out
 	1939865600 bytes (1.9 GB) copied, 300.62 s, 6.5 MB/s
 
 	meegoo@mg:meegoo-tsui.github.com.git$ sudo sync
+
+*	使用`dd`读取SD卡备份镜像
+
+运行如下：    
+	meegoo@mg:~$ sudo dd bs=1M if=/dev/sdb | gzip > ./`date +%Y-%m-%d`_wheezy-raspbian.gz
 
 至此完成镜像的安装，拔出SD卡，插入raspberry pi。
 
