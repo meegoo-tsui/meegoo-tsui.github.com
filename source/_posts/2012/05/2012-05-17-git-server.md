@@ -60,29 +60,23 @@ clone gitolite管理平台：
 安装gitweb：     
 	$ sudo apt-get install highlight gitweb
 配置apache服务器:
-	$ sudo gedit /etc/apache2/mods-available/dav_svn.conf
+	$ sudo gedit /etc/apache2/conf.d/gitweb
 添加内容如下：      
 	Alias /gitweb /usr/share/gitweb
+
 	<Directory /usr/share/gitweb>
-		Options FollowSymLinks +ExecCGI
-		AddHandler cgi-script .cgi
-		DirectoryIndex index.cgi gitweb.cgi
-		order Allow,Deny
-		Allow from all
+	  Options FollowSymLinks +ExecCGI
+	  AddHandler cgi-script .cgi
+	  DirectoryIndex index.cgi gitweb.cgi
+
+	  AuthType Basic
+	  AuthName "Authentication Required"
+	  AuthUserFile "/home/apache2/apache2.passwd"
+	  Require valid-user
+
+	  order Allow,Deny
+	  Allow from all
 	</Directory>
-或：    
-	<VirtualHost *:80>
-		ServerName localhost
-		ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
-		<Directory /usr/lib/cgi-bin/>
-			Options ExecCGI +FollowSymLinks +SymLinksIfOwnerMatch
-			AllowOverride All
-			order allow,deny
-			Allow from all
-			AddHandler cgi-script cgi .pl .py
-			DirectoryIndex gitweb.cgi
-		</Directory>
-	</VirtualHost>
 
 修改gitweb配置文件：   
 	$ sudo vim /etc/gitweb.conf
