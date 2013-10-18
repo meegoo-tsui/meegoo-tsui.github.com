@@ -194,9 +194,12 @@ E: Unable to lock the list directory
 <h3 id="ubuntu_quicklaunch">ubuntu 12.04 桌面快捷方式</h3>
 安装：
 	sudo apt-get install --no-install-recommends gnome-panel
+	sudo apt-get install compizconfig-settings-manager
 
 运行：
 	gnome-desktop-item-edit ~/Desktop/ --create-new
+	ccsm # show desktop
+	ls /usr/share/applications/ # show *.desktop
 
 <!---
 ################################################################################
