@@ -66,4 +66,13 @@ http - https://github.com/meegoo-tsui/meegoo-tsui.github.com.git
 ################################################################################
 -->
 <hr />
+#### -=公开课=- ####
+*	[国立清华大学](http://www.nthu.edu.tw/)
+	*	[微積分一](http://ocw.nthu.edu.tw/ocw/index.php?page=course&cid=7&)
+	*	[微積分二](http://ocw.nthu.edu.tw/ocw/index.php?page=course&cid=34&)
+
+<!---
+################################################################################
+-->
+<hr />
 
