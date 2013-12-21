@@ -37,6 +37,7 @@ http - https://github.com/meegoo-tsui/meegoo-tsui.github.com.git
 <hr />
 #### -=资源=- ####
 [iconarchive](http://www.iconarchive.com/)    
+[it-ebooks](http://www.it-ebooks.info)    
 
 <!---
 ################################################################################
