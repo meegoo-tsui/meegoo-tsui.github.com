@@ -17,7 +17,7 @@ styles: [data-table]
 [firefox flash插件](#firefox_flash)|[远程桌面](#remote_desktop)|[ramdisk](#ramdisk)|[firefox cache](#firefox_cache)
 [ibus 消失](#ibus_repaire)|[ubuntu 桌面快捷方式](#ubuntu_quicklaunch)|[stardict 星际译王](#stardict)|[terminal 终端快捷方式](#terminal)
 [gedit 乱码](#gedit)|[ldconfig - 动态库](#ldconfig)|[Wireless is disabled](#wireless_en)|[Open As Administrator](#as_administrator)
-[Aptget proxy](#aptget_proxy)|[gnome-schedule](#gnome-schedule)||
+[Aptget proxy](#aptget_proxy)|[gnome-schedule](#gnome-schedule)|[xrdp 远程桌面](#xrdp)|
 
 <!---
 ################################################################################
@@ -301,6 +301,17 @@ minicom权限，需重启电脑：
 内容如下：
 	0 12 * * * /sbin/poweroff
 	0 18 * * * /sbin/poweroff
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="xrdp">xrdp 远程桌面</h3>
+run the commands below to install xRDP package:
+	sudo apt-get install xrdp
+	
+If you have a problem connecting, run the commands below and restart Ubuntu, then try again.
+	echo "gnome-session --session=ubuntu-2d" > ~/.xsession
 
 <hr />
 
