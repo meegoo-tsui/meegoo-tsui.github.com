@@ -48,4 +48,5 @@ footer: false
 <h3 id="editor">编辑器配置及使用</h3>
 *    [vim基本操作](/blog/2012/06/05/vim-base)
 *    [eclipse安装及配置](/blog/2012/06/09/eclipse-install-config)
+*    [Slickedit基本操作](/blog/2013/10/04/slickedit)
 
