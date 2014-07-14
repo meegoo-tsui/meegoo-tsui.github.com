@@ -29,5 +29,18 @@ replace all the words "ugly*" with "beautiful"：
 	sed -i 's/ugly.*/beautiful/g' /home/bruno/old-friends/sue.txt
 replace all the words "ugly*" with $VAR：
 	sed -i 's/ugly.*/'"$VAR"'/g' /home/bruno/old-friends/sue.txt
+
+<!---
+################################################################################
+-->
+<hr />
+<h3 id="shell">shell</h3>
+1. rmp
+
+rmp command:
+	rpm -ivh *.rpm              # install
+	rpm -qpl *.rpm              # list
+	rpm2cpio *.rpm | cpio -div  # extract
+
 <hr />
 
