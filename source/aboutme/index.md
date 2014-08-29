@@ -7,7 +7,7 @@ sharing: false
 footer: false
 ---
 
-### [明牯工作室 - 嵌入式软件服务](http://mg-studio.taobao.com) - 徐工，徐工，祝您成功！
+### [明牯工作室 - 嵌入式软件服务](http://mg-studio.taobao.com)
 
 *	提供各种逆向破解（不限MCU类型）服务
 
