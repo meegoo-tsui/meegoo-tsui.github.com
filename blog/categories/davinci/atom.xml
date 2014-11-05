@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: davinci | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/davinci/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[TI davinci]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/03/23/davinci/"/>
+    <updated>2013-03-23T13:11:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/03/23/davinci</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<h3>目录</h3>
+
+<ul>
+<li><a href="#davinci_product">davinci 产品</a></li>
+<li><a href="#davinci_component">davinci 平台开发组件</a></li>
+<li><a href="#davinci_build">davinci 编译</a></li>
+<li><a href="#davinci_wiki">davinci wiki</a></li>
+<li><a href="#davinci_partner">davinci 第三方</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_product">davinci 产品</h3>
+
+
+<ul>
+<li><a href="http://www.ti.com/product/tms320dm8148">tms320dm8148</a> - <a href="http://software-dl.ti.com/dsps/dsps_public_sw/ezsdk/latest/index_FDS.html">ezsdk</a></li>
+<li><a href="http://www.ti.com/product/tms320dm365">tms320dm365</a> - <a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/dvsdk/DVSDK_4_00/4_02_00_06/index_FDS.html">dvsdk</a></li>
+<li><a href="http://www.ti.com/product/tms320dm6467t">tms320dm6467t</a> - <a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/dvsdk/DVSDK_3_10/latest/index_FDS.html">dvsdk</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_component"></h3>
+
+
+<h3><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/">davinci 平台开发组件(11)</a></h3>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/rtsc/index.html">xdctools</a></li>
+</ul>
+
+
+<p>XDCtools simplifies development and use of embedded software components that comply with
+the Real-Time Software Components (RTSC) initiative. The XDCtools suite includes configuration, build, documentation generation,
+and browsing tools.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/index.html">sysbios</a></li>
+</ul>
+
+
+<p>SYS/BIOS 6.x is a real-time operating system that supports MSP430, C28x, C64x+, C674x
+and assorted Arm devices (Cortex-M3, Cortex-A8, Arm 9).
+SYS/BIOS 6.x services include ISR dispatching, tasks, software interrupts, semaphores, device I/O, memory management,
+and power management.
+Unlike DSP/BIOS 5.x, SYS/BIOS 6.x requires additional modules for messaging (IPC) and run-time instrumentation (XDC Tools run-time).
+Users should also download these products if they wish to use these features.
+See the SYS/BIOS 6.x documentation for a detailed list of enhancements provided compared to DSP/BIOS 5.x.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/ipc/index.html">ipc</a></li>
+</ul>
+
+
+<p>The BIOS IPC Product contains modules that support the communication between processors in a multi-processor environment
+and communication to peripherals. This communication includes message passing, streams, and linked lists.
+These modules work transparently in both uni-processor and multi-processor configurations.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/syslink/index.html">syslink</a></li>
+</ul>
+
+
+<p>Link is runtime software that simplifies the development of embedded applications in which either
+General-Purpose microprocessors (GPP) or DSPs communicate with each other.
+Typically, one processor is designated as the master for one or more slave processors,
+and may be responsible for controlling the slave processor's execution (including boot-loading the slave).</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/ce/index.html">Multimedia Framework Products (MFP) - Codec Engine</a></li>
+</ul>
+
+
+<p>Codec Engine is a framework that automates the invocation and instantiation of XDAIS-compliant algorithms
+and XDM-compliant codecs. Codec Engine can execute in ARM-only, ARM-DSP, or DSP-only environments
+and supports concurrent execution of multiple channels and multiple instances of algorithms/codecs.
+In the ARM environment, it is currently ported to the Linux and WinCE operating systems.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/fc/index.html">Multimedia Framework Products (MFP) - Framework Components</a></li>
+</ul>
+
+
+<p>The Framework Components product enables faster implementation of application frameworks
+that use algorithms and codecs that comply to the XDAIS standard.
+XDAIS defines standards that prevent algorithms from hard-coding ownership of system resources
+such as memory and DMA channels. An XDAIS-compliant algorithm enables the application framework to query it
+and provide information on specific memory DMA and other resources it needs.
+This makes integration of algorithms from multiple sources much easier.</p>
+
+<p>Framework Components is often leveraged by higher level frameworks (e.g. Codec Engine).</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/osal/index.html">Multimedia Framework Products (MFP) - osal</a></li>
+</ul>
+
+
+<p>The OSAL (Operating System Abstraction Library) provides ports of the XDC Runtime to
+High Level Operating Systems (HLOS) like Linux. It also redistributes the XDC Runtime sources
+and build scripts enabling end users to rebuild in their environments.
+Finally, it provides pre-configured sources appropriate for each supported OS,
+so the XDC tools are not required.</p>
+
+<p>Currently, the OSAL is primarily an internal utility product used by Codec Engine,
+Framework Components and other TI products. The OSAL product is quite new,
+and therefore subject to significant changes from release to release.
+The intent is to make it a standalone product, and therefore users are welcome to build upon it,
+but please understand and anticipate that the first few releases may change signficantly and compatibility may not be preserved.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/xdais/index.html">Multimedia Framework Products (MFP) - xdais</a></li>
+</ul>
+
+
+<p>The XDAIS (eXpress DSP Algorithm Interoperability Standard) Developer's Kit provides the header files
+and specifications needed to implement XDAIS-compliant algorithms.</p>
+
+<p>The XDAIS standard is designed to enable multiple algorithms to coexist in a system
+and share resources. This is acheived by preventing 'hard-coded' use of critical system resources,
+such as memory, DMA, and other accelerators. In contrast, the algorithm must implement interfaces (IALG to manage memory,
+and others for other resources) that are then queried and satisfied by the application framework.
+The framework can then ensure that the resources granted are not already in use by another algorithm.
+As a result, it is easier to reuse algorithms that are XDAIS-compliant, especially when utilizing algorithms from multiple sources.</p>
+
+<p>XDAIS releases include XDM extensions that enable 'plug-and-play' capabilities
+for several common classes of algorithms (e.g. multimedia codecs).</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/linuxutils/index.html">Multimedia Framework Products (MFP) - Linux Utils</a></li>
+</ul>
+
+
+<p>The Linux Utils product has evolved over the years based on user needs. See each release's Release Notes for details. All releases have included CMEM:</p>
+
+<p>CMEM: A memory manager that can grant physically contiguous memory for general use (e.g. as image or video data buffers)</p>
+
+<p>Other releases have included some of the following drivers (note that not all are applicable accross devices):</p>
+
+<p>SDMA: A programming module that provides Linux applications with access to SDMA functionality</p>
+
+<p>EDMA: A programming module that provides Linux applications with access to EDMA functionality</p>
+
+<p>VICP: A utility library that provides the ability for user-mode Linux applications to request VICP channels and operate on a channel using direct, memory-mapped access to the channel's registers.</p>
+
+<ul>
+<li><a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_tii/psp/edma3_lld/index.html">EDMA3 Low-level Driver</a></li>
+</ul>
+
+
+<p>The EDMA3 Low-level driver provides APIs for using and safely sharing EDMA3 resources in an application.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/uia/index.html">Unified Instrumentation Architecture (UIA)</a></li>
+</ul>
+
+
+<p>UIA provides the target side code and libraries for use with the System Analyzer.</p>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_build">davinci 编译</h3>
+
+
+<ul>
+<li><a href="http://processors.wiki.ti.com/index.php/Download_CCS#Code_Composer_Studio_Version_5_Downloads">Code Composer Studio Version 5</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_wiki">davinci wiki</h3>
+
+
+<ul>
+<li><a href="http://tiprocessors.com/index.php/Category:DaVinci">Category:DaVinci</a></li>
+<li><a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">Category:Code Composer Studio v5</a></li>
+<li><a href="http://processors.wiki.ti.com/index.php/How_to_integrate_audio/voice_in_RPE_in_EZSDK">How to integrate audio/voice in RPE in EZSDK</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_partner">davinci 第三方</h3>
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

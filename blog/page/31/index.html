@@ -9,10 +9,9 @@
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
-################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+  <meta name="description" content="安装平台： ubuntu 10.04 搭建git服务器，需要如下软件： $ sudo apt-get install openssh-server openssh-client
+$ sudo apt-get install git
+$ sudo apt-get install python- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/31">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +86,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/17/git-server/">Git服务器配置</a></h1>
     
     
       <p class="meta">
@@ -103,51 +102,132 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-05-17T13:11:00+08:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2012/05/17/git-server/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
-################################################################################
--->
+  <div class="entry-content"><p>安装平台： ubuntu 10.04  <br/>
+搭建git服务器，需要如下软件：</p>
 
+<pre><code>$ sudo apt-get install openssh-server openssh-client
+$ sudo apt-get install git
+$ sudo apt-get install python-setuptools
+</code></pre>
 
-<h3>Diff</h3>
+<h2>源码删除gitosis</h2>
 
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+<p>使用git下载源码：</p>
 
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
+<pre><code>$ git clone https://github.com/meegoo-tsui/gitosis.git gitosis.git
+$ cd gitosis.git
+$ sudo python setup.py install --record uninstall.txt
+$ cat uninstall.txt | xargs sudo rm -rf
+</code></pre>
 
+<h2>源码安装gitolite</h2>
 
-<h3>Merge</h3>
+<p>使用git下载源码：</p>
 
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+<pre><code>$ git clone git://github.com/sitaramc/gitolite gitolite.git
+$ cd gitolite.git
+$ sudo mkdir /usr/local/gitolite
+$ sudo ./install -to /usr/local/gitolite
+</code></pre>
 
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
+<h2>账户相关信息</h2>
 
+<p>创建用户git</p>
+
+<pre><code>$ sudo adduser --system --shell /bin/bash --disabled-password --group git
+$ sudo usermod -G git -a www-data
+</code></pre>
+
+<p>初始化全局设置
+Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+<h2>初始化gitolite</h2>
+
+<p>生成 SSH key：</p>
+
+<pre><code>$ sudo su - git
+$ ssh-keygen -t rsa -C "meegoo.tsui@gmail.com"
+$ /usr/local/gitolite/gitolite setup -pk ~/.ssh/id_rsa.pub
+</code></pre>
+
+<p>文件内容如下：
+Liquid error: undefined method <code>Py_IsInitialized' for RubyPython::Python:Module
+修改文件</code>sudo gedit /home/git/.gitolite.rc`:</p>
+
+<pre><code>UMASK                           =&gt;  0022,
+GIT_CONFIG_KEYS                 =&gt;  '.*',
+GITWEB_PROJECTS_LIST            =&gt; '/home/git/projects.list',
+</code></pre>
+
+<p>clone gitolite管理平台：</p>
+
+<pre><code>$ git clone git@127.0.0.1:gitolite-admin.git gitolite-admin.git
+</code></pre>
+
+<p>创建版本项目：</p>
+
+<pre><code>$ mkdir test.git;cd test.git
+$ git init
+$ git commit --allow-empty -m "create the repos."
+$ git remote add origin git@127.0.0.1:test.git
+$ git push -u origin master
+</code></pre>
+
+<h2>gitweb安装及配置</h2>
+
+<p>安装gitweb：</p>
+
+<pre><code>$ sudo apt-get install highlight gitweb
+</code></pre>
+
+<p>配置apache服务器:</p>
+
+<pre><code>$ sudo gedit /etc/apache2/conf.d/gitweb
+</code></pre>
+
+<p>添加内容如下：</p>
+
+<pre><code>Alias /gitweb /usr/share/gitweb
+
+&lt;Directory /usr/share/gitweb&gt;
+  Options FollowSymLinks +ExecCGI
+  AddHandler cgi-script .cgi
+  DirectoryIndex index.cgi gitweb.cgi
+
+  AuthType Basic
+  AuthName "Authentication Required"
+  AuthUserFile "/home/apache2/apache2.passwd"
+  Require valid-user
+
+  order Allow,Deny
+  Allow from all
+&lt;/Directory&gt;
+</code></pre>
+
+<p>修改gitweb配置文件：</p>
+
+<pre><code>$ sudo vim /etc/gitweb.conf
+$ sudo /etc/init.d/apache2 restart
+# 修改内容如下：
+$projectroot = "/home/git/repositories";
+$home_text = "/home/git/indextext.html";
+$projects_list = "/home/git/projects.list";
+# Add Highlighting at the end
+$feature{'highlight'}{'default'} = [1];
+</code></pre>
+
+<p>访问： http://127.0.0.1/gitweb</p>
 
 <hr />
-
-
 
 </div>
   
@@ -158,9 +238,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/32/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/30/">Newer &rarr;</a>
     
   </div>
 </div>

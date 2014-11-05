@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>4. Raspberry pi ruby - 明牯工作室 - 嵌入式软件服务</title>
+  <meta name="author" content="Meegoo Tsui">
+
+  
+  <meta name="description" content="Installing Ruby on Rails on Raspberry Pi This is a guide to install Ruby on Rails on the Raspberry Pi computer running Debian "squeeze". It will also &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/2013/07/28/raspberry-pi-ruby">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="明牯工作室 - 嵌入式软件服务" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="/stylesheets/google-fonts.css" rel="stylesheet" type="text/css">
+
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32418871-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">明牯工作室 - 嵌入式软件服务</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://www.baidu.com" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:meegoo-tsui.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">主页</a></li>
+  <li><a href="/blog/archives">博客</a></li>
+  <li><a href="/topic">专题</a></li>
+  <li><a href="/aboutme">关于我</a></li>
+</ul>
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">4. Raspberry Pi Ruby</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-28T08:50:00+08:00" pubdate data-updated="true">Jul 28<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2><a href="http://elinux.org/RPi_Ruby_on_Rails">Installing Ruby on Rails on Raspberry Pi</a></h2>
+
+<p>This is a guide to install <a href="http://rubyonrails.org">Ruby on Rails</a> on the Raspberry Pi computer running Debian "squeeze". It will also be useful to people who just require a <a href="http://www.ruby-lang.org">Ruby</a> installation. The guide can be followed by anyone if it all goes right, but when things go wrong, it is often difficult to see what the problem is. It will take several hours to complete and requires an internet connection.</p>
+
+<p>The guide has been developed/tested using debian6-19-04-2012. There is not enough room on a standard 2Gb image. I tested with an 8Gb image, but you may get away with 4Gb.</p>
+
+<p>The installation was all done from the basic (pre startx) command prompt. We will use Ruby Version Manager <a href="http://beginrescueend.com">RVM</a>, so first we must install all its prerequisites:</p>
+
+<pre><code># Install prerequisites
+sudo apt-get install -y git curl zlib1g-dev subversion
+</code></pre>
+
+<p>You might come across the error '404 not found', then try update your APT package index:</p>
+
+<pre><code># Update APT package index
+sudo apt-get update
+</code></pre>
+
+<p>The above is enough to proceed, but we will also need the following later, so whilst we're in the mood for apt-getting:</p>
+
+<pre><code># Additional Ruby dependencies
+sudo apt-get install -y openssl libreadline6-dev git-core zlib1g libssl-dev
+sudo apt-get install -y libyaml-dev libsqlite3-dev sqlite3
+sudo apt-get install -y libxml2-dev libxslt-dev
+sudo apt-get install -y autoconf automake libtool bison
+</code></pre>
+
+<p>Note: Not installing openssl before RVM will cause you <a href="https://rvm.io/packages/openssl/">grief</a> later!</p>
+
+<p>Now we can use RVM straight from github using:</p>
+
+<pre><code>curl -L get.rvm.io | bash -s stable --rails
+</code></pre>
+
+<p>Note: With my default Debian image and keyboard map, it was very hard to get a | (pipe) character. I got it by pressing AltGr+|</p>
+
+<p>When run, you will get some messages about requirements for Ruby. You need to press 'q'. Note the computer may not react straight away as it is 'thinking'. After a few seconds, the script will download and compile ruby 1.9 and Rails. This takes a long time! (3 Hrs) Have a sleep and check in the morning.</p>
+
+<p>At the end of the installation, RVM suggests that you have to run a script in order to enable Ruby. (I think I only had to do this once?)</p>
+
+<pre><code>pi@raspberrypi:~$ source ~/.rvm/scripts/rvm
+</code></pre>
+
+<p>Now you should have ruby:</p>
+
+<pre><code>pi@raspberrypi:~$ ruby -v
+ruby 1.9.3p194 (2012-04-20 revision 35410) [armv61-linux-eabi]
+</code></pre>
+
+<p>And you should have a rails command:</p>
+
+<pre><code>pi@raspberrypi:~$ rails -v
+Rails 3.2.3
+</code></pre>
+
+<h2>JavaScript</h2>
+
+<p>Rails requires a JavaScript runtime. Any of the following listed <a href="https://github.com/sstephenson/execjs">here</a> will do.
+I installed node.js using this <a href="http://blog.tomg.co/post/21322413373/how-to-install-node-js-on-your-raspberry-pi">blog</a> by Tom Gallacher. (Note I had to use sudo when doing make install)</p>
+
+<h2>Testing Installation</h2>
+
+<p>In order to test the installation, let's create a simple project.
+In this example the name for our new project is school.</p>
+
+<pre><code>pi@raspberrypi:~$ rails new school
+pi@raspberrypi:~$ cd school
+pi@raspberrypi:~$ rails g scaffold Pupil name:string form:string
+pi@raspberrypi:~$ rake db:migrate
+pi@raspberrypi:~$ rails s
+</code></pre>
+
+<p>All being well you will now have a running server with database back end, which you can point a browser at.</p>
+
+<p>Note: You can't use 'class' as a field name, so I chose 'form'.</p>
+
+<p>If you do the above in an X-windows terminal, then point the Raspberry-Pi browser to:</p>
+
+<pre><code>http://0.0.0.0:3000/pupils
+</code></pre>
+
+<p>You should then be able to Create, Read, Update &amp; Delete (Often called CRUD) pupil records in your database.</p>
+
+<p>Alternatively, if you have another computer on the same network, you can point its browser at the RPi substituting the 0.0.0.0 in the above address for the real RPi one. If you don't know the address of your RPi, then use the following command in a terminal:</p>
+
+<pre><code>hostname -I
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>We have a working installation of Ruby on Rails. It is very slow but just about usable. If this is your introduction to Ruby on Rails please don't let the speed put you off. If you follow this fantastic <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">tutorial</a> it will show you how to deploy to <a href="http://www.heroku.com/">Heroku</a> (for free), then your website will be as fast as those with proper computers.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Meegoo Tsui</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-28T08:50:00+08:00" pubdate data-updated="true">Jul 28<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/raspberrypi/'>RaspberryPi</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/07/10/vmware/" title="Previous Post: vmware">&laquo; vmware</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/10/04/slickedit/" title="Next Post: slickedit基本操作">slickedit基本操作 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/10/submin/">submin 安装</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/04/slickedit/">slickedit基本操作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/raspberry-pi-ruby/">4. Raspberry pi ruby</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/10/vmware/">vmware</a>
+      </li>
+    
+  </ul>
+
+  <h1>Categories</h1>
+  <ul>
+    <li>
+      <a class='category' href='/blog/categories/raspberrypi/'>RaspberryPi</a>, <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/build/'>build</a>, <a class='category' href='/blog/categories/davinci/'>davinci</a>, <a class='category' href='/blog/categories/doxygen/'>doxygen</a>, <a class='category' href='/blog/categories/editor/'>editor</a>, <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/markdown/'>markdown</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/qt/'>qt</a>, <a class='category' href='/blog/categories/server/'>server</a>, <a class='category' href='/blog/categories/url/'>url</a>, <a class='category' href='/blog/categories/vmware/'>vmware</a>
+    </li>
+  </ul>
+
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Meegoo Tsui -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'meegootsui';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://meegoo-tsui.github.com/blog/2013/07/28/raspberry-pi-ruby/';
+        var disqus_url = 'http://meegoo-tsui.github.com/blog/2013/07/28/raspberry-pi-ruby/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

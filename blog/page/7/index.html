@@ -9,10 +9,8 @@
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
-################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+  <meta name="description" content="http://www.raspberrypi.org/ 使能路由器dhcp功能，查看raspberry pi的ip地址，且ping成功
+ssh登录raspberry pi, Username: pi Password: raspberry 登录过程如下： meegoo@mg:~$ ssh pi@ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/7">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +85,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/07/05/raspberry-pi-ssh/">2. Raspberry Pi Ssh</a></h1>
     
     
       <p class="meta">
@@ -103,52 +101,73 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2013-07-05T21:23:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2013</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2013/07/05/raspberry-pi-ssh/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
-################################################################################
--->
+  <div class="entry-content"><p><img src="http://www.raspberrypi.org/wp-content/themes/raspite/img/PiOrg-Site-Sidebar-003.gif"></p>
 
-
-<h3>Diff</h3>
+<p><a href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a></p>
 
 <ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
+<li>使能路由器dhcp功能，查看raspberry pi的ip地址，且ping成功</li>
+<li>ssh登录raspberry pi, Username: pi Password: raspberry</li>
 </ul>
 
 
-<h3>Merge</h3>
+<p>登录过程如下：</p>
+
+<pre><code>meegoo@mg:~$ ssh pi@192.168.1.60
+ssh_exchange_identification: read: Connection reset by peer
+
+meegoo@mg:~$ ssh pi@192.168.1.60
+
+Linux raspberrypi 3.6.11+ #456 PREEMPT Mon May 20 17:42:15 BST 2013 armv6l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+
+NOTICE: the software on this Raspberry Pi has not been fully configured. Please run 'sudo raspi-config'
+
+pi@raspberrypi ~ $ 
+</code></pre>
 
 <ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
+<li>配置raspberry pi</li>
 </ul>
 
 
-<hr />
+<p>结果如下：</p>
 
+<pre><code>pi@raspberrypi ~ $ sudo raspi-config
 
-
+┌────────────────────────────┤ Raspberry Pi Software Configuration Tool (raspi-config) ├────────────────────────────┐
+│ Setup Options                                                                                                     │
+│                                                                                                                   │
+│        1 Expand Filesystem            Ensures that all of the SD card storage is available to the OS              │
+│        2 Change User Password         Change password for the default user (pi)                                   │
+│        3 Enable Boot to Desktop       Choose whether to boot into a desktop environment or the command-line       │
+│        4 Internationalisation Options Set up language and regional settings to match your location                │
+│        5 Enable Camera                Enable this Pi to work with the Raspberry Pi Camera                         │
+│        6 Add to Rastrack              Add this Pi to the online Raspberry Pi Map (Rastrack)                       │
+│        7 Overclock                    Configure overclocking for your Pi                                          │
+│        8 Advanced Options             Configure advanced settings                                                 │
+│        9 About raspi-config           Information about this configuration tool                                   │
+│                                                                                                                   │
+│                                                                                                                   │
+│                                 &lt;Select&gt;                                 &lt;Finish&gt;                                 │
+│                                                                                                                   │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
 </div>
   
   
@@ -158,9 +177,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/8/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/6/">Newer &rarr;</a>
     
   </div>
 </div>

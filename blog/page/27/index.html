@@ -9,10 +9,10 @@
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
-################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+  <meta name="description" content="开始此节内容之前，参考以下内容： gitweb git使用
+gitweb page
+Octopress doc
+配置Octopress环境 1. 创建个人主页 github提供一个二级域名给所有用户，地址为http://username.github.com,注册完用户后，创建一个 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +21,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/27">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +87,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/30/create-octopress-blog-temple/">创建Octopress博客模板</a></h1>
     
     
       <p class="meta">
@@ -103,51 +103,113 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-05-30T15:11:00+08:00" pubdate data-updated="true">May 30<span>th</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2012/05/30/create-octopress-blog-temple/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
-################################################################################
--->
-
-
-<h3>Diff</h3>
+  <div class="entry-content"><p>开始此节内容之前，参考以下内容：</p>
 
 <ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
+<li><a href="http://help.github.com/linux-set-up-git/">gitweb git使用</a></li>
+<li><a href="http://help.github.com/pages/">gitweb page</a></li>
+<li><a href="http://octopress.org">Octopress doc</a></li>
+<li><a href="/blog/2012/05/29/config-octopress-env">配置Octopress环境</a></li>
 </ul>
 
 
-<h3>Merge</h3>
+<h3>1. 创建个人主页</h3>
 
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+<p><code>github</code>提供一个二级域名给所有用户，地址为<code>http://username.github.com</code>,注册完用户后，创建一个
+<code>username.github.com</code>的git仓库，在<code>master</code>分支下随意写一个<code>index.html</code>，上传后约十分钟可以通过二级
+域名浏览刚才的<code>index.html</code>内容。</p>
 
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
+<h3>2. 使用Octopress上传模板</h3>
 
+<p>现从<a href="https://github.com/imathis/octopress">Octopress</a>克隆git版本库，进入该文件夹，查看分支：</p>
+
+<pre><code>git branch -a
+* master
+  remotes/octopress/2.1
+  remotes/octopress/HEAD -&gt; octopress/master
+  remotes/octopress/gh-pages
+  remotes/octopress/linklog
+  remotes/octopress/master
+  remotes/octopress/refactor_with_tests
+  remotes/octopress/rubygemcli
+  remotes/octopress/site
+  remotes/origin/source
+</code></pre>
+
+<p>在<code>master</code>分支，执行如下命令：</p>
+
+<pre><code>rake setup_github_pages
+</code></pre>
+
+<p>意义如下：</p>
+
+<ol>
+<li>Ask you for your Github Pages repository url.</li>
+<li>Rename the remote pointing to imathis/octopress from ‘origin’ to ‘octopress’</li>
+<li>Add your Github Pages repository as the default origin remote.</li>
+<li>Switch the active branch from master to source.</li>
+<li>Configure your blog’s url according to your repository.</li>
+<li>Setup a master branch in the _deploy directory for deployment.</li>
+</ol>
+
+
+<p>安装、生成、部署：</p>
+
+<pre><code>rake install
+rake generate
+rake deploy
+</code></pre>
+
+<p>上传源码：</p>
+
+<pre><code>git add .
+git commit -m 'your message'
+git push origin source
+</code></pre>
+
+<p>octopress的工作到此已经完成。</p>
+
+<h3>3. 使用Octopress生成的模板</h3>
+
+<p>先checkout版本，如下：</p>
+
+<pre><code>git clone git@github.com:meegoo-tsui/meegoo-tsui.github.com.git
+cd meegoo-tsui.github.com
+rake setup_github_pages # 此条命令必须，不然deploy失败
+git branch -a
+  master                # 此分支为主页显示的内容，source分支deploy自动push生成
+* source                # 所有源程序及文档
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/master
+  remotes/origin/source
+git checkout source     # 切换到source分支操作
+rake generate
+rake new_post[test-blog]# 生成博客，也可以手动生成
+rake preview
+rake deploy
+</code></pre>
+
+<p>在<code>master</code>分支查看结果:</p>
+
+<pre><code>git checkout master
+git pull --rebase origin master
+jekyll --server         # http://127.0.0.1:4000
+</code></pre>
+
+<p><code>master</code>分支为主页显示所需要的内容，因此需要在github上配置当前分支为<code>master</code>；  <br/>
+<code>source</code>分支为源代码，在此分支上写代码然后使用<code>rake deploy</code>就可以修改<code>master</code>的内容，也就
+更新了主页。</p>
 
 <hr />
-
-
 
 </div>
   
@@ -158,9 +220,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/28/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/26/">Newer &rarr;</a>
     
   </div>
 </div>

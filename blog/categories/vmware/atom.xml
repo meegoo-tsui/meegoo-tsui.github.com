@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: vmware | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/vmware/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[vmware]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/10/vmware/"/>
+    <updated>2013-07-10T20:10:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/10/vmware</id>
+    <content type="html"><![CDATA[<ul>
+<li>vmware 修改分区大小</li>
+</ul>
+
+
+<p>dos下执行：</p>
+
+<pre><code>D:\Program Files\vmware8.0&gt;vmware-vdiskmanager.exe -x 40Gb E:\vmware\ubuntu12.04-dm8148-vm\ubuntu12.04.vmdk
+</code></pre>
+
+<ul>
+<li>vmware 修改bios</li>
+</ul>
+
+
+<p>添加bios.bootDelay = "3000"到文件ubuntu12.04.vmx，时间单位为ms</p>
+
+<ul>
+<li><p>livecd 修改分区</p>
+
+<ul>
+<li>使用LiveCD启动，使用gparted进行分区调整，分区要临近；</li>
+<li>sudo blkid; cat /etc/fstab; 修改UUID保持一致；sudo swapon -a</li>
+</ul>
+</li>
+<li><p>vmware 磁盘压缩</p>
+
+<ul>
+<li>sudo vmware-toolbox; shrink</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

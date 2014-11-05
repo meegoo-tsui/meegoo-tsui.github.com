@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: editor | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/editor/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[slickedit基本操作]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/10/04/slickedit/"/>
+    <updated>2013-10-04T15:00:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/10/04/slickedit</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<ol>
+<li><a href="#install">下载安装</a></li>
+<li><a href="#system">系统设置</a></li>
+<li><a href="#display">显示设置</a></li>
+<li><a href="#edit">编辑设置</a></li>
+<li><a href="#hotkey">快捷使用</a></li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="install">下载安装</h3>
+
+
+<ul>
+<li><p>下载地址 - <a href="http://www.slickedit.com/trial/slickedit">http://www.slickedit.com/trial/slickedit</a></p></li>
+<li><p>ubuntu 12.04 桌面快捷键 SlickEdit-18.0.1.2.desktop 内容：</p></li>
+</ul>
+
+
+<pre><code> 
+    [Desktop Entry]
+    Version=1.0
+    Name=SlickEdit 2013
+    Comment=SlickEdit 2013 version 18.0.1.2
+    Exec=/usr/local/slickedit/bin/vs -sc "/home/meegoo/.slickedit/" %F +new
+    Icon=/usr/local/slickedit/bitmaps/vse32.xpm
+    Type=Application
+    Categories=Application;Development;IDE;
+</code></pre>
+
+
+<ul>
+<li>清除配置文件, ubuntu - <code>rm -rf /home/meegoo/.slickedit</code>, windows - <code>meegoo/Documents/My SlickEdit Config</code></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="system">系统设置</h3>
+
+
+<ul>
+<li>设置本身的设置 - Tool -> Option -> Application Option -> Exit -> Save Configuration 选择"***immediately"</li>
+<li>启动多个SE实例 - 修改启动命令行，加多一个+new作为参数传进去</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="display">显示设置</h3>
+
+
+<ul>
+<li>设置Tab宽度 - Tools -> Options -> Languages -> All Languages -> Formatting -> Indent, 选择Indent，Syntax 4, Tabs:4,C++ -> formatting 修改My default</li>
+<li>显示行数 - Tool -> Option -> Languages -> All Language -> View</li>
+<li>折叠功能 - 在主窗口的工具栏上面右击，然后选择 Toolbars -> Selective Display</li>
+<li>编辑器风格 - Tool -> Option -> Keyboard and mouse -> Emulation -> Vim</li>
+<li>编码设置 - Tools -> Options -> File Options -> Load -> encoding, UTF-8</li>
+<li>字体设置 - Tools -> Options -> Appearance -> Fonts -> Unicode Source Windows，SBCS/DBCS Source Windows</li>
+<li>单行显示 - Tools -> Options -> Languages -> All Languages -> Word Wrap, 全部不选</li>
+<li>特殊符号 - Tool -> Option -> Languages -> All Language -> View -> Special Characters</li>
+<li>显示竖线 - Tools->Options->Appearance->General, Vertical line column设成80，下面可以设置一个颜色。字体设置时，三个选项全选。</li>
+<li>颜色方案 - Tools -> Options -> Appearance -> Colors, Black</li>
+<li>修改颜色 - Tool -> Option -> Languages -> All Language -> View， 全选</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="edit">编辑设置</h3>
+
+
+<ul>
+<li>if格式风格 - Tools -> Options -> Languages -> All Languages -> Formatting -> Begin/end style</li>
+<li>注释与反注释 - Document->Comment Lines和Document->Uncomment Lines, 注释命令行为:comment, 反注释命令行为:comment-erase</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="hotkey">快捷使用</h3>
+
+
+<ul>
+<li>高亮显示 -</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[eclipse安装及配置]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/09/eclipse-install-config/"/>
+    <updated>2012-06-09T21:13:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/09/eclipse-install-config</id>
+    <content type="html"><![CDATA[<p>官网下载：</p>
+
+<ul>
+<li> <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">oracle JDK</a></li>
+<li> <a href="http://www.eclipse.org/downloads/">eclipse</a></li>
+</ul>
+
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>1. 下载 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">java sdk - 7u4</a></h4>
+
+<p>linux平台:</p>
+
+<ul>
+<li> x86-32: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">jdk-7u4-linux-i586.tar.gz</a></li>
+<li> x64-64: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">jdk-7u4-linux-x64.tar.gz</a></li>
+</ul>
+
+
+<p>windows平台:</p>
+
+<ul>
+<li> x86-32: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">jdk-7u4-windows-i586.exe</a></li>
+<li> x64-64: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">jdk-7u4-windows-x64.exe</a></li>
+</ul>
+
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>2. 下载 <a href="http://www.eclipse.org/downloads">eslipse</a></h4>
+
+<p>linux平台:</p>
+
+<ul>
+<li> x86-32: <a href="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-linux-gtk.tar.gz">eclipse-SDK-3.7.2-linux-gtk.tar.gz</a></li>
+<li> x64-64: <a href="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-linux-gtk-x86_64.tar.gz">eclipse-SDK-3.7.2-linux-gtk-x86_64.tar.gz</a></li>
+</ul>
+
+
+<p>windows平台:</p>
+
+<ul>
+<li> x86-32: <a href="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-win32.zip">eclipse-SDK-3.7.2-win32.zip</a></li>
+<li> x64-64: <a href="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-win32-x86_64.zip">eclipse-SDK-3.7.2-win32-x86_64.zip</a></li>
+</ul>
+
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>3. 安装</h4>
+
+<p>ubuntu 12.04 - 64bit</p>
+
+<ol>
+<li>解压安装包到/opt路径下；</li>
+<li>修改/opt/eclipse/eclipse.ini，在文件开头添加二行：</li>
+</ol>
+
+
+<p>eclipse.ini:</p>
+
+<pre><code>-vm
+/opt/jdk1.7.0_0x/bin/java
+</code></pre>
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>4. plugin - pydev</h4>
+
+<p>python的开发插件 - <a href="http://pydev.org/">pydev</a>，下载<a href="http://sourceforge.net/projects/pydev/files/pydev/">http://sourceforge.net/projects/pydev/files/pydev/</a>
+的zip文件，解压后，对应复制features、plugins到eclipse，修改eclipse文件夹权限，否则仅root用户插件才起作用。</p>
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>视频教程</h4>
+
+<p><a href="http://www.boobooke.com/v/bbk5417/">黑弓作品：Eclipse使用入门培训</a>  <br/>
+<a href="http://www.boobooke.com/v/bbk4357/">赵磊作品 ： Eclipse 3.5开发环境的搭建</a></p>
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[vim基本操作]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/05/vim-base/"/>
+    <updated>2012-06-05T23:08:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/05/vim-base</id>
+    <content type="html"><![CDATA[<p>{% img right /images/vi_vim_cn.png %}
+{% img right /images/vi_vim_en.gif %}</p>
+
+<ul>
+<li> <a href="#mode">模式</a></li>
+<li> <a href="#open">打开</a></li>
+<li> <a href="#move">移动</a></li>
+<li> <a href="#insert">插入</a></li>
+<li> <a href="#delete">删除</a></li>
+<li> <a href="#search">搜索</a></li>
+<li> <a href="#copy">复制</a></li>
+<li> <a href="#replace">替换</a></li>
+<li> <a href="#config">配置</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="mode">模式</h3>
+
+
+<p>vi有3个模式：插入模式、命令模式、低行模式。</p>
+
+<ul>
+<li> 插入模式：在此模式下可以输入字符，按ESC将回到命令模式。</li>
+<li> 命令模式：可以移动光标、删除字符等。</li>
+<li> 低行模式：可以保存文件、退出vi、设置vi、查找等功能(低行模式也可以看作是命令模式里的)。</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="open">打开</h3>
+
+
+<p><code>vi filename    </code>打开filename文件  <br/>
+<code>:w             </code>保存文件  <br/>
+<code>:w vpser.net   </code>保存至vpser.net文件  <br/>
+<code>:q             </code>退出编辑器，如果文件已修改请使用下面的命令  <br/>
+<code>:q!            </code>退出编辑器，且不保存  <br/>
+<code>:wq            </code>退出编辑器，且保存文件</p>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="move">移动</h3>
+
+
+<h4>以字符为单位移动</h4>
+
+<ol>
+<li><code>h</code>向左移动一个字符；</li>
+<li><code>l</code>向右移动一个字符；</li>
+<li><code>k</code>向上移动一个字符；</li>
+<li><code>j</code>向下移动一个字符；</li>
+</ol>
+
+
+<h4>以普通word为单位移动</h4>
+
+<ol>
+<li><code>w</code>将光标向前移动一个word并停留在下一个word的首字符上，助记：word；</li>
+<li><code>b</code>将光标向后移动一个word并停留在下一个word的首字符上，助记：backward；</li>
+<li><code>e</code>将光标向前移动一个word并停留在下一个word的末字符上，助记：end of word；</li>
+<li><code>ge</code>将光标向后移动一个word并停留在下一个word的末字符上;</li>
+</ol>
+
+
+<p>[备注]：</p>
+
+<ol>
+<li>以空白作为word分隔时，以上命令为大写，<code>W</code>，<code>B</code>，<code>E</code>，<code>GE</code>;</li>
+<li>以上命令都可以采取“数字+命令”的方式执行；</li>
+</ol>
+
+
+<h4>移动光标到行头或者行尾</h4>
+
+<ol>
+<li><code>$</code>将光标移动到当前行行尾,此命令与键盘上<code>End</code>键作用相同;</li>
+<li><code>^</code>将光标移动到当前行的第一个非空白字符上；</li>
+<li><code>0</code>将光标移动到当前行的第一个字符上，此命令与键盘上<code>Home</code>键作用相同；</li>
+</ol>
+
+
+<p>[备注]：</p>
+
+<ol>
+<li><code>$</code>命令接受计数器，其他两个不接受计数器;</li>
+</ol>
+
+
+<h4>移动光标到指定字符上</h4>
+
+<p>使用单字符搜索命令可以快速将光标移到当前行的某个字符上。</p>
+
+<ol>
+<li><code>f</code>在当前行向右查找某个字符并将光标停留其上,助记：find;</li>
+<li><code>F</code>在当前行向左查找某个字符并将光标停留其上;</li>
+<li><code>t</code>在当前行向右查找某个字符并将光标停留于其前一个字符之上,助记：to;</li>
+<li><code>T</code>在当前行向左查找某个字符并将光标停留于其前一个字符之上;</li>
+</ol>
+
+
+<p>[备注]：</p>
+
+<ol>
+<li>这四个命令都可使用计数器;</li>
+<li>这四个命令都可以用<code>;</code>和<code>,</code>重复执行，不同之处在于，<code>;</code>以与原命令相同的方向执行，<code>,</code>恰好相反;</li>
+</ol>
+
+
+<h4>移动光标到匹配括号上</h4>
+
+<p>将光标跳转到与当前光标下的括号相匹配的括号上去：%；</p>
+
+<h4>移动光标到指定行上</h4>
+
+<ol>
+<li><code>G</code>跳至文件的底部</li>
+<li><code>gg</code>跳至文件的头部</li>
+<li><code>nG</code>跳到行号为n的行</li>
+<li><code>数字+%</code>使用百分比将光标移动到文档某个大致的位置：数字+%。此处百分比的计算是以行为单位，而不是以字节数为单位;</li>
+<li><code>H（home）</code>移动到第一行使用命令H（home），<code>M（middle）</code>移动到中间行使用命令M（middle），<code>L（last）</code>移动到最后一行使用命令;</li>
+<li><code>CTRL-G</code>可以显示当前位置信息;</li>
+<li><code>n+</code>向下跳n行</li>
+<li><code>n-</code>向上跳n行</li>
+</ol>
+
+
+<h4>滚屏</h4>
+
+<ol>
+<li><code>CTRL-U</code>使文本向下滚动半屏，相当于显示文本的窗口向上滚半屏，光标所处的行数随滚屏而改变；</li>
+<li><code>CTRL-D</code>使文本向上滚动半屏，相当于显示文本的窗口向下滚半屏，光标所处的行数随滚屏而改变；</li>
+<li><code>CTRL-E</code>使文本向上滚动一行，光标所处的行数不变；</li>
+<li><code>CTRL-Y</code>使文本向下滚动一行，光标所处的行数不变；</li>
+<li><code>CTRL-F</code>向前滚动一整屏，滚动后光标处于第一行；</li>
+<li><code>CTRL-B</code>向后滚动一整屏，滚动后光标处于最后一行；</li>
+<li><code>zz</code>把当前位置处于屏幕的正中央；</li>
+<li><code>zt</code>把当前位置处于屏幕的顶端，助记：top；</li>
+<li><code>zb</code>把当前位置处于屏幕的底端，助记：bottom；</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="insert">插入</h3>
+
+
+<ol>
+<li><code>a</code>在当前光标位置的右边添加文本</li>
+<li><code>i</code>在当前光标位置的左边添加文本</li>
+<li><code>A</code>在当前行的末尾位置添加文本</li>
+<li><code>I</code>在当前行的开始处添加文本(非空字符的行首)</li>
+<li><code>O</code>在当前行的上面新建一行</li>
+<li><code>o</code>在当前行的下面新建一行</li>
+<li><code>R</code>替换(覆盖)当前光标位置及后面的若干文本</li>
+<li><code>J</code>合并光标所在行及下一行为一行(依然在命令模式)</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="delete">删除</h3>
+
+
+<ol>
+<li><code>x</code>删除当前字符</li>
+<li><code>nx</code>删除从光标开始的n个字符</li>
+<li><code>dd</code>删除当前行</li>
+<li><code>ndd</code>向下删除当前行在内的n行</li>
+<li><code>u</code>撤销上一步操作</li>
+<li><code>U</code>撤销对当前行的所有操作</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="search">搜索</h3>
+
+
+<ol>
+<li><code>/vpser</code>向光标下搜索vpser字符串</li>
+<li><code>?vpser</code>向光标上搜索vpser字符串</li>
+<li><code>n</code>向下搜索前一个搜素动作</li>
+<li><code>N</code>向上搜索前一个搜索动作</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="copy">复制</h3>
+
+
+<ol>
+<li><code>yy</code>将当前行复制到缓存区，也可以用 "ayy 复制，"a 为缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。</li>
+<li><code>nyy</code>将当前行向下n行复制到缓冲区，也可以用 "anyy 复制，"a 为缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。</li>
+<li><code>yw</code>复制从光标开始到词尾的字符。</li>
+<li><code>nyw</code>复制从光标开始的n个单词。</li>
+<li><code>y^</code>复制从光标到行首的内容。</li>
+<li><code>y$</code>复制从光标到行尾的内容。</li>
+<li><code>p</code>粘贴剪切板里的内容在光标后，如果使用了前面的自定义缓冲区，建议使用"ap 进行粘贴。</li>
+<li><code>P</code>粘贴剪切板里的内容在光标前，如果使用了前面的自定义缓冲区，建议使用"aP 进行粘贴。</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="replace">替换</h3>
+
+
+<ol>
+<li><code>:s/old/new</code>用new替换行中首次出现的old</li>
+<li><code>:s/old/new/g</code>用new替换行中所有的old</li>
+<li><code>:n,m s/old/new/g</code>用new替换从n到m行里所有的old</li>
+<li><code>:%s/old/new/g</code>用new替换当前文件里所有的old</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="config">配置</h3>
+
+
+<p>执行命令修改文件：</p>
+
+<pre><code>sudo vim /etc/vim/vimrc
+</code></pre>
+
+<p>在文件尾添加内容如下：</p>
+
+<pre><code>set nobackup                           " 无~后缀的备份文件
+set autoindent shiftwidth=4            " 启用自动缩进，并设置自动缩进的宽度为4
+set tabstop=4                          " 让tab变成4个字符的宽度
+set nu                                 " 显示行号
+set mouse=a                            " 鼠标定位
+filetype on                            " 检测文件的类型
+syntax on                              " 语法高亮度显示
+set autoindent                         " 把当前行的对起格式应用到下一行
+set smartindent                        " 智能的选择对起方式
+set showmatch                          " 设置匹配模式
+set ruler                              " 在右下角显示光标位置的状态行
+set incsearch                          " 查找提示
+</code></pre>
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

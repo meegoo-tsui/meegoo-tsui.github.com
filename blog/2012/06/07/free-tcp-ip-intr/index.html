@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>明牯工作室 - 嵌入式软件服务</title>
+  <title>开源tcp-ip协议栈简介 - 明牯工作室 - 嵌入式软件服务</title>
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
-################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+  <meta name="description" content="1. BSD TCP/IP BSD栈历史上是其他商业栈的起点，大多数专业TCP/IP栈（VxWorks内嵌的TCP/IP栈）是BSD栈派生的。
+这是因为BSD栈在BSD许可协议下提供了这些专业栈的雏形，BSD许用证允许BSD栈以修改或未修改的形式结合这些专业栈的代码而无须向创建者付版税。
+同时， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/2012/06/07/free-tcp-ip-intr">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,15 +78,12 @@ Switch to the Diff &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title">开源tcp-ip协议栈简介</h1>
     
     
       <p class="meta">
@@ -103,67 +99,96 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-06-07T14:58:00+08:00" pubdate data-updated="true">Jun 7<span>th</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
-################################################################################
--->
+<div class="entry-content"><h4>1. <a href="http://svnweb.freebsd.org/base/release/9.0.0/sys/netinet/">BSD TCP/IP</a></h4>
+
+<p>BSD栈历史上是其他商业栈的起点，大多数专业TCP/IP栈（VxWorks内嵌的TCP/IP栈）是BSD栈派生的。
+这是因为BSD栈在BSD许可协议下提供了这些专业栈的雏形，BSD许用证允许BSD栈以修改或未修改的形式结合这些专业栈的代码而无须向创建者付版税。
+同时，BSD也是许多TCP/IP协议中的创新（如广域网中饿拥塞控制和避免）的开始点。</p>
+
+<h4>2. <a href="http://ucip.sourceforge.net/">uC/IP</a></h4>
+
+<p>uC/IP是由Guy Lancaster编写的一套基于uC/OS且开放源码的TCP/IP协议栈，亦可移植到其它操作系统，
+是一套完全免费的、可供研究的TCP/IP协议栈，uC/IP大部分源码是从公开源码BSD发布站点和KA9Q（一个基于DOS单任务环境运行的TCP/IP协议栈）移植过来。
+uC/IP具有如下一些特点：带身份验证和报头压缩支持的PPP协议，优化的单一请求/回复交互过程，支持IP/TCP/UDP协议，
+可实现的网络功能较为强大，并可裁减。UCIP协议栈被设计为一个带最小化用户接口及可应用串行链路网络模块。
+根据采用CPU、编译器和系统所需实现协议的多少，协议栈需要的代码容量空间在30-60KB之间。</p>
+
+<h4>3. <a href="http://savannah.nongnu.org/projects/lwip/">LwIP</a></h4>
+
+<p>LwIP是瑞士计算机科学院（Swedish Institute of Computer Science）的Adam Dunkels等开发的一套用于嵌入式系统的开放源代码TCP/IP协议栈。
+LwIP的含义是Light Weight(轻型)IP协议，相对于uip。LwIP可以移植到操作系统上，也可以在无操作系统的情况下独立运行。
+LwIP TCP/IP实现的重点是在保持TCP协议主要功能的基础上减少对RAM的占用，一般它只需要几十K的RAM和40K左右的ROM就可以运行，
+这使LwIP协议栈适合在低端嵌入式系统中使用。LwIP的特性如下：支持多网络接口下的IP转发，支持ICMP协议 ，
+包括实验性扩展的的UDP（用户数据报协议），包括阻塞控制，RTT估算和快速恢复和快速转发的TCP（传输控制协议），
+提供专门的内部回调接口（Raw API）用于提高应用程序性能，并提供了可选择的Berkeley接口API。</p>
+
+<h4><a href="http://dunkels.com/adam/">4. uIP</a></h4>
+
+<p>专门为8位和16位控制器设计的一个非常小的TCP/IP栈。完全用C编写，因此可移植到各种不同的结构和操作系统上，
+一个编译过的栈可以在几KB ROM或几百字节RAM中运行。uIP中还包括一个HTTP服务器作为服务内容。</p>
+</div>
 
 
-<h3>Diff</h3>
+  <footer>
+    <p class="meta">
+      
+  
 
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+<span class="byline author vcard">Posted by <span class="fn">Meegoo Tsui</span></span>
 
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
+      
 
 
-<h3>Merge</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
 
 
-<hr />
 
 
+
+
+  
+
+
+<time datetime="2012-06-07T14:58:00+08:00" pubdate data-updated="true">Jun 7<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/07/timestamp-stdin/" title="Previous Post: 输入时间戳">&laquo; 输入时间戳</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/06/09/eclipse-install-config/" title="Next Post: eclipse安装及配置">eclipse安装及配置 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -208,6 +233,7 @@ Switch to the Diff &hellip;">
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -222,7 +248,10 @@ Switch to the Diff &hellip;">
       var disqus_shortname = 'meegootsui';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://meegoo-tsui.github.com/blog/2012/06/07/free-tcp-ip-intr/';
+        var disqus_url = 'http://meegoo-tsui.github.com/blog/2012/06/07/free-tcp-ip-intr/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

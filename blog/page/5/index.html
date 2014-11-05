@@ -9,10 +9,7 @@
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
-################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+  <meta name="description" content="vmware 修改分区大小 dos下执行： D:\Program Files\vmware8.0&gt;vmware-vdiskmanager.exe -x 40Gb E:\vmware\ubuntu12.04-dm8148-vm\ubuntu12.04.vmdk vmware 修改bios &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/5">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +84,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/07/10/vmware/">Vmware</a></h1>
     
     
       <p class="meta">
@@ -103,51 +100,47 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2013-07-10T20:10:00+08:00" pubdate data-updated="true">Jul 10<span>th</span>, 2013</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2013/07/10/vmware/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
-################################################################################
--->
+  <div class="entry-content"><ul>
+<li>vmware 修改分区大小</li>
+</ul>
 
 
-<h3>Diff</h3>
+<p>dos下执行：</p>
 
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+<pre><code>D:\Program Files\vmware8.0&gt;vmware-vdiskmanager.exe -x 40Gb E:\vmware\ubuntu12.04-dm8148-vm\ubuntu12.04.vmdk
+</code></pre>
 
 <ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
+<li>vmware 修改bios</li>
+</ul>
+
+
+<p>添加bios.bootDelay = &#8220;3000&#8221;到文件ubuntu12.04.vmx，时间单位为ms</p>
+
+<ul>
+<li><p>livecd 修改分区</p>
+
+<ul>
+<li>使用LiveCD启动，使用gparted进行分区调整，分区要临近；</li>
+<li>sudo blkid; cat /etc/fstab; 修改UUID保持一致；sudo swapon -a</li>
+</ul>
+</li>
+<li><p>vmware 磁盘压缩</p>
+
+<ul>
+<li>sudo vmware-toolbox; shrink</li>
 </ul>
 </li>
 </ul>
-
-
-<h3>Merge</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
-
-
-<hr />
-
-
 
 </div>
   
@@ -158,9 +151,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/6/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/4/">Newer &rarr;</a>
     
   </div>
 </div>

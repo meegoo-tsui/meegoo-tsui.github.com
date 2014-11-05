@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>明牯工作室 - 嵌入式软件服务</title>
+  <title>ftp服务器安装及用法 - 明牯工作室 - 嵌入式软件服务</title>
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
+  <meta name="description" content="系统环境： ubuntu10.04 ftp服务器安装 ftp服务器使用 <!---
 ################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+--> ftp服务器安装 1. 安装软件包 sudo &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/2012/06/05/ftp-server-and-usage">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,15 +78,12 @@ Switch to the Diff &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title">Ftp服务器安装及用法</h1>
     
     
       <p class="meta">
@@ -103,67 +99,186 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-06-05T13:56:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
+<div class="entry-content"><p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">ftp服务器安装</a></li>
+<li> <a href="#usage">ftp服务器使用</a></li>
+</ul>
+
+
+<!---
 ################################################################################
 -->
-
-
-<h3>Diff</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Merge</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
 
 
 <hr />
 
 
+<h3 id="install">ftp服务器安装</h3>
+
+
+<h3>1. 安装软件包</h3>
+
+<pre><code>sudo apt-get install vsftpd
+</code></pre>
+
+<h3>2. 创建ftp文件夹</h3>
+
+<pre><code>sudo mkdir /home/ftp
+sudo usermod -d /home/ftp ftp
+</code></pre>
+
+<h3>3. ftp操作</h3>
+
+<pre><code>sudo /etc/init.d/vsftpd start
+sudo /etc/init.d/vsftpd restart
+sudo /etc/init.d/vsftpd stop
+</code></pre>
+
+<h3>4. 修改配置文件</h3>
+
+<pre><code>sudo gedit /etc/vsftpd.conf
+</code></pre>
+
+<p>内容如下：</p>
+
+<pre><code>local_umask=022
+anon_umask=000
+anonymous_enable=YES
+write_enable=YES
+anon_world_readable_only=NO
+anon_other_write_enable=YES
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES 
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">ftp服务器使用</h3>
+
+
+<h3>1. 连接</h3>
+
+<pre><code>meegoo@lenovo:~$ ftp 192.168.0.238
+Connected to 192.168.0.238.
+220 (vsFTPd 2.2.2)
+Name (192.168.0.238:meegoo): anonymous
+331 Please specify the password.
+Password:
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+</code></pre>
+
+<h3>2. 帮助信息</h3>
+
+<pre><code>ftp&gt; ?
+Commands may be abbreviated.  Commands are:
+
+!           debug       mdir        qc          send
+$           dir         mget        sendport    site
+account     disconnect  mkdir       put         size
+append      exit        mls         pwd         status
+ascii       form        mode        quit        struct
+bell        get         modtime     quote       system
+binary      glob        mput        recv        sunique
+bye         hash        newer       reget       tenex
+case        help        nmap        rstatus     tick
+cd          idle        nlist       rhelp       trace
+cdup        image       ntrans      rename      type
+chmod       lcd         open        reset       user
+close       ls          prompt      restart     umask
+cr          macdef      passive     rmdir       verbose
+delete      mdelete     proxy       runique     ?
+</code></pre>
+
+<h3>3. mount</h3>
+
+<p>现在<code>ftp</code>路径下创建文件夹：</p>
+
+<pre><code>mkdir /home/ftp/work
+</code></pre>
+
+<p>挂载：</p>
+
+<pre><code>mount --bind /home/meegoo/work /home/ftp/work
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Meegoo Tsui</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T13:56:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/server/'>server</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/31/octopress-skill/" title="Previous Post: octopress使用技巧">&laquo; octopress使用技巧</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/06/05/nfs-server-and-usage/" title="Next Post: nfs服务器安装及用法">nfs服务器安装及用法 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -208,6 +323,7 @@ Switch to the Diff &hellip;">
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -222,7 +338,10 @@ Switch to the Diff &hellip;">
       var disqus_shortname = 'meegootsui';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://meegoo-tsui.github.com/blog/2012/06/05/ftp-server-and-usage/';
+        var disqus_url = 'http://meegoo-tsui.github.com/blog/2012/06/05/ftp-server-and-usage/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

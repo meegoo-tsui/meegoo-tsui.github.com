@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: RaspberryPi | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/raspberrypi/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[4. Raspberry pi ruby]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/28/raspberry-pi-ruby/"/>
+    <updated>2013-07-28T08:50:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/28/raspberry-pi-ruby</id>
+    <content type="html"><![CDATA[<h2><a href="http://elinux.org/RPi_Ruby_on_Rails">Installing Ruby on Rails on Raspberry Pi</a></h2>
+
+<p>This is a guide to install <a href="http://rubyonrails.org">Ruby on Rails</a> on the Raspberry Pi computer running Debian "squeeze". It will also be useful to people who just require a <a href="http://www.ruby-lang.org">Ruby</a> installation. The guide can be followed by anyone if it all goes right, but when things go wrong, it is often difficult to see what the problem is. It will take several hours to complete and requires an internet connection.</p>
+
+<p>The guide has been developed/tested using debian6-19-04-2012. There is not enough room on a standard 2Gb image. I tested with an 8Gb image, but you may get away with 4Gb.</p>
+
+<p>The installation was all done from the basic (pre startx) command prompt. We will use Ruby Version Manager <a href="http://beginrescueend.com">RVM</a>, so first we must install all its prerequisites:</p>
+
+<pre><code># Install prerequisites
+sudo apt-get install -y git curl zlib1g-dev subversion
+</code></pre>
+
+<p>You might come across the error '404 not found', then try update your APT package index:</p>
+
+<pre><code># Update APT package index
+sudo apt-get update
+</code></pre>
+
+<p>The above is enough to proceed, but we will also need the following later, so whilst we're in the mood for apt-getting:</p>
+
+<pre><code># Additional Ruby dependencies
+sudo apt-get install -y openssl libreadline6-dev git-core zlib1g libssl-dev
+sudo apt-get install -y libyaml-dev libsqlite3-dev sqlite3
+sudo apt-get install -y libxml2-dev libxslt-dev
+sudo apt-get install -y autoconf automake libtool bison
+</code></pre>
+
+<p>Note: Not installing openssl before RVM will cause you <a href="https://rvm.io/packages/openssl/">grief</a> later!</p>
+
+<p>Now we can use RVM straight from github using:</p>
+
+<pre><code>curl -L get.rvm.io | bash -s stable --rails
+</code></pre>
+
+<p>Note: With my default Debian image and keyboard map, it was very hard to get a | (pipe) character. I got it by pressing AltGr+|</p>
+
+<p>When run, you will get some messages about requirements for Ruby. You need to press 'q'. Note the computer may not react straight away as it is 'thinking'. After a few seconds, the script will download and compile ruby 1.9 and Rails. This takes a long time! (3 Hrs) Have a sleep and check in the morning.</p>
+
+<p>At the end of the installation, RVM suggests that you have to run a script in order to enable Ruby. (I think I only had to do this once?)</p>
+
+<pre><code>pi@raspberrypi:~$ source ~/.rvm/scripts/rvm
+</code></pre>
+
+<p>Now you should have ruby:</p>
+
+<pre><code>pi@raspberrypi:~$ ruby -v
+ruby 1.9.3p194 (2012-04-20 revision 35410) [armv61-linux-eabi]
+</code></pre>
+
+<p>And you should have a rails command:</p>
+
+<pre><code>pi@raspberrypi:~$ rails -v
+Rails 3.2.3
+</code></pre>
+
+<h2>JavaScript</h2>
+
+<p>Rails requires a JavaScript runtime. Any of the following listed <a href="https://github.com/sstephenson/execjs">here</a> will do.
+I installed node.js using this <a href="http://blog.tomg.co/post/21322413373/how-to-install-node-js-on-your-raspberry-pi">blog</a> by Tom Gallacher. (Note I had to use sudo when doing make install)</p>
+
+<h2>Testing Installation</h2>
+
+<p>In order to test the installation, let's create a simple project.
+In this example the name for our new project is school.</p>
+
+<pre><code>pi@raspberrypi:~$ rails new school
+pi@raspberrypi:~$ cd school
+pi@raspberrypi:~$ rails g scaffold Pupil name:string form:string
+pi@raspberrypi:~$ rake db:migrate
+pi@raspberrypi:~$ rails s
+</code></pre>
+
+<p>All being well you will now have a running server with database back end, which you can point a browser at.</p>
+
+<p>Note: You can't use 'class' as a field name, so I chose 'form'.</p>
+
+<p>If you do the above in an X-windows terminal, then point the Raspberry-Pi browser to:</p>
+
+<pre><code>http://0.0.0.0:3000/pupils
+</code></pre>
+
+<p>You should then be able to Create, Read, Update &amp; Delete (Often called CRUD) pupil records in your database.</p>
+
+<p>Alternatively, if you have another computer on the same network, you can point its browser at the RPi substituting the 0.0.0.0 in the above address for the real RPi one. If you don't know the address of your RPi, then use the following command in a terminal:</p>
+
+<pre><code>hostname -I
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>We have a working installation of Ruby on Rails. It is very slow but just about usable. If this is your introduction to Ruby on Rails please don't let the speed put you off. If you follow this fantastic <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">tutorial</a> it will show you how to deploy to <a href="http://www.heroku.com/">Heroku</a> (for free), then your website will be as fast as those with proper computers.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[3. Raspberry pi config]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/06/raspberry-pi-config/"/>
+    <updated>2013-07-06T00:50:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/06/raspberry-pi-config</id>
+    <content type="html"><![CDATA[<ul>
+<li>安装基本命令</li>
+</ul>
+
+
+<p>To config apt-get software</p>
+
+<pre><code>pi@raspberrypi ~ $ cat  /etc/apt/sources.list
+deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
+</code></pre>
+
+<p>To install a package where you already know the name</p>
+
+<pre><code>sudo apt-get install &lt;name of software&gt;
+</code></pre>
+
+<p>To search for software by name</p>
+
+<pre><code>sudo apt-cache search &lt;key word for search&gt;
+</code></pre>
+
+<p>To update the repository database on your Rpi</p>
+
+<pre><code>sudo apt-get update
+</code></pre>
+
+<p>To uninstall a previously installed package</p>
+
+<pre><code>sudo apt-get remove &lt;name of software to remove&gt;
+</code></pre>
+
+<p>To update all current packages with the latest version</p>
+
+<pre><code>sudo apt-get upgrade
+</code></pre>
+
+<p>执行：</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<ul>
+<li>local配置</li>
+</ul>
+
+
+<p>执行：</p>
+
+<pre><code>sudo apt-get install locales
+export LANGUAGE='en_US'
+export LC_ALL="en_US.UTF-8"
+sudo dpkg-reconfigure locales
+</code></pre>
+
+<ul>
+<li>IP配置</li>
+</ul>
+
+
+<p>修改文件：</p>
+
+<pre><code>pi@raspberrypi ~ $ cat /etc/network/interfaces
+auto lo
+iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address 192.168.55.111  
+gateway 192.168.55.1
+netmask 255.255.255.0
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+</code></pre>
+
+<ul>
+<li>备份 - buildsys.git/shell/rpi-clone</li>
+</ul>
+
+
+<p>运行：</p>
+
+<pre><code>$ git clone https://github.com/billw2/rpi-clone.git 
+$ cd rpi-clone
+$ cp rpi-clone /usr/local/sbin
+</code></pre>
+
+<p>修改文件：</p>
+
+<p>SD卡兼容表： <a href="http://elinux.org/RPi_SD_cards">http://elinux.org/RPi_SD_cards</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[2. Raspberry pi ssh]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/05/raspberry-pi-ssh/"/>
+    <updated>2013-07-05T21:23:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/05/raspberry-pi-ssh</id>
+    <content type="html"><![CDATA[<p>{% img http://www.raspberrypi.org/wp-content/themes/raspite/img/PiOrg-Site-Sidebar-003.gif %}</p>
+
+<p><a href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a></p>
+
+<ul>
+<li>使能路由器dhcp功能，查看raspberry pi的ip地址，且ping成功</li>
+<li>ssh登录raspberry pi, Username: pi Password: raspberry</li>
+</ul>
+
+
+<p>登录过程如下：</p>
+
+<pre><code>meegoo@mg:~$ ssh pi@192.168.1.60
+ssh_exchange_identification: read: Connection reset by peer
+
+meegoo@mg:~$ ssh pi@192.168.1.60
+
+Linux raspberrypi 3.6.11+ #456 PREEMPT Mon May 20 17:42:15 BST 2013 armv6l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+
+NOTICE: the software on this Raspberry Pi has not been fully configured. Please run 'sudo raspi-config'
+
+pi@raspberrypi ~ $ 
+</code></pre>
+
+<ul>
+<li>配置raspberry pi</li>
+</ul>
+
+
+<p>结果如下：</p>
+
+<pre><code>pi@raspberrypi ~ $ sudo raspi-config
+
+┌────────────────────────────┤ Raspberry Pi Software Configuration Tool (raspi-config) ├────────────────────────────┐
+│ Setup Options                                                                                                     │
+│                                                                                                                   │
+│        1 Expand Filesystem            Ensures that all of the SD card storage is available to the OS              │
+│        2 Change User Password         Change password for the default user (pi)                                   │
+│        3 Enable Boot to Desktop       Choose whether to boot into a desktop environment or the command-line       │
+│        4 Internationalisation Options Set up language and regional settings to match your location                │
+│        5 Enable Camera                Enable this Pi to work with the Raspberry Pi Camera                         │
+│        6 Add to Rastrack              Add this Pi to the online Raspberry Pi Map (Rastrack)                       │
+│        7 Overclock                    Configure overclocking for your Pi                                          │
+│        8 Advanced Options             Configure advanced settings                                                 │
+│        9 About raspi-config           Information about this configuration tool                                   │
+│                                                                                                                   │
+│                                                                                                                   │
+│                                 &lt;Select&gt;                                 &lt;Finish&gt;                                 │
+│                                                                                                                   │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[1. Raspberry pi install]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/05/raspberry-pi-install/"/>
+    <updated>2013-07-05T20:23:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/05/raspberry-pi-install</id>
+    <content type="html"><![CDATA[<p>{% img http://www.raspberrypi.org/wp-content/themes/raspite/img/PiOrg-Site-Sidebar-003.gif %}</p>
+
+<p><a href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a></p>
+
+<ul>
+<li>安装版本<a href="http://www.raspberrypi.org/downloads">Raspbian “wheezy”</a></li>
+</ul>
+
+
+<p>下载安装包，当前版本为2013-05-25-wheezy-raspbian.zip，然后解压得到文件2013-05-25-wheezy-raspbian.img。</p>
+
+<ul>
+<li>插上SD卡，运行 <code>df -h</code> 查看挂在设备且移除</li>
+</ul>
+
+
+<p>运行如下：</p>
+
+<pre><code>meegoo@mg:meegoo-tsui.github.com.git$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdb1       3.7G   19M  3.7G   1% /media/boot
+
+meegoo@mg:meegoo-tsui.github.com.git$ umount /dev/sdb1
+meegoo@mg:meegoo-tsui.github.com.git$ umount /dev/sdb2
+...
+</code></pre>
+
+<ul>
+<li>使用<code>dd</code>写镜像到SD卡</li>
+</ul>
+
+
+<p>运行如下：</p>
+
+<pre><code>meegoo@mg:~$ sudo dd bs=1M if=./2013-05-25-wheezy-raspbian.img of=/dev/sdb
+1850+0 records in
+1850+0 records out
+1939865600 bytes (1.9 GB) copied, 300.62 s, 6.5 MB/s
+
+meegoo@mg:meegoo-tsui.github.com.git$ sudo sync
+</code></pre>
+
+<ul>
+<li>使用<code>dd</code>读取SD卡备份镜像</li>
+</ul>
+
+
+<p>运行如下：</p>
+
+<pre><code>meegoo@mg:~$ sudo dd bs=1M if=/dev/sdb | gzip &gt; ./`date +%Y-%m-%d`_wheezy-raspbian.gz
+</code></pre>
+
+<p>至此完成镜像的安装，拔出SD卡，插入raspberry pi。</p>
+
+<p>{% img http://images.weiphone.com/attachments/Day_130504/0_3600269_a9f76102b632c5a.jpg %}</p>
+]]></content>
+  </entry>
+  
+</feed>

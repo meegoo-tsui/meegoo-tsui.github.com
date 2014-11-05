@@ -9,10 +9,7 @@
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
-################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+  <meta name="description" content="Qt git clone git://gitorious.org/qt/qt.git Qt Creator git clone git://gitorious.org/qt-creator/qt-creator.git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/15">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +84,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/06/23/qt/">Qt Build</a></h1>
     
     
       <p class="meta">
@@ -103,52 +100,39 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-06-23T14:32:00+08:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2012/06/23/qt/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
+  <div class="entry-content"><h3><a href="http://qt.gitorious.org/qt">Qt</a></h3>
+
+<pre><code>git clone git://gitorious.org/qt/qt.git
+</code></pre>
+
+<h3><a href="http://qt.gitorious.org/qt-creator">Qt Creator</a></h3>
+
+<pre><code>git clone git://gitorious.org/qt-creator/qt-creator.git
+</code></pre>
+
+<!---
 ################################################################################
 -->
 
 
-<h3>Diff</h3>
+<h3>Qt x11 - ubuntu 12.04安装依赖</h3>
 
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Merge</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
-
-
-<hr />
-
-
-
+<pre><code>sudo apt-get install -y libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+sudo apt-get install -y debhelper dpatch flex libaudio-dev libcups2-dev libfontconfig1-dev libfreetype6-dev libdbus-1-dev libxtst-dev
+sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev libice-dev libiodbc2-dev libjpeg-dev libmng-dev
+sudo apt-get install -y libmysqlclient-dev libpng12-dev libpq-dev libsm-dev libsqlite3-dev libx11-dev libxcursor-dev libasound2-dev
+sudo apt-get install -y libxext-dev libxft-dev libxi-dev libxinerama-dev libxmu-dev libxrandr-dev libxrender-dev libxt-dev zlib1g-dev
+sudo apt-get install -y libtiff4-dev
+</code></pre>
 </div>
   
   
@@ -158,9 +142,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/16/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/14/">Newer &rarr;</a>
     
   </div>
 </div>

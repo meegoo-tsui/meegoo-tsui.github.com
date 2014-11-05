@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>明牯工作室 - 嵌入式软件服务</title>
+  <title>脚本笔记 - 明牯工作室 - 嵌入式软件服务</title>
   <meta name="author" content="Meegoo Tsui">
 
   
   <meta name="description" content="<!---
 ################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+--> 1 2 3 4 awk sed shell python &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/2013/06/07/script-skill">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -30,6 +29,8 @@ Switch to the Diff &hellip;">
   <link href="/atom.xml" rel="alternate" title="明牯工作室 - 嵌入式软件服务" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="/stylesheets/google-fonts.css" rel="stylesheet" type="text/css">
+
+<link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
 
 
@@ -79,15 +80,12 @@ Switch to the Diff &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title">脚本笔记</h1>
     
     
       <p class="meta">
@@ -103,67 +101,161 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2013-06-07T10:11:00+08:00" pubdate data-updated="true">Jun 7<span>th</span>, 2013</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
+<div class="entry-content"><!---
 ################################################################################
 -->
 
 
-<h3>Diff</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
+<hr />
 
 
-<h3>Merge</h3>
+<table>
+<thead>
+<tr>
+<th align="left">1                 </th>
+<th align="center">2                 </th>
+<th align="center">3                 </th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="#awk">awk</a>       </td>
+<td align="center"><a href="#sed">sed</a>       </td>
+<td align="center"><a href="#shell">shell</a>   </td>
+<td align="right"><a href="#python">python</a></td>
+</tr>
+</tbody>
+</table>
 
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
 
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
+<!---
+################################################################################
+-->
 
+
+<hr />
+
+
+<h3 id="sed">sed</h3>
+
+
+<ol>
+<li><a href="http://www.brunolinux.com/02-The_Terminal/Find_and%20Replace_with_Sed.html">FIND AND REPLACE with SED</a></li>
+</ol>
+
+
+<p>replace all the words "ugly" with "beautiful"：</p>
+
+<pre><code>sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<p>replace all the words "ugly*" with "beautiful"：</p>
+
+<pre><code>sed -i 's/ugly.*/beautiful/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<p>replace all the words "ugly*" with $VAR：</p>
+
+<pre><code>sed -i 's/ugly.*/'"$VAR"'/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="shell">shell</h3>
+
+
+<ol>
+<li>rmp</li>
+</ol>
+
+
+<p>rmp command:</p>
+
+<pre><code>rpm -ivh *.rpm              # install
+rpm -qpl *.rpm              # list
+rpm2cpio *.rpm | cpio -div  # extract
+</code></pre>
 
 <hr />
 
 
 
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Meegoo Tsui</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2013-06-07T10:11:00+08:00" pubdate data-updated="true">Jun 7<span>th</span>, 2013</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/blog/categories/linux/'>linux</a>
+  
+</span>
+
+
+    </p>
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/05/10/bitnami-server-and-usage/" title="Previous Post: bitnami服务器安装及用法">&laquo; bitnami服务器安装及用法</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/07/05/raspberry-pi-install/" title="Next Post: 1. Raspberry pi install">1. Raspberry pi install &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -208,6 +300,7 @@ Switch to the Diff &hellip;">
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -222,7 +315,10 @@ Switch to the Diff &hellip;">
       var disqus_shortname = 'meegootsui';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://meegoo-tsui.github.com/blog/2013/06/07/script-skill/';
+        var disqus_url = 'http://meegoo-tsui.github.com/blog/2013/06/07/script-skill/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

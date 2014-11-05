@@ -9,10 +9,9 @@
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
+  <meta name="description" content="系统环境： ubuntu10.04 samba服务器安装 samba服务器使用 <!---
 ################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+--> samba服务器安装 1. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/23">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +86,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/06/05/samba-server-and-usage/">Samba服务器安装及用法</a></h1>
     
     
       <p class="meta">
@@ -103,52 +102,126 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-06-05T13:56:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2012/06/05/samba-server-and-usage/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
+  <div class="entry-content"><p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">samba服务器安装</a></li>
+<li> <a href="#usage">samba服务器使用</a></li>
+</ul>
+
+
+<!---
 ################################################################################
 -->
-
-
-<h3>Diff</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Merge</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
 
 
 <hr />
 
 
+<h3 id="install">samba服务器安装</h3>
 
+
+<h3>1. 安装软件包</h3>
+
+<pre><code>sudo apt-get install samba samba-common samba-common-bin system-config-samba
+</code></pre>
+
+<h3>2. 运行</h3>
+
+<pre><code>sudo smbd start
+</code></pre>
+
+<h3>3. 图形界面配置</h3>
+
+<pre><code>sudo system-config-samba
+</code></pre>
+
+<h3>4. 命令行配置</h3>
+
+<p>修改配置文件：</p>
+
+<pre><code>sudo gedit /etc/samba/smb.conf
+</code></pre>
+
+<p>修改内容如下：</p>
+
+<pre><code>####### Authentication #######
+
+# “security = user” is always a good idea. This will require a Unix account
+# in this server for every user accessing the server. See
+# /usr/share/doc/samba-doc/htmldocs/Samba-HOWTO-Collection/ServerType.html
+# in the samba-doc package for details.
+;  security = user
+</code></pre>
+
+<p>修改为：</p>
+
+<pre><code>security = user
+username map = /etc/samba/smbusers
+</code></pre>
+
+<p>添加samba用户：</p>
+
+<pre><code>sudo smbpasswd -a meegoo
+</code></pre>
+
+<p>添加到samba用户文件，格式为<code>&lt;ubuntuusername&gt; = “&lt;samba username&gt;”</code></p>
+
+<pre><code>sudo gedit /etc/samba/smbusers
+</code></pre>
+
+<h3>5. 添加samba共享路径</h3>
+
+<p>修改配置文件：</p>
+
+<pre><code>sudo gedit /etc/samba/smb.conf
+</code></pre>
+
+<p>文件尾添加内容如下：</p>
+
+<pre><code>[meegoo]
+    path = /home/meegoo
+    writeable = yes
+;   browseable = yes
+    valid users = meegoo 
+</code></pre>
+
+<p>开始或重启samba服务：</p>
+
+<pre><code>sudo smbd start
+sudo smbd restart
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">samba服务器使用</h3>
+
+
+<h3>1. 安装smbfs</h3>
+
+<pre><code>sudo apt-get install smbfs
+</code></pre>
+
+<h3>2. 挂载samba</h3>
+
+<pre><code>sudo mkdir /mnt/samba
+sudo mount -t smbfs -o username=meegoo //192.168.0.238/meegoo /mnt/samba
+</code></pre>
 </div>
   
   
@@ -158,9 +231,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/24/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/22/">Newer &rarr;</a>
     
   </div>
 </div>

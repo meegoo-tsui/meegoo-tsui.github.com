@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: build | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/build/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[build - open source]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/10/06/build/"/>
+    <updated>2012-10-06T10:55:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/10/06/build</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<ul>
+<li> <a href="#gnu_gcc">gcc-4.1.2</a></li>
+<li> <a href="#gnu_binutils">binutils-2.17</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="gnu_gcc">gcc-4.1.2编译 - ubuntu 12.04 x86</h3>
+
+
+<p>参考：<a href="http://csl.skku.edu/SSE3044F12/GCC">http://csl.skku.edu/SSE3044F12/GCC</a>  <br/>
+配置相关库路径：</p>
+
+<pre><code>cd /usr/include \
+sudo ln -s i386-linux-gnu/bits bits \
+sudo ln -s i386-linux-gnu/gnu gnu \
+sudo ln -s i386-linux-gnu/sys sys \
+sudo ln -s i386-linux-gnu/asm asm \
+cd /usr/lib \
+sudo ln -s i386-linux-gnu/crt1.o crt1.o \
+sudo ln -s i386-linux-gnu/crti.o crti.o \
+sudo ln -s i386-linux-gnu/crtn.o crtn.o
+</code></pre>
+
+<p>配置生成makefile:</p>
+
+<pre><code>../gcc-4.1.2/configure --prefix=/home/meegoo/workspace/toolchains/gcc-4.1.2 --libexecdir=/home/meegoo/workspace/toolchains/gcc-4.1.2 --enable-shared --enable-threads=posix --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --enable-languages=c,c++ 
+</code></pre>
+
+<p>编译：</p>
+
+<pre><code>make bootstrap MAKEINFO=makeinfo
+</code></pre>
+
+<p>安装：</p>
+
+<pre><code>make install
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="gnu_binutils">binutils-2.17编译 - ubuntu 12.04 x86</h3>
+
+
+<p>配置生成makefile:</p>
+
+<pre><code>../binutils-2.17/configure --prefix=/home/meegoo/workspace/toolchains/binutils-2.17 --enable-shared
+</code></pre>
+
+<p>编译：</p>
+
+<pre><code>make tooldir=/home/meegoo/workspace/toolchains/binutils-2.17
+</code></pre>
+
+<p>安装：</p>
+
+<pre><code>make tooldir=/home/meegoo/workspace/toolchains/binutils-2.17 install
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

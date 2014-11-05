@@ -9,10 +9,9 @@
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
+  <meta name="description" content="系统环境： ubuntu10.04 ssh服务器安装 ssh服务器使用 <!---
 ################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+--> ssh服务器安装 1. 安装软件包 sudo &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/22">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +86,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/06/05/ssh-server-and-usage/">Ssh服务器安装及用法</a></h1>
     
     
       <p class="meta">
@@ -103,52 +102,88 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-06-05T13:56:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2012/06/05/ssh-server-and-usage/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
+  <div class="entry-content"><p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">ssh服务器安装</a></li>
+<li> <a href="#usage">ssh服务器使用</a></li>
+</ul>
+
+
+<!---
 ################################################################################
 -->
-
-
-<h3>Diff</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Merge</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
 
 
 <hr />
 
 
+<h3 id="install">ssh服务器安装</h3>
 
+
+<h3>1. 安装软件包</h3>
+
+<pre><code>sudo apt-get install openssh-server
+</code></pre>
+
+<h3>2. 重启ssh服务</h3>
+
+<pre><code>sudo /etc/init.d/ssh restart
+</code></pre>
+
+<h3>3. 查看</h3>
+
+<pre><code>netstat -tlp | grep ssh
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">ssh服务器使用</h3>
+
+
+<h3>1. 用法</h3>
+
+<pre><code>SYNOPSIS
+
+ssh [-l login_name ] hostname | user@hostname [command ]
+ssh [-afgknqstvxACNTX1246 ] [-b bind_address ] [-c cipher_spec ] 
+[-e escape_char ] [-i identity_file ] [-l login_name ] [-m mac_spec ] 
+[-o option ] [-p port ] [-F configfile ] [-L port host hostport ] 
+[-R port host hostport ] [-D port ] hostname | user@hostname [command ] 
+</code></pre>
+
+<h3>2. 热键</h3>
+
+<pre><code>~.
+    Disconnect 
+~^Z
+    Background ssh 
+~#
+    List forwarded connections 
+~&amp;
+    Background ssh at logout when waiting for forwarded connection / X11 sessions to terminate 
+~?
+    Display a list of escape characters 
+~C
+    Open command line (only useful for adding port forwardings using the -L and -R options) 
+~R
+    Request rekeying of the connection (only useful for SSH protocol version 2 and if the peer supports it)
+</code></pre>
 </div>
   
   
@@ -158,9 +193,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/23/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/21/">Newer &rarr;</a>
     
   </div>
 </div>

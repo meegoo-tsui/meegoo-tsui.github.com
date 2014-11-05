@@ -1,0 +1,1711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:22+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[TortoiseGit With Beyond Compare 3]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2014/08/04/tortoiseGit-with-BC/"/>
+    <updated>2014-08-04T22:33:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2014/08/04/tortoiseGit-with-BC</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<h3>Diff</h3>
+
+<ul>
+<li><p>Launch TortoiseGit | Settings</p></li>
+<li><p>Switch to the Diff Viewer section under External Programs</p></li>
+<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+
+<ul>
+<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Merge</h3>
+
+<ul>
+<li><p>Launch TortoiseGit | Settings</p></li>
+<li><p>Switch to the Merge Tool section under External Programs</p></li>
+<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+
+<ul>
+<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[submin 安装]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/12/10/submin/"/>
+    <updated>2013-12-10T16:50:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/12/10/submin</id>
+    <content type="html"><![CDATA[<ul>
+<li><p>下载<a href="http://supermind.nl/submin/current/submin-1.2.11-1.tar.gz">submin-1.2.11-1</a></p></li>
+<li><p>安装：python bin/install.py /usr/local/submin</p></li>
+<li><p>初始化：/usr/local/submin/bin/submin-admin create default</p></li>
+<li><p>修改： /etc/apache2/mods-available/dav_svn.conf</p></li>
+</ul>
+
+
+<p>如下：</p>
+
+<pre><code>WSGIScriptAlias /submin /usr/local/submin/share/submin/www/submin.wsgi
+AliasMatch ^/submin/css/(.*) /usr/local/submin/share/submin/www/css/$1
+AliasMatch ^/submin/img/(.*) /usr/local/submin/share/submin/www/img/$1
+AliasMatch ^/submin/js/(.*) /usr/local/submin/share/submin/www/js/$1
+
+&lt;Location /submin&gt;
+    SetEnv SUBMIN_CONF /etc/submin/default.conf
+&lt;/Location&gt;
+</code></pre>
+
+<ul>
+<li>修改：/etc/submin/default.conf</li>
+</ul>
+
+
+<p>如下：</p>
+
+<pre><code>[svn]
+authz_file = /home/svn/dav_svn.authz
+userprop_file = /var/lib/submin/userproperties.conf
+access_file = /home/svn/dav_svn.passwd
+repositories = /home/svn
+
+[www]
+base_url = /submin
+svn_base_url = /svn
+trac_base_url = /trac
+
+[backend]
+bindir = /usr/local/submin/share/submin/bin
+
+[generated]
+session_salt = 24j1416EThk2vhdL
+</code></pre>
+
+<ul>
+<li>修改权限为www-data</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[slickedit基本操作]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/10/04/slickedit/"/>
+    <updated>2013-10-04T15:00:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/10/04/slickedit</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<ol>
+<li><a href="#install">下载安装</a></li>
+<li><a href="#system">系统设置</a></li>
+<li><a href="#display">显示设置</a></li>
+<li><a href="#edit">编辑设置</a></li>
+<li><a href="#hotkey">快捷使用</a></li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="install">下载安装</h3>
+
+
+<ul>
+<li><p>下载地址 - <a href="http://www.slickedit.com/trial/slickedit">http://www.slickedit.com/trial/slickedit</a></p></li>
+<li><p>ubuntu 12.04 桌面快捷键 SlickEdit-18.0.1.2.desktop 内容：</p></li>
+</ul>
+
+
+<pre><code> 
+    [Desktop Entry]
+    Version=1.0
+    Name=SlickEdit 2013
+    Comment=SlickEdit 2013 version 18.0.1.2
+    Exec=/usr/local/slickedit/bin/vs -sc "/home/meegoo/.slickedit/" %F +new
+    Icon=/usr/local/slickedit/bitmaps/vse32.xpm
+    Type=Application
+    Categories=Application;Development;IDE;
+</code></pre>
+
+
+<ul>
+<li>清除配置文件, ubuntu - <code>rm -rf /home/meegoo/.slickedit</code>, windows - <code>meegoo/Documents/My SlickEdit Config</code></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="system">系统设置</h3>
+
+
+<ul>
+<li>设置本身的设置 - Tool -> Option -> Application Option -> Exit -> Save Configuration 选择&#8221;***immediately&#8221;</li>
+<li>启动多个SE实例 - 修改启动命令行，加多一个+new作为参数传进去</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="display">显示设置</h3>
+
+
+<ul>
+<li>设置Tab宽度 - Tools -> Options -> Languages -> All Languages -> Formatting -> Indent, 选择Indent，Syntax 4, Tabs:4,C++ -> formatting 修改My default</li>
+<li>显示行数 - Tool -> Option -> Languages -> All Language -> View</li>
+<li>折叠功能 - 在主窗口的工具栏上面右击，然后选择 Toolbars -> Selective Display</li>
+<li>编辑器风格 - Tool -> Option -> Keyboard and mouse -> Emulation -> Vim</li>
+<li>编码设置 - Tools -> Options -> File Options -> Load -> encoding, UTF-8</li>
+<li>字体设置 - Tools -> Options -> Appearance -> Fonts -> Unicode Source Windows，SBCS/DBCS Source Windows</li>
+<li>单行显示 - Tools -> Options -> Languages -> All Languages -> Word Wrap, 全部不选</li>
+<li>特殊符号 - Tool -> Option -> Languages -> All Language -> View -> Special Characters</li>
+<li>显示竖线 - Tools->Options->Appearance->General, Vertical line column设成80，下面可以设置一个颜色。字体设置时，三个选项全选。</li>
+<li>颜色方案 - Tools -> Options -> Appearance -> Colors, Black</li>
+<li>修改颜色 - Tool -> Option -> Languages -> All Language -> View， 全选</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="edit">编辑设置</h3>
+
+
+<ul>
+<li>if格式风格 - Tools -> Options -> Languages -> All Languages -> Formatting -> Begin/end style</li>
+<li>注释与反注释 - Document->Comment Lines和Document->Uncomment Lines, 注释命令行为:comment, 反注释命令行为:comment-erase</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="hotkey">快捷使用</h3>
+
+
+<ul>
+<li>高亮显示 -</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[4. Raspberry pi ruby]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/28/raspberry-pi-ruby/"/>
+    <updated>2013-07-28T08:50:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/28/raspberry-pi-ruby</id>
+    <content type="html"><![CDATA[<h2><a href="http://elinux.org/RPi_Ruby_on_Rails">Installing Ruby on Rails on Raspberry Pi</a></h2>
+
+<p>This is a guide to install <a href="http://rubyonrails.org">Ruby on Rails</a> on the Raspberry Pi computer running Debian &#8220;squeeze&#8221;. It will also be useful to people who just require a <a href="http://www.ruby-lang.org">Ruby</a> installation. The guide can be followed by anyone if it all goes right, but when things go wrong, it is often difficult to see what the problem is. It will take several hours to complete and requires an internet connection.</p>
+
+<p>The guide has been developed/tested using debian6-19-04-2012. There is not enough room on a standard 2Gb image. I tested with an 8Gb image, but you may get away with 4Gb.</p>
+
+<p>The installation was all done from the basic (pre startx) command prompt. We will use Ruby Version Manager <a href="http://beginrescueend.com">RVM</a>, so first we must install all its prerequisites:</p>
+
+<pre><code># Install prerequisites
+sudo apt-get install -y git curl zlib1g-dev subversion
+</code></pre>
+
+<p>You might come across the error &#8216;404 not found&#8217;, then try update your APT package index:</p>
+
+<pre><code># Update APT package index
+sudo apt-get update
+</code></pre>
+
+<p>The above is enough to proceed, but we will also need the following later, so whilst we&#8217;re in the mood for apt-getting:</p>
+
+<pre><code># Additional Ruby dependencies
+sudo apt-get install -y openssl libreadline6-dev git-core zlib1g libssl-dev
+sudo apt-get install -y libyaml-dev libsqlite3-dev sqlite3
+sudo apt-get install -y libxml2-dev libxslt-dev
+sudo apt-get install -y autoconf automake libtool bison
+</code></pre>
+
+<p>Note: Not installing openssl before RVM will cause you <a href="https://rvm.io/packages/openssl/">grief</a> later!</p>
+
+<p>Now we can use RVM straight from github using:</p>
+
+<pre><code>curl -L get.rvm.io | bash -s stable --rails
+</code></pre>
+
+<p>Note: With my default Debian image and keyboard map, it was very hard to get a | (pipe) character. I got it by pressing AltGr+|</p>
+
+<p>When run, you will get some messages about requirements for Ruby. You need to press &#8216;q&#8217;. Note the computer may not react straight away as it is &#8216;thinking&#8217;. After a few seconds, the script will download and compile ruby 1.9 and Rails. This takes a long time! (3 Hrs) Have a sleep and check in the morning.</p>
+
+<p>At the end of the installation, RVM suggests that you have to run a script in order to enable Ruby. (I think I only had to do this once?)</p>
+
+<pre><code>pi@raspberrypi:~$ source ~/.rvm/scripts/rvm
+</code></pre>
+
+<p>Now you should have ruby:</p>
+
+<pre><code>pi@raspberrypi:~$ ruby -v
+ruby 1.9.3p194 (2012-04-20 revision 35410) [armv61-linux-eabi]
+</code></pre>
+
+<p>And you should have a rails command:</p>
+
+<pre><code>pi@raspberrypi:~$ rails -v
+Rails 3.2.3
+</code></pre>
+
+<h2>JavaScript</h2>
+
+<p>Rails requires a JavaScript runtime. Any of the following listed <a href="https://github.com/sstephenson/execjs">here</a> will do.
+I installed node.js using this <a href="http://blog.tomg.co/post/21322413373/how-to-install-node-js-on-your-raspberry-pi">blog</a> by Tom Gallacher. (Note I had to use sudo when doing make install)</p>
+
+<h2>Testing Installation</h2>
+
+<p>In order to test the installation, let&#8217;s create a simple project.
+In this example the name for our new project is school.</p>
+
+<pre><code>pi@raspberrypi:~$ rails new school
+pi@raspberrypi:~$ cd school
+pi@raspberrypi:~$ rails g scaffold Pupil name:string form:string
+pi@raspberrypi:~$ rake db:migrate
+pi@raspberrypi:~$ rails s
+</code></pre>
+
+<p>All being well you will now have a running server with database back end, which you can point a browser at.</p>
+
+<p>Note: You can&#8217;t use &#8216;class&#8217; as a field name, so I chose &#8216;form&#8217;.</p>
+
+<p>If you do the above in an X-windows terminal, then point the Raspberry-Pi browser to:</p>
+
+<pre><code>http://0.0.0.0:3000/pupils
+</code></pre>
+
+<p>You should then be able to Create, Read, Update &amp; Delete (Often called CRUD) pupil records in your database.</p>
+
+<p>Alternatively, if you have another computer on the same network, you can point its browser at the RPi substituting the 0.0.0.0 in the above address for the real RPi one. If you don&#8217;t know the address of your RPi, then use the following command in a terminal:</p>
+
+<pre><code>hostname -I
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>We have a working installation of Ruby on Rails. It is very slow but just about usable. If this is your introduction to Ruby on Rails please don&#8217;t let the speed put you off. If you follow this fantastic <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">tutorial</a> it will show you how to deploy to <a href="http://www.heroku.com/">Heroku</a> (for free), then your website will be as fast as those with proper computers.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[vmware]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/10/vmware/"/>
+    <updated>2013-07-10T20:10:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/10/vmware</id>
+    <content type="html"><![CDATA[<ul>
+<li>vmware 修改分区大小</li>
+</ul>
+
+
+<p>dos下执行：</p>
+
+<pre><code>D:\Program Files\vmware8.0&gt;vmware-vdiskmanager.exe -x 40Gb E:\vmware\ubuntu12.04-dm8148-vm\ubuntu12.04.vmdk
+</code></pre>
+
+<ul>
+<li>vmware 修改bios</li>
+</ul>
+
+
+<p>添加bios.bootDelay = &#8220;3000&#8221;到文件ubuntu12.04.vmx，时间单位为ms</p>
+
+<ul>
+<li><p>livecd 修改分区</p>
+
+<ul>
+<li>使用LiveCD启动，使用gparted进行分区调整，分区要临近；</li>
+<li>sudo blkid; cat /etc/fstab; 修改UUID保持一致；sudo swapon -a</li>
+</ul>
+</li>
+<li><p>vmware 磁盘压缩</p>
+
+<ul>
+<li>sudo vmware-toolbox; shrink</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[3. Raspberry pi config]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/06/raspberry-pi-config/"/>
+    <updated>2013-07-06T00:50:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/06/raspberry-pi-config</id>
+    <content type="html"><![CDATA[<ul>
+<li>安装基本命令</li>
+</ul>
+
+
+<p>To config apt-get software</p>
+
+<pre><code>pi@raspberrypi ~ $ cat  /etc/apt/sources.list
+deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
+</code></pre>
+
+<p>To install a package where you already know the name</p>
+
+<pre><code>sudo apt-get install &lt;name of software&gt;
+</code></pre>
+
+<p>To search for software by name</p>
+
+<pre><code>sudo apt-cache search &lt;key word for search&gt;
+</code></pre>
+
+<p>To update the repository database on your Rpi</p>
+
+<pre><code>sudo apt-get update
+</code></pre>
+
+<p>To uninstall a previously installed package</p>
+
+<pre><code>sudo apt-get remove &lt;name of software to remove&gt;
+</code></pre>
+
+<p>To update all current packages with the latest version</p>
+
+<pre><code>sudo apt-get upgrade
+</code></pre>
+
+<p>执行：</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<ul>
+<li>local配置</li>
+</ul>
+
+
+<p>执行：</p>
+
+<pre><code>sudo apt-get install locales
+export LANGUAGE='en_US'
+export LC_ALL="en_US.UTF-8"
+sudo dpkg-reconfigure locales
+</code></pre>
+
+<ul>
+<li>IP配置</li>
+</ul>
+
+
+<p>修改文件：</p>
+
+<pre><code>pi@raspberrypi ~ $ cat /etc/network/interfaces
+auto lo
+iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address 192.168.55.111  
+gateway 192.168.55.1
+netmask 255.255.255.0
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+</code></pre>
+
+<ul>
+<li>备份 - buildsys.git/shell/rpi-clone</li>
+</ul>
+
+
+<p>运行：</p>
+
+<pre><code>$ git clone https://github.com/billw2/rpi-clone.git 
+$ cd rpi-clone
+$ cp rpi-clone /usr/local/sbin
+</code></pre>
+
+<p>修改文件：</p>
+
+<p>SD卡兼容表： <a href="http://elinux.org/RPi_SD_cards">http://elinux.org/RPi_SD_cards</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[2. Raspberry pi ssh]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/05/raspberry-pi-ssh/"/>
+    <updated>2013-07-05T21:23:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/05/raspberry-pi-ssh</id>
+    <content type="html"><![CDATA[<p><img src="http://www.raspberrypi.org/wp-content/themes/raspite/img/PiOrg-Site-Sidebar-003.gif"></p>
+
+<p><a href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a></p>
+
+<ul>
+<li>使能路由器dhcp功能，查看raspberry pi的ip地址，且ping成功</li>
+<li>ssh登录raspberry pi, Username: pi Password: raspberry</li>
+</ul>
+
+
+<p>登录过程如下：</p>
+
+<pre><code>meegoo@mg:~$ ssh pi@192.168.1.60
+ssh_exchange_identification: read: Connection reset by peer
+
+meegoo@mg:~$ ssh pi@192.168.1.60
+
+Linux raspberrypi 3.6.11+ #456 PREEMPT Mon May 20 17:42:15 BST 2013 armv6l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+
+NOTICE: the software on this Raspberry Pi has not been fully configured. Please run 'sudo raspi-config'
+
+pi@raspberrypi ~ $ 
+</code></pre>
+
+<ul>
+<li>配置raspberry pi</li>
+</ul>
+
+
+<p>结果如下：</p>
+
+<pre><code>pi@raspberrypi ~ $ sudo raspi-config
+
+┌────────────────────────────┤ Raspberry Pi Software Configuration Tool (raspi-config) ├────────────────────────────┐
+│ Setup Options                                                                                                     │
+│                                                                                                                   │
+│        1 Expand Filesystem            Ensures that all of the SD card storage is available to the OS              │
+│        2 Change User Password         Change password for the default user (pi)                                   │
+│        3 Enable Boot to Desktop       Choose whether to boot into a desktop environment or the command-line       │
+│        4 Internationalisation Options Set up language and regional settings to match your location                │
+│        5 Enable Camera                Enable this Pi to work with the Raspberry Pi Camera                         │
+│        6 Add to Rastrack              Add this Pi to the online Raspberry Pi Map (Rastrack)                       │
+│        7 Overclock                    Configure overclocking for your Pi                                          │
+│        8 Advanced Options             Configure advanced settings                                                 │
+│        9 About raspi-config           Information about this configuration tool                                   │
+│                                                                                                                   │
+│                                                                                                                   │
+│                                 &lt;Select&gt;                                 &lt;Finish&gt;                                 │
+│                                                                                                                   │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[1. Raspberry pi install]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/07/05/raspberry-pi-install/"/>
+    <updated>2013-07-05T20:23:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/07/05/raspberry-pi-install</id>
+    <content type="html"><![CDATA[<p><img src="http://www.raspberrypi.org/wp-content/themes/raspite/img/PiOrg-Site-Sidebar-003.gif"></p>
+
+<p><a href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a></p>
+
+<ul>
+<li>安装版本<a href="http://www.raspberrypi.org/downloads">Raspbian “wheezy”</a></li>
+</ul>
+
+
+<p>下载安装包，当前版本为2013-05-25-wheezy-raspbian.zip，然后解压得到文件2013-05-25-wheezy-raspbian.img。</p>
+
+<ul>
+<li>插上SD卡，运行 <code>df -h</code> 查看挂在设备且移除</li>
+</ul>
+
+
+<p>运行如下：</p>
+
+<pre><code>meegoo@mg:meegoo-tsui.github.com.git$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdb1       3.7G   19M  3.7G   1% /media/boot
+
+meegoo@mg:meegoo-tsui.github.com.git$ umount /dev/sdb1
+meegoo@mg:meegoo-tsui.github.com.git$ umount /dev/sdb2
+...
+</code></pre>
+
+<ul>
+<li>使用<code>dd</code>写镜像到SD卡</li>
+</ul>
+
+
+<p>运行如下：</p>
+
+<pre><code>meegoo@mg:~$ sudo dd bs=1M if=./2013-05-25-wheezy-raspbian.img of=/dev/sdb
+1850+0 records in
+1850+0 records out
+1939865600 bytes (1.9 GB) copied, 300.62 s, 6.5 MB/s
+
+meegoo@mg:meegoo-tsui.github.com.git$ sudo sync
+</code></pre>
+
+<ul>
+<li>使用<code>dd</code>读取SD卡备份镜像</li>
+</ul>
+
+
+<p>运行如下：</p>
+
+<pre><code>meegoo@mg:~$ sudo dd bs=1M if=/dev/sdb | gzip &gt; ./`date +%Y-%m-%d`_wheezy-raspbian.gz
+</code></pre>
+
+<p>至此完成镜像的安装，拔出SD卡，插入raspberry pi。</p>
+
+<p><img src="http://images.weiphone.com/attachments/Day_130504/0_3600269_a9f76102b632c5a.jpg"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[脚本笔记]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/06/07/script-skill/"/>
+    <updated>2013-06-07T10:11:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/06/07/script-skill</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<table>
+<thead>
+<tr>
+<th align="left">1                 </th>
+<th align="center">2                 </th>
+<th align="center">3                 </th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="#awk">awk</a>       </td>
+<td align="center"><a href="#sed">sed</a>       </td>
+<td align="center"><a href="#shell">shell</a>   </td>
+<td align="right"><a href="#python">python</a></td>
+</tr>
+</tbody>
+</table>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="sed">sed</h3>
+
+
+<ol>
+<li><a href="http://www.brunolinux.com/02-The_Terminal/Find_and%20Replace_with_Sed.html">FIND AND REPLACE with SED</a></li>
+</ol>
+
+
+<p>replace all the words &#8220;ugly&#8221; with &#8220;beautiful&#8221;：</p>
+
+<pre><code>sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<p>replace all the words &#8220;ugly*&#8221; with &#8220;beautiful&#8221;：</p>
+
+<pre><code>sed -i 's/ugly.*/beautiful/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<p>replace all the words &#8220;ugly*&#8221; with $VAR：</p>
+
+<pre><code>sed -i 's/ugly.*/'"$VAR"'/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="shell">shell</h3>
+
+
+<ol>
+<li>rmp</li>
+</ol>
+
+
+<p>rmp command:</p>
+
+<pre><code>rpm -ivh *.rpm              # install
+rpm -qpl *.rpm              # list
+rpm2cpio *.rpm | cpio -div  # extract
+</code></pre>
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[bitnami服务器安装及用法]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/05/10/bitnami-server-and-usage/"/>
+    <updated>2013-05-10T22:23:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/05/10/bitnami-server-and-usage</id>
+    <content type="html"><![CDATA[<p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">bitnami服务器安装</a></li>
+<li> <a href="#usage">bitnami服务器使用</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="install"> bitnama 服务器安装</h3>
+
+
+<h3>安装软件包 <a href="http://bitnami.com/">bitnama</a></h3>
+
+<pre><code>sudo ./bitnami-redmine-2.3.1-0-linux-installer.run
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">bitnami服务器使用</h3>
+
+
+<h3><a href="http://bitnami.com/article/how-to-install-services-on-linux">添加自动运行</a></h3>
+
+<pre><code>cp ${installdir}/ctlscript.sh /etc/init.d/bitnami-drupal
+update-rc.d -f bitnami-drupal start 80 2 3 4 5 . stop 30 0 1 6 .
+</code></pre>
+
+<p>结果如下：</p>
+
+<pre><code>Adding system startup for /etc/init.d/bitnami-drupal ...
+/etc/rc0.d/K30bitnami-bitnami-drupal -&gt; ../init.d/drupal
+/etc/rc1.d/K30bitnami-bitnami-drupal -&gt; ../init.d/drupal
+/etc/rc6.d/K30bitnami-drupal -&gt; ../init.d/bitnami-drupal
+/etc/rc2.d/S80bitnami-drupal -&gt; ../init.d/bitnami-drupal
+/etc/rc3.d/S80bitnami-drupal -&gt; ../init.d/bitnami-drupal
+/etc/rc4.d/S80bitnami-drupal -&gt; ../init.d/bitnami-drupal
+/etc/rc5.d/S80bitnami-drupal -&gt; ../init.d/bitnami-dru
+</code></pre>
+
+<p>浏览器输入： <code>http://192.168.1.10/redmine/</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[TI davinci]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/03/23/davinci/"/>
+    <updated>2013-03-23T13:11:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/03/23/davinci</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<h3>目录</h3>
+
+<ul>
+<li><a href="#davinci_product">davinci 产品</a></li>
+<li><a href="#davinci_component">davinci 平台开发组件</a></li>
+<li><a href="#davinci_build">davinci 编译</a></li>
+<li><a href="#davinci_wiki">davinci wiki</a></li>
+<li><a href="#davinci_partner">davinci 第三方</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_product">davinci 产品</h3>
+
+
+<ul>
+<li><a href="http://www.ti.com/product/tms320dm8148">tms320dm8148</a> - <a href="http://software-dl.ti.com/dsps/dsps_public_sw/ezsdk/latest/index_FDS.html">ezsdk</a></li>
+<li><a href="http://www.ti.com/product/tms320dm365">tms320dm365</a> - <a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/dvsdk/DVSDK_4_00/4_02_00_06/index_FDS.html">dvsdk</a></li>
+<li><a href="http://www.ti.com/product/tms320dm6467t">tms320dm6467t</a> - <a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/dvsdk/DVSDK_3_10/latest/index_FDS.html">dvsdk</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_component"></h3>
+
+
+<h3><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/">davinci 平台开发组件(11)</a></h3>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/rtsc/index.html">xdctools</a></li>
+</ul>
+
+
+<p>XDCtools simplifies development and use of embedded software components that comply with
+the Real-Time Software Components (RTSC) initiative. The XDCtools suite includes configuration, build, documentation generation,
+and browsing tools.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/index.html">sysbios</a></li>
+</ul>
+
+
+<p>SYS/BIOS 6.x is a real-time operating system that supports MSP430, C28x, C64x+, C674x
+and assorted Arm devices (Cortex-M3, Cortex-A8, Arm 9).
+SYS/BIOS 6.x services include ISR dispatching, tasks, software interrupts, semaphores, device I/O, memory management,
+and power management.
+Unlike DSP/BIOS 5.x, SYS/BIOS 6.x requires additional modules for messaging (IPC) and run-time instrumentation (XDC Tools run-time).
+Users should also download these products if they wish to use these features.
+See the SYS/BIOS 6.x documentation for a detailed list of enhancements provided compared to DSP/BIOS 5.x.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/ipc/index.html">ipc</a></li>
+</ul>
+
+
+<p>The BIOS IPC Product contains modules that support the communication between processors in a multi-processor environment
+and communication to peripherals. This communication includes message passing, streams, and linked lists.
+These modules work transparently in both uni-processor and multi-processor configurations.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/syslink/index.html">syslink</a></li>
+</ul>
+
+
+<p>Link is runtime software that simplifies the development of embedded applications in which either
+General-Purpose microprocessors (GPP) or DSPs communicate with each other.
+Typically, one processor is designated as the master for one or more slave processors,
+and may be responsible for controlling the slave processor&#8217;s execution (including boot-loading the slave).</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/ce/index.html">Multimedia Framework Products (MFP) - Codec Engine</a></li>
+</ul>
+
+
+<p>Codec Engine is a framework that automates the invocation and instantiation of XDAIS-compliant algorithms
+and XDM-compliant codecs. Codec Engine can execute in ARM-only, ARM-DSP, or DSP-only environments
+and supports concurrent execution of multiple channels and multiple instances of algorithms/codecs.
+In the ARM environment, it is currently ported to the Linux and WinCE operating systems.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/fc/index.html">Multimedia Framework Products (MFP) - Framework Components</a></li>
+</ul>
+
+
+<p>The Framework Components product enables faster implementation of application frameworks
+that use algorithms and codecs that comply to the XDAIS standard.
+XDAIS defines standards that prevent algorithms from hard-coding ownership of system resources
+such as memory and DMA channels. An XDAIS-compliant algorithm enables the application framework to query it
+and provide information on specific memory DMA and other resources it needs.
+This makes integration of algorithms from multiple sources much easier.</p>
+
+<p>Framework Components is often leveraged by higher level frameworks (e.g. Codec Engine).</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/osal/index.html">Multimedia Framework Products (MFP) - osal</a></li>
+</ul>
+
+
+<p>The OSAL (Operating System Abstraction Library) provides ports of the XDC Runtime to
+High Level Operating Systems (HLOS) like Linux. It also redistributes the XDC Runtime sources
+and build scripts enabling end users to rebuild in their environments.
+Finally, it provides pre-configured sources appropriate for each supported OS,
+so the XDC tools are not required.</p>
+
+<p>Currently, the OSAL is primarily an internal utility product used by Codec Engine,
+Framework Components and other TI products. The OSAL product is quite new,
+and therefore subject to significant changes from release to release.
+The intent is to make it a standalone product, and therefore users are welcome to build upon it,
+but please understand and anticipate that the first few releases may change signficantly and compatibility may not be preserved.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/xdais/index.html">Multimedia Framework Products (MFP) - xdais</a></li>
+</ul>
+
+
+<p>The XDAIS (eXpress DSP Algorithm Interoperability Standard) Developer&#8217;s Kit provides the header files
+and specifications needed to implement XDAIS-compliant algorithms.</p>
+
+<p>The XDAIS standard is designed to enable multiple algorithms to coexist in a system
+and share resources. This is acheived by preventing &#8216;hard-coded&#8217; use of critical system resources,
+such as memory, DMA, and other accelerators. In contrast, the algorithm must implement interfaces (IALG to manage memory,
+and others for other resources) that are then queried and satisfied by the application framework.
+The framework can then ensure that the resources granted are not already in use by another algorithm.
+As a result, it is easier to reuse algorithms that are XDAIS-compliant, especially when utilizing algorithms from multiple sources.</p>
+
+<p>XDAIS releases include XDM extensions that enable &#8216;plug-and-play&#8217; capabilities
+for several common classes of algorithms (e.g. multimedia codecs).</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/linuxutils/index.html">Multimedia Framework Products (MFP) - Linux Utils</a></li>
+</ul>
+
+
+<p>The Linux Utils product has evolved over the years based on user needs. See each release&#8217;s Release Notes for details. All releases have included CMEM:</p>
+
+<p>CMEM: A memory manager that can grant physically contiguous memory for general use (e.g. as image or video data buffers)</p>
+
+<p>Other releases have included some of the following drivers (note that not all are applicable accross devices):</p>
+
+<p>SDMA: A programming module that provides Linux applications with access to SDMA functionality</p>
+
+<p>EDMA: A programming module that provides Linux applications with access to EDMA functionality</p>
+
+<p>VICP: A utility library that provides the ability for user-mode Linux applications to request VICP channels and operate on a channel using direct, memory-mapped access to the channel&#8217;s registers.</p>
+
+<ul>
+<li><a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_tii/psp/edma3_lld/index.html">EDMA3 Low-level Driver</a></li>
+</ul>
+
+
+<p>The EDMA3 Low-level driver provides APIs for using and safely sharing EDMA3 resources in an application.</p>
+
+<ul>
+<li><a href="http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/uia/index.html">Unified Instrumentation Architecture (UIA)</a></li>
+</ul>
+
+
+<p>UIA provides the target side code and libraries for use with the System Analyzer.</p>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_build">davinci 编译</h3>
+
+
+<ul>
+<li><a href="http://processors.wiki.ti.com/index.php/Download_CCS#Code_Composer_Studio_Version_5_Downloads">Code Composer Studio Version 5</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_wiki">davinci wiki</h3>
+
+
+<ul>
+<li><a href="http://tiprocessors.com/index.php/Category:DaVinci">Category:DaVinci</a></li>
+<li><a href="http://processors.wiki.ti.com/index.php/Category:Code_Composer_Studio_v5">Category:Code Composer Studio v5</a></li>
+<li><a href="http://processors.wiki.ti.com/index.php/How_to_integrate_audio/voice_in_RPE_in_EZSDK">How to integrate audio/voice in RPE in EZSDK</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="davinci_partner">davinci 第三方</h3>
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[build - open source]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/10/06/build/"/>
+    <updated>2012-10-06T10:55:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/10/06/build</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<ul>
+<li> <a href="#gnu_gcc">gcc-4.1.2</a></li>
+<li> <a href="#gnu_binutils">binutils-2.17</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="gnu_gcc">gcc-4.1.2编译 - ubuntu 12.04 x86</h3>
+
+
+<p>参考：<a href="http://csl.skku.edu/SSE3044F12/GCC">http://csl.skku.edu/SSE3044F12/GCC</a>  <br/>
+配置相关库路径：</p>
+
+<pre><code>cd /usr/include \
+sudo ln -s i386-linux-gnu/bits bits \
+sudo ln -s i386-linux-gnu/gnu gnu \
+sudo ln -s i386-linux-gnu/sys sys \
+sudo ln -s i386-linux-gnu/asm asm \
+cd /usr/lib \
+sudo ln -s i386-linux-gnu/crt1.o crt1.o \
+sudo ln -s i386-linux-gnu/crti.o crti.o \
+sudo ln -s i386-linux-gnu/crtn.o crtn.o
+</code></pre>
+
+<p>配置生成makefile:</p>
+
+<pre><code>../gcc-4.1.2/configure --prefix=/home/meegoo/workspace/toolchains/gcc-4.1.2 --libexecdir=/home/meegoo/workspace/toolchains/gcc-4.1.2 --enable-shared --enable-threads=posix --enable-__cxa_atexit --enable-clocale=gnu --disable-multilib --enable-languages=c,c++ 
+</code></pre>
+
+<p>编译：</p>
+
+<pre><code>make bootstrap MAKEINFO=makeinfo
+</code></pre>
+
+<p>安装：</p>
+
+<pre><code>make install
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="gnu_binutils">binutils-2.17编译 - ubuntu 12.04 x86</h3>
+
+
+<p>配置生成makefile:</p>
+
+<pre><code>../binutils-2.17/configure --prefix=/home/meegoo/workspace/toolchains/binutils-2.17 --enable-shared
+</code></pre>
+
+<p>编译：</p>
+
+<pre><code>make tooldir=/home/meegoo/workspace/toolchains/binutils-2.17
+</code></pre>
+
+<p>安装：</p>
+
+<pre><code>make tooldir=/home/meegoo/workspace/toolchains/binutils-2.17 install
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[android平台搭建]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/07/25/android-setting/"/>
+    <updated>2012-07-25T10:55:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/07/25/android-setting</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[doxygen 使用]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/24/doxygen/"/>
+    <updated>2012-06-24T10:55:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/24/doxygen</id>
+    <content type="html"><![CDATA[<h4>安装 @ ubuntu 12.04</h4>
+
+<pre><code>sudo apt-get install doxygen-gui graphviz
+</code></pre>
+
+<h4>下载源码</h4>
+
+<pre><code>svn co https://doxygen.svn.sourceforge.net/svnroot/doxygen/trunk
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Qt build]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/23/qt/"/>
+    <updated>2012-06-23T14:32:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/23/qt</id>
+    <content type="html"><![CDATA[<h3><a href="http://qt.gitorious.org/qt">Qt</a></h3>
+
+<pre><code>git clone git://gitorious.org/qt/qt.git
+</code></pre>
+
+<h3><a href="http://qt.gitorious.org/qt-creator">Qt Creator</a></h3>
+
+<pre><code>git clone git://gitorious.org/qt-creator/qt-creator.git
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<h3>Qt x11 - ubuntu 12.04安装依赖</h3>
+
+<pre><code>sudo apt-get install -y libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+sudo apt-get install -y debhelper dpatch flex libaudio-dev libcups2-dev libfontconfig1-dev libfreetype6-dev libdbus-1-dev libxtst-dev
+sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev libice-dev libiodbc2-dev libjpeg-dev libmng-dev
+sudo apt-get install -y libmysqlclient-dev libpng12-dev libpq-dev libsm-dev libsqlite3-dev libx11-dev libxcursor-dev libasound2-dev
+sudo apt-get install -y libxext-dev libxft-dev libxi-dev libxinerama-dev libxmu-dev libxrandr-dev libxrender-dev libxt-dev zlib1g-dev
+sudo apt-get install -y libtiff4-dev
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[网站备忘]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/18/useful-url/"/>
+    <updated>2012-06-18T22:33:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/18/useful-url</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<h3>技术</h3>
+
+<p><a href="http://ee.lbl.gov">LBNL&#8217;s Network Research Group - http://ee.lbl.gov</a>  <br/>
+<a href="http://www.ibm.com/developerworks">IBM developer works - http://www.ibm.com/developerworks</a>  <br/>
+<a href="http://www.ietf.org">The Internet Engineering Task Force (IETF) - http://www.ietf.org</a>  <br/>
+<a href="https://community.freescale.com/welcome">Freescale Community - https://community.freescale.com/welcome</a></p>
+
+<h3>资源</h3>
+
+<p><a href="http://www.iconarchive.com">iconarchive - http://www.iconarchive.com</a>  <br/>
+<a href="http://www.it-ebooks.info">it-ebooks - http://www.it-ebooks.info</a></p>
+
+<h3>开源</h3>
+
+<p><a href="http://0pointer.de/lennart/projects/libdaemon">libdaemon - http://0pointer.de/lennart/projects/libdaemon</a>  <br/>
+<a href="https://github.com/CyanogenMod">CyanogenMod github public repos - https://github.com/CyanogenMod</a>  <br/>
+<a href="http://git.freescale.com/git/cgit.cgi/">Freescale Public GIT - http://git.freescale.com/git/cgit.cgi</a></p>
+
+<h3>公开课</h3>
+
+<ul>
+<li><a href="http://www.nthu.edu.tw">国立清华大学 - http://www.nthu.edu.tw</a>
+
+<ul>
+<li><a href="http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;cid=7&amp;">微积分一 - http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;cid=7&amp;</a></li>
+<li><a href="http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;cid=34&amp;">微积分二 - http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;cid=34&amp;</a></li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[eclipse安装及配置]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/09/eclipse-install-config/"/>
+    <updated>2012-06-09T21:13:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/09/eclipse-install-config</id>
+    <content type="html"><![CDATA[<p>官网下载：</p>
+
+<ul>
+<li> <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">oracle JDK</a></li>
+<li> <a href="http://www.eclipse.org/downloads/">eclipse</a></li>
+</ul>
+
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>1. 下载 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">java sdk - 7u4</a></h4>
+
+<p>linux平台:</p>
+
+<ul>
+<li> x86-32: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">jdk-7u4-linux-i586.tar.gz</a></li>
+<li> x64-64: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">jdk-7u4-linux-x64.tar.gz</a></li>
+</ul>
+
+
+<p>windows平台:</p>
+
+<ul>
+<li> x86-32: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">jdk-7u4-windows-i586.exe</a></li>
+<li> x64-64: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-7u4-downloads-1591156.html">jdk-7u4-windows-x64.exe</a></li>
+</ul>
+
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>2. 下载 <a href="http://www.eclipse.org/downloads">eslipse</a></h4>
+
+<p>linux平台:</p>
+
+<ul>
+<li> x86-32: <a href="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-linux-gtk.tar.gz">eclipse-SDK-3.7.2-linux-gtk.tar.gz</a></li>
+<li> x64-64: <a href="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-linux-gtk-x86_64.tar.gz">eclipse-SDK-3.7.2-linux-gtk-x86_64.tar.gz</a></li>
+</ul>
+
+
+<p>windows平台:</p>
+
+<ul>
+<li> x86-32: <a href="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-win32.zip">eclipse-SDK-3.7.2-win32.zip</a></li>
+<li> x64-64: <a href="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops/R-3.7.2-201202080800/eclipse-SDK-3.7.2-win32-x86_64.zip">eclipse-SDK-3.7.2-win32-x86_64.zip</a></li>
+</ul>
+
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>3. 安装</h4>
+
+<p>ubuntu 12.04 - 64bit</p>
+
+<ol>
+<li>解压安装包到/opt路径下；</li>
+<li>修改/opt/eclipse/eclipse.ini，在文件开头添加二行：</li>
+</ol>
+
+
+<p>eclipse.ini:</p>
+
+<pre><code>-vm
+/opt/jdk1.7.0_0x/bin/java
+</code></pre>
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>4. plugin - pydev</h4>
+
+<p>python的开发插件 - <a href="http://pydev.org/">pydev</a>，下载<a href="http://sourceforge.net/projects/pydev/files/pydev/">http://sourceforge.net/projects/pydev/files/pydev/</a>
+的zip文件，解压后，对应复制features、plugins到eclipse，修改eclipse文件夹权限，否则仅root用户插件才起作用。</p>
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+<h4>视频教程</h4>
+
+<p><a href="http://www.boobooke.com/v/bbk5417/">黑弓作品：Eclipse使用入门培训</a>  <br/>
+<a href="http://www.boobooke.com/v/bbk4357/">赵磊作品 ： Eclipse 3.5开发环境的搭建</a></p>
+
+<!---
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[开源tcp-ip协议栈简介]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/07/free-tcp-ip-intr/"/>
+    <updated>2012-06-07T14:58:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/07/free-tcp-ip-intr</id>
+    <content type="html"><![CDATA[<h4>1. <a href="http://svnweb.freebsd.org/base/release/9.0.0/sys/netinet/">BSD TCP/IP</a></h4>
+
+<p>BSD栈历史上是其他商业栈的起点，大多数专业TCP/IP栈（VxWorks内嵌的TCP/IP栈）是BSD栈派生的。
+这是因为BSD栈在BSD许可协议下提供了这些专业栈的雏形，BSD许用证允许BSD栈以修改或未修改的形式结合这些专业栈的代码而无须向创建者付版税。
+同时，BSD也是许多TCP/IP协议中的创新（如广域网中饿拥塞控制和避免）的开始点。</p>
+
+<h4>2. <a href="http://ucip.sourceforge.net/">uC/IP</a></h4>
+
+<p>uC/IP是由Guy Lancaster编写的一套基于uC/OS且开放源码的TCP/IP协议栈，亦可移植到其它操作系统，
+是一套完全免费的、可供研究的TCP/IP协议栈，uC/IP大部分源码是从公开源码BSD发布站点和KA9Q（一个基于DOS单任务环境运行的TCP/IP协议栈）移植过来。
+uC/IP具有如下一些特点：带身份验证和报头压缩支持的PPP协议，优化的单一请求/回复交互过程，支持IP/TCP/UDP协议，
+可实现的网络功能较为强大，并可裁减。UCIP协议栈被设计为一个带最小化用户接口及可应用串行链路网络模块。
+根据采用CPU、编译器和系统所需实现协议的多少，协议栈需要的代码容量空间在30-60KB之间。</p>
+
+<h4>3. <a href="http://savannah.nongnu.org/projects/lwip/">LwIP</a></h4>
+
+<p>LwIP是瑞士计算机科学院（Swedish Institute of Computer Science）的Adam Dunkels等开发的一套用于嵌入式系统的开放源代码TCP/IP协议栈。
+LwIP的含义是Light Weight(轻型)IP协议，相对于uip。LwIP可以移植到操作系统上，也可以在无操作系统的情况下独立运行。
+LwIP TCP/IP实现的重点是在保持TCP协议主要功能的基础上减少对RAM的占用，一般它只需要几十K的RAM和40K左右的ROM就可以运行，
+这使LwIP协议栈适合在低端嵌入式系统中使用。LwIP的特性如下：支持多网络接口下的IP转发，支持ICMP协议 ，
+包括实验性扩展的的UDP（用户数据报协议），包括阻塞控制，RTT估算和快速恢复和快速转发的TCP（传输控制协议），
+提供专门的内部回调接口（Raw API）用于提高应用程序性能，并提供了可选择的Berkeley接口API。</p>
+
+<h4><a href="http://dunkels.com/adam/">4. uIP</a></h4>
+
+<p>专门为8位和16位控制器设计的一个非常小的TCP/IP栈。完全用C编写，因此可移植到各种不同的结构和操作系统上，
+一个编译过的栈可以在几KB ROM或几百字节RAM中运行。uIP中还包括一个HTTP服务器作为服务内容。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[输入时间戳]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/07/timestamp-stdin/"/>
+    <updated>2012-06-07T09:38:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/07/timestamp-stdin</id>
+    <content type="html"><![CDATA[<h4>目的</h4>
+
+<p>记录输入时间戳，主要测试uboot的各启动项所花费时间，源码如下：  <br/>
+Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+<h4>使用</h4>
+
+<ol>
+<li>测试uboot启动，先启动<code>minicom</code>，然后执行<code>tstamp.exe &lt; /dev/ttyS0</code>；</li>
+<li>测试命令输出，使用管道<code>&lt;commands&gt; | tstamp.exe</code>；</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[vim基本操作]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/05/vim-base/"/>
+    <updated>2012-06-05T23:08:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/05/vim-base</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://meegoo-tsui.github.com/images/vi_vim_cn.png">
+<img class="right" src="http://meegoo-tsui.github.com/images/vi_vim_en.gif"></p>
+
+<ul>
+<li> <a href="#mode">模式</a></li>
+<li> <a href="#open">打开</a></li>
+<li> <a href="#move">移动</a></li>
+<li> <a href="#insert">插入</a></li>
+<li> <a href="#delete">删除</a></li>
+<li> <a href="#search">搜索</a></li>
+<li> <a href="#copy">复制</a></li>
+<li> <a href="#replace">替换</a></li>
+<li> <a href="#config">配置</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="mode">模式</h3>
+
+
+<p>vi有3个模式：插入模式、命令模式、低行模式。</p>
+
+<ul>
+<li> 插入模式：在此模式下可以输入字符，按ESC将回到命令模式。</li>
+<li> 命令模式：可以移动光标、删除字符等。</li>
+<li> 低行模式：可以保存文件、退出vi、设置vi、查找等功能(低行模式也可以看作是命令模式里的)。</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="open">打开</h3>
+
+
+<p><code>vi filename    </code>打开filename文件  <br/>
+<code>:w             </code>保存文件  <br/>
+<code>:w vpser.net   </code>保存至vpser.net文件  <br/>
+<code>:q             </code>退出编辑器，如果文件已修改请使用下面的命令  <br/>
+<code>:q!            </code>退出编辑器，且不保存  <br/>
+<code>:wq            </code>退出编辑器，且保存文件</p>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="move">移动</h3>
+
+
+<h4>以字符为单位移动</h4>
+
+<ol>
+<li><code>h</code>向左移动一个字符；</li>
+<li><code>l</code>向右移动一个字符；</li>
+<li><code>k</code>向上移动一个字符；</li>
+<li><code>j</code>向下移动一个字符；</li>
+</ol>
+
+
+<h4>以普通word为单位移动</h4>
+
+<ol>
+<li><code>w</code>将光标向前移动一个word并停留在下一个word的首字符上，助记：word；</li>
+<li><code>b</code>将光标向后移动一个word并停留在下一个word的首字符上，助记：backward；</li>
+<li><code>e</code>将光标向前移动一个word并停留在下一个word的末字符上，助记：end of word；</li>
+<li><code>ge</code>将光标向后移动一个word并停留在下一个word的末字符上;</li>
+</ol>
+
+
+<p>[备注]：</p>
+
+<ol>
+<li>以空白作为word分隔时，以上命令为大写，<code>W</code>，<code>B</code>，<code>E</code>，<code>GE</code>;</li>
+<li>以上命令都可以采取“数字+命令”的方式执行；</li>
+</ol>
+
+
+<h4>移动光标到行头或者行尾</h4>
+
+<ol>
+<li><code>$</code>将光标移动到当前行行尾,此命令与键盘上<code>End</code>键作用相同;</li>
+<li><code>^</code>将光标移动到当前行的第一个非空白字符上；</li>
+<li><code>0</code>将光标移动到当前行的第一个字符上，此命令与键盘上<code>Home</code>键作用相同；</li>
+</ol>
+
+
+<p>[备注]：</p>
+
+<ol>
+<li><code>$</code>命令接受计数器，其他两个不接受计数器;</li>
+</ol>
+
+
+<h4>移动光标到指定字符上</h4>
+
+<p>使用单字符搜索命令可以快速将光标移到当前行的某个字符上。</p>
+
+<ol>
+<li><code>f</code>在当前行向右查找某个字符并将光标停留其上,助记：find;</li>
+<li><code>F</code>在当前行向左查找某个字符并将光标停留其上;</li>
+<li><code>t</code>在当前行向右查找某个字符并将光标停留于其前一个字符之上,助记：to;</li>
+<li><code>T</code>在当前行向左查找某个字符并将光标停留于其前一个字符之上;</li>
+</ol>
+
+
+<p>[备注]：</p>
+
+<ol>
+<li>这四个命令都可使用计数器;</li>
+<li>这四个命令都可以用<code>;</code>和<code>,</code>重复执行，不同之处在于，<code>;</code>以与原命令相同的方向执行，<code>,</code>恰好相反;</li>
+</ol>
+
+
+<h4>移动光标到匹配括号上</h4>
+
+<p>将光标跳转到与当前光标下的括号相匹配的括号上去：%；</p>
+
+<h4>移动光标到指定行上</h4>
+
+<ol>
+<li><code>G</code>跳至文件的底部</li>
+<li><code>gg</code>跳至文件的头部</li>
+<li><code>nG</code>跳到行号为n的行</li>
+<li><code>数字+%</code>使用百分比将光标移动到文档某个大致的位置：数字+%。此处百分比的计算是以行为单位，而不是以字节数为单位;</li>
+<li><code>H（home）</code>移动到第一行使用命令H（home），<code>M（middle）</code>移动到中间行使用命令M（middle），<code>L（last）</code>移动到最后一行使用命令;</li>
+<li><code>CTRL-G</code>可以显示当前位置信息;</li>
+<li><code>n+</code>向下跳n行</li>
+<li><code>n-</code>向上跳n行</li>
+</ol>
+
+
+<h4>滚屏</h4>
+
+<ol>
+<li><code>CTRL-U</code>使文本向下滚动半屏，相当于显示文本的窗口向上滚半屏，光标所处的行数随滚屏而改变；</li>
+<li><code>CTRL-D</code>使文本向上滚动半屏，相当于显示文本的窗口向下滚半屏，光标所处的行数随滚屏而改变；</li>
+<li><code>CTRL-E</code>使文本向上滚动一行，光标所处的行数不变；</li>
+<li><code>CTRL-Y</code>使文本向下滚动一行，光标所处的行数不变；</li>
+<li><code>CTRL-F</code>向前滚动一整屏，滚动后光标处于第一行；</li>
+<li><code>CTRL-B</code>向后滚动一整屏，滚动后光标处于最后一行；</li>
+<li><code>zz</code>把当前位置处于屏幕的正中央；</li>
+<li><code>zt</code>把当前位置处于屏幕的顶端，助记：top；</li>
+<li><code>zb</code>把当前位置处于屏幕的底端，助记：bottom；</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="insert">插入</h3>
+
+
+<ol>
+<li><code>a</code>在当前光标位置的右边添加文本</li>
+<li><code>i</code>在当前光标位置的左边添加文本</li>
+<li><code>A</code>在当前行的末尾位置添加文本</li>
+<li><code>I</code>在当前行的开始处添加文本(非空字符的行首)</li>
+<li><code>O</code>在当前行的上面新建一行</li>
+<li><code>o</code>在当前行的下面新建一行</li>
+<li><code>R</code>替换(覆盖)当前光标位置及后面的若干文本</li>
+<li><code>J</code>合并光标所在行及下一行为一行(依然在命令模式)</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="delete">删除</h3>
+
+
+<ol>
+<li><code>x</code>删除当前字符</li>
+<li><code>nx</code>删除从光标开始的n个字符</li>
+<li><code>dd</code>删除当前行</li>
+<li><code>ndd</code>向下删除当前行在内的n行</li>
+<li><code>u</code>撤销上一步操作</li>
+<li><code>U</code>撤销对当前行的所有操作</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="search">搜索</h3>
+
+
+<ol>
+<li><code>/vpser</code>向光标下搜索vpser字符串</li>
+<li><code>?vpser</code>向光标上搜索vpser字符串</li>
+<li><code>n</code>向下搜索前一个搜素动作</li>
+<li><code>N</code>向上搜索前一个搜索动作</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="copy">复制</h3>
+
+
+<ol>
+<li><code>yy</code>将当前行复制到缓存区，也可以用 &#8220;ayy 复制，&#8221;a 为缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。</li>
+<li><code>nyy</code>将当前行向下n行复制到缓冲区，也可以用 &#8220;anyy 复制，&#8221;a 为缓冲区，a也可以替换为a到z的任意字母，可以完成多个复制任务。</li>
+<li><code>yw</code>复制从光标开始到词尾的字符。</li>
+<li><code>nyw</code>复制从光标开始的n个单词。</li>
+<li><code>y^</code>复制从光标到行首的内容。</li>
+<li><code>y$</code>复制从光标到行尾的内容。</li>
+<li><code>p</code>粘贴剪切板里的内容在光标后，如果使用了前面的自定义缓冲区，建议使用&#8221;ap 进行粘贴。</li>
+<li><code>P</code>粘贴剪切板里的内容在光标前，如果使用了前面的自定义缓冲区，建议使用&#8221;aP 进行粘贴。</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="replace">替换</h3>
+
+
+<ol>
+<li><code>:s/old/new</code>用new替换行中首次出现的old</li>
+<li><code>:s/old/new/g</code>用new替换行中所有的old</li>
+<li><code>:n,m s/old/new/g</code>用new替换从n到m行里所有的old</li>
+<li><code>:%s/old/new/g</code>用new替换当前文件里所有的old</li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="config">配置</h3>
+
+
+<p>执行命令修改文件：</p>
+
+<pre><code>sudo vim /etc/vim/vimrc
+</code></pre>
+
+<p>在文件尾添加内容如下：</p>
+
+<pre><code>set nobackup                           " 无~后缀的备份文件
+set autoindent shiftwidth=4            " 启用自动缩进，并设置自动缩进的宽度为4
+set tabstop=4                          " 让tab变成4个字符的宽度
+set nu                                 " 显示行号
+set mouse=a                            " 鼠标定位
+filetype on                            " 检测文件的类型
+syntax on                              " 语法高亮度显示
+set autoindent                         " 把当前行的对起格式应用到下一行
+set smartindent                        " 智能的选择对起方式
+set showmatch                          " 设置匹配模式
+set ruler                              " 在右下角显示光标位置的状态行
+set incsearch                          " 查找提示
+</code></pre>
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

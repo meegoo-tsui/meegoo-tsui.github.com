@@ -5,14 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>明牯工作室 - 嵌入式软件服务</title>
+  <title>submin 安装 - 明牯工作室 - 嵌入式软件服务</title>
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
-################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+  <meta name="description" content="下载submin-1.2.11-1
+安装：python bin/install.py /usr/local/submin
+初始化：/usr/local/submin/bin/submin-admin create default
+修改： /etc/apache2/mods-available/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +21,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/2013/12/10/submin">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,15 +79,12 @@ Switch to the Diff &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title">Submin 安装</h1>
     
     
       <p class="meta">
@@ -103,67 +100,124 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2013-12-10T16:50:00+08:00" pubdate data-updated="true">Dec 10<span>th</span>, 2013</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
-################################################################################
--->
-
-
-<h3>Diff</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
+<div class="entry-content"><ul>
+<li><p>下载<a href="http://supermind.nl/submin/current/submin-1.2.11-1.tar.gz">submin-1.2.11-1</a></p></li>
+<li><p>安装：python bin/install.py /usr/local/submin</p></li>
+<li><p>初始化：/usr/local/submin/bin/submin-admin create default</p></li>
+<li><p>修改： /etc/apache2/mods-available/dav_svn.conf</p></li>
 </ul>
 
 
-<h3>Merge</h3>
+<p>如下：</p>
+
+<pre><code>WSGIScriptAlias /submin /usr/local/submin/share/submin/www/submin.wsgi
+AliasMatch ^/submin/css/(.*) /usr/local/submin/share/submin/www/css/$1
+AliasMatch ^/submin/img/(.*) /usr/local/submin/share/submin/www/img/$1
+AliasMatch ^/submin/js/(.*) /usr/local/submin/share/submin/www/js/$1
+
+&lt;Location /submin&gt;
+    SetEnv SUBMIN_CONF /etc/submin/default.conf
+&lt;/Location&gt;
+</code></pre>
 
 <ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+<li>修改：/etc/submin/default.conf</li>
+</ul>
+
+
+<p>如下：</p>
+
+<pre><code>[svn]
+authz_file = /home/svn/dav_svn.authz
+userprop_file = /var/lib/submin/userproperties.conf
+access_file = /home/svn/dav_svn.passwd
+repositories = /home/svn
+
+[www]
+base_url = /submin
+svn_base_url = /svn
+trac_base_url = /trac
+
+[backend]
+bindir = /usr/local/submin/share/submin/bin
+
+[generated]
+session_salt = 24j1416EThk2vhdL
+</code></pre>
 
 <ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
+<li>修改权限为www-data</li>
 </ul>
-</li>
-</ul>
-
-
-<hr />
-
-
 
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Meegoo Tsui</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2013-12-10T16:50:00+08:00" pubdate data-updated="true">Dec 10<span>th</span>, 2013</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/blog/categories/server/'>server</a>
+  
+</span>
+
+
+    </p>
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/10/04/slickedit/" title="Previous Post: slickedit基本操作">&laquo; slickedit基本操作</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/04/tortoiseGit-with-BC/" title="Next Post: TortoiseGit With Beyond Compare 3">TortoiseGit With Beyond Compare 3 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -208,6 +262,7 @@ Switch to the Diff &hellip;">
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -222,7 +277,10 @@ Switch to the Diff &hellip;">
       var disqus_shortname = 'meegootsui';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://meegoo-tsui.github.com/blog/2013/12/10/submin/';
+        var disqus_url = 'http://meegoo-tsui.github.com/blog/2013/12/10/submin/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

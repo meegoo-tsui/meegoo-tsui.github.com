@@ -11,8 +11,8 @@
   
   <meta name="description" content="<!---
 ################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+--> 终端与X窗口 Ctrl + Alt + F1 # 切换到第一个终端
+Ctrl + Alt + Fn # &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +21,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/32">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +87,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/16/linux-shortcuts/">Linux快捷键</a></h1>
     
     
       <p class="meta">
@@ -103,9 +103,9 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-05-16T13:11:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2012/05/16/linux-shortcuts/#disqus_thread">Comments</a>
         
       </p>
     
@@ -117,37 +117,38 @@ Switch to the Diff &hellip;">
 -->
 
 
-<h3>Diff</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Merge</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
-
-
 <hr />
 
 
+<h3>终端与X窗口</h3>
+
+<pre><code>Ctrl + Alt + F1              # 切换到第一个终端
+Ctrl + Alt + Fn              # 切换到第n个终端，n的范围1~6
+tty                          # 终端模式下告诉你所处的终端
+Ctrl + Alt + F7              # 从终端切换回X窗口
+</code></pre>
+
+<h3>命令行 - 输入</h3>
+
+<pre><code>Home or Ctrl + a             # 移动光标到输入的开头
+End or Ctrl + e              # 移动光标到输入的结尾
+Alt + b                      # 向前移动光标一个字符
+Alt + f                      # 向后移动光标一个字符
+Tab                          # 补齐
+Ctrl + u                     # 删除光标前的内容
+Ctrl + k                     # 删除当前行所有内容
+Ctrl + w                     # 删除光标前的一个单词
+</code></pre>
+
+<h3>命令行 - 输出</h3>
+
+<pre><code>history                      # 显示所有执行过的命令记录
+ArrowUp or Ctrl + p          # 向上显示执行过的命令记录
+ArrowDown or Ctrl + n        # 向下显示执行过的命令记录
+Ctrl + r                     # 查找包含输入字符的最后命令
+</code></pre>
+
+<hr />
 
 </div>
   
@@ -158,9 +159,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/33/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/31/">Newer &rarr;</a>
     
   </div>
 </div>

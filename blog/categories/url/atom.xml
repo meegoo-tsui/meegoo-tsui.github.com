@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: url | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/url/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[网站备忘]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/18/useful-url/"/>
+    <updated>2012-06-18T22:33:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/18/useful-url</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<h3>技术</h3>
+
+<p><a href="http://ee.lbl.gov">LBNL's Network Research Group - http://ee.lbl.gov</a>  <br/>
+<a href="http://www.ibm.com/developerworks">IBM developer works - http://www.ibm.com/developerworks</a>  <br/>
+<a href="http://www.ietf.org">The Internet Engineering Task Force (IETF) - http://www.ietf.org</a>  <br/>
+<a href="https://community.freescale.com/welcome">Freescale Community - https://community.freescale.com/welcome</a></p>
+
+<h3>资源</h3>
+
+<p><a href="http://www.iconarchive.com">iconarchive - http://www.iconarchive.com</a>  <br/>
+<a href="http://www.it-ebooks.info">it-ebooks - http://www.it-ebooks.info</a></p>
+
+<h3>开源</h3>
+
+<p><a href="http://0pointer.de/lennart/projects/libdaemon">libdaemon - http://0pointer.de/lennart/projects/libdaemon</a>  <br/>
+<a href="https://github.com/CyanogenMod">CyanogenMod github public repos - https://github.com/CyanogenMod</a>  <br/>
+<a href="http://git.freescale.com/git/cgit.cgi/">Freescale Public GIT - http://git.freescale.com/git/cgit.cgi</a></p>
+
+<h3>公开课</h3>
+
+<ul>
+<li><a href="http://www.nthu.edu.tw">国立清华大学 - http://www.nthu.edu.tw</a>
+
+<ul>
+<li><a href="http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;cid=7&amp;">微积分一 - http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;cid=7&amp;</a></li>
+<li><a href="http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;cid=34&amp;">微积分二 - http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;cid=34&amp;</a></li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

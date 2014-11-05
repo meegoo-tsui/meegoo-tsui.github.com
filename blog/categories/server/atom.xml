@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: server | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/server/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[submin 安装]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/12/10/submin/"/>
+    <updated>2013-12-10T16:50:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/12/10/submin</id>
+    <content type="html"><![CDATA[<ul>
+<li><p>下载<a href="http://supermind.nl/submin/current/submin-1.2.11-1.tar.gz">submin-1.2.11-1</a></p></li>
+<li><p>安装：python bin/install.py /usr/local/submin</p></li>
+<li><p>初始化：/usr/local/submin/bin/submin-admin create default</p></li>
+<li><p>修改： /etc/apache2/mods-available/dav_svn.conf</p></li>
+</ul>
+
+
+<p>如下：</p>
+
+<pre><code>WSGIScriptAlias /submin /usr/local/submin/share/submin/www/submin.wsgi
+AliasMatch ^/submin/css/(.*) /usr/local/submin/share/submin/www/css/$1
+AliasMatch ^/submin/img/(.*) /usr/local/submin/share/submin/www/img/$1
+AliasMatch ^/submin/js/(.*) /usr/local/submin/share/submin/www/js/$1
+
+&lt;Location /submin&gt;
+    SetEnv SUBMIN_CONF /etc/submin/default.conf
+&lt;/Location&gt;
+</code></pre>
+
+<ul>
+<li>修改：/etc/submin/default.conf</li>
+</ul>
+
+
+<p>如下：</p>
+
+<pre><code>[svn]
+authz_file = /home/svn/dav_svn.authz
+userprop_file = /var/lib/submin/userproperties.conf
+access_file = /home/svn/dav_svn.passwd
+repositories = /home/svn
+
+[www]
+base_url = /submin
+svn_base_url = /svn
+trac_base_url = /trac
+
+[backend]
+bindir = /usr/local/submin/share/submin/bin
+
+[generated]
+session_salt = 24j1416EThk2vhdL
+</code></pre>
+
+<ul>
+<li>修改权限为www-data</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[bitnami服务器安装及用法]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/05/10/bitnami-server-and-usage/"/>
+    <updated>2013-05-10T22:23:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/05/10/bitnami-server-and-usage</id>
+    <content type="html"><![CDATA[<p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">bitnami服务器安装</a></li>
+<li> <a href="#usage">bitnami服务器使用</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="install"> bitnama 服务器安装</h3>
+
+
+<h3>安装软件包 <a href="http://bitnami.com/">bitnama</a></h3>
+
+<pre><code>sudo ./bitnami-redmine-2.3.1-0-linux-installer.run
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">bitnami服务器使用</h3>
+
+
+<h3><a href="http://bitnami.com/article/how-to-install-services-on-linux">添加自动运行</a></h3>
+
+<pre><code>cp ${installdir}/ctlscript.sh /etc/init.d/bitnami-drupal
+update-rc.d -f bitnami-drupal start 80 2 3 4 5 . stop 30 0 1 6 .
+</code></pre>
+
+<p>结果如下：</p>
+
+<pre><code>Adding system startup for /etc/init.d/bitnami-drupal ...
+/etc/rc0.d/K30bitnami-bitnami-drupal -&gt; ../init.d/drupal
+/etc/rc1.d/K30bitnami-bitnami-drupal -&gt; ../init.d/drupal
+/etc/rc6.d/K30bitnami-drupal -&gt; ../init.d/bitnami-drupal
+/etc/rc2.d/S80bitnami-drupal -&gt; ../init.d/bitnami-drupal
+/etc/rc3.d/S80bitnami-drupal -&gt; ../init.d/bitnami-drupal
+/etc/rc4.d/S80bitnami-drupal -&gt; ../init.d/bitnami-drupal
+/etc/rc5.d/S80bitnami-drupal -&gt; ../init.d/bitnami-dru
+</code></pre>
+
+<p>浏览器输入： <code>http://192.168.1.10/redmine/</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[tftp服务器安装及用法]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/05/tftp-server-and-usage/"/>
+    <updated>2012-06-05T13:56:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/05/tftp-server-and-usage</id>
+    <content type="html"><![CDATA[<p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">tftp服务器安装</a></li>
+<li> <a href="#usage">tftp服务器使用</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="install">tftp服务器安装</h3>
+
+
+<h3>1. 安装软件包</h3>
+
+<pre><code>sudo apt-get install tftpd tftp xinetd
+</code></pre>
+
+<h3>2. 修改配置文件</h3>
+
+<pre><code>sudo vim /etc/xinetd.d/tftp
+</code></pre>
+
+<p>添加内容如下：</p>
+
+<pre><code>service tftp
+{
+    socket_type = dgram
+    protocol = udp
+    wait = yes
+    user = root
+    server = /usr/sbin/in.tftpd
+    server_args = -s /tftpboot
+    disable = no
+    per_source = 11
+    cps = 100 2
+    flags = IPv4
+} 
+</code></pre>
+
+<p>配置文件生效：</p>
+
+<pre><code>sudo chmod ugo+rwx /tftpboot
+sudo /etc/init.d/xinetd restart 
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">tftp服务器使用</h3>
+
+
+<h3>1. 显示帮助信息</h3>
+
+<pre><code>meegoo@lenovo:~$ tftp
+tftp&gt; ?
+Commands may be abbreviated.  Commands are:
+
+connect     connect to remote tftp
+mode        set file transfer mode
+put         send file
+get         receive file
+quit        exit tftp
+verbose     toggle verbose mode
+trace       toggle packet tracing
+status      show current status
+binary      set mode to octet
+ascii       set mode to netascii
+rexmt       set per-packet retransmission timeout
+timeout     set total retransmission timeout
+?           print help information
+tftp&gt;
+</code></pre>
+
+<h3>2. 常见用法</h3>
+
+<pre><code>tftp&gt; connect 192.168.0.238
+tftp&gt; binary    
+tftp&gt; get uImage
+Received 2144888 bytes in 0.1 seconds
+tftp&gt;
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ssh服务器安装及用法]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/05/ssh-server-and-usage/"/>
+    <updated>2012-06-05T13:56:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/05/ssh-server-and-usage</id>
+    <content type="html"><![CDATA[<p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">ssh服务器安装</a></li>
+<li> <a href="#usage">ssh服务器使用</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="install">ssh服务器安装</h3>
+
+
+<h3>1. 安装软件包</h3>
+
+<pre><code>sudo apt-get install openssh-server
+</code></pre>
+
+<h3>2. 重启ssh服务</h3>
+
+<pre><code>sudo /etc/init.d/ssh restart
+</code></pre>
+
+<h3>3. 查看</h3>
+
+<pre><code>netstat -tlp | grep ssh
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">ssh服务器使用</h3>
+
+
+<h3>1. 用法</h3>
+
+<pre><code>SYNOPSIS
+
+ssh [-l login_name ] hostname | user@hostname [command ]
+ssh [-afgknqstvxACNTX1246 ] [-b bind_address ] [-c cipher_spec ] 
+[-e escape_char ] [-i identity_file ] [-l login_name ] [-m mac_spec ] 
+[-o option ] [-p port ] [-F configfile ] [-L port host hostport ] 
+[-R port host hostport ] [-D port ] hostname | user@hostname [command ] 
+</code></pre>
+
+<h3>2. 热键</h3>
+
+<pre><code>~.
+    Disconnect 
+~^Z
+    Background ssh 
+~#
+    List forwarded connections 
+~&amp;
+    Background ssh at logout when waiting for forwarded connection / X11 sessions to terminate 
+~?
+    Display a list of escape characters 
+~C
+    Open command line (only useful for adding port forwardings using the -L and -R options) 
+~R
+    Request rekeying of the connection (only useful for SSH protocol version 2 and if the peer supports it)
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[samba服务器安装及用法]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/06/05/samba-server-and-usage/"/>
+    <updated>2012-06-05T13:56:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/06/05/samba-server-and-usage</id>
+    <content type="html"><![CDATA[<p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">samba服务器安装</a></li>
+<li> <a href="#usage">samba服务器使用</a></li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="install">samba服务器安装</h3>
+
+
+<h3>1. 安装软件包</h3>
+
+<pre><code>sudo apt-get install samba samba-common samba-common-bin system-config-samba
+</code></pre>
+
+<h3>2. 运行</h3>
+
+<pre><code>sudo smbd start
+</code></pre>
+
+<h3>3. 图形界面配置</h3>
+
+<pre><code>sudo system-config-samba
+</code></pre>
+
+<h3>4. 命令行配置</h3>
+
+<p>修改配置文件：</p>
+
+<pre><code>sudo gedit /etc/samba/smb.conf
+</code></pre>
+
+<p>修改内容如下：</p>
+
+<pre><code>####### Authentication #######
+
+# “security = user” is always a good idea. This will require a Unix account
+# in this server for every user accessing the server. See
+# /usr/share/doc/samba-doc/htmldocs/Samba-HOWTO-Collection/ServerType.html
+# in the samba-doc package for details.
+;  security = user
+</code></pre>
+
+<p>修改为：</p>
+
+<pre><code>security = user
+username map = /etc/samba/smbusers
+</code></pre>
+
+<p>添加samba用户：</p>
+
+<pre><code>sudo smbpasswd -a meegoo
+</code></pre>
+
+<p>添加到samba用户文件，格式为<code>&lt;ubuntuusername&gt; = “&lt;samba username&gt;”</code></p>
+
+<pre><code>sudo gedit /etc/samba/smbusers
+</code></pre>
+
+<h3>5. 添加samba共享路径</h3>
+
+<p>修改配置文件：</p>
+
+<pre><code>sudo gedit /etc/samba/smb.conf
+</code></pre>
+
+<p>文件尾添加内容如下：</p>
+
+<pre><code>[meegoo]
+    path = /home/meegoo
+    writeable = yes
+;   browseable = yes
+    valid users = meegoo 
+</code></pre>
+
+<p>开始或重启samba服务：</p>
+
+<pre><code>sudo smbd start
+sudo smbd restart
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">samba服务器使用</h3>
+
+
+<h3>1. 安装smbfs</h3>
+
+<pre><code>sudo apt-get install smbfs
+</code></pre>
+
+<h3>2. 挂载samba</h3>
+
+<pre><code>sudo mkdir /mnt/samba
+sudo mount -t smbfs -o username=meegoo //192.168.0.238/meegoo /mnt/samba
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

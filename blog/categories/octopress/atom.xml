@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: octopress | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[octopress使用技巧]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/05/31/octopress-skill/"/>
+    <updated>2012-05-31T08:24:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/05/31/octopress-skill</id>
+    <content type="html"><![CDATA[<ul>
+<li>内容列表
+
+<ul>
+<li><a href="#codeblock">1. 代码块</a></li>
+<li><a href="#includecode">2. 代码包含</a></li>
+<li><a href="#blockquote">3. 引用</a></li>
+<li><a href="#gist">4. gist</a></li>
+<li><a href="#img">5. 图片</a></li>
+<li><a href="#video">6. 视频</a></li>
+<li><a href="#category">7. category</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="codeblock">1. 代码块</h2>
+
+
+<p>语法：</p>
+
+<pre><code>{{ "{% codeblock [title] [lang:language] [start:#] [url] [link text]" }} %}
+code snippet
+{{ "{% endcodeblock" }} %}
+</code></pre>
+
+<p>实例1 - 简单显示：</p>
+
+<pre><code>{{ "{% codeblock" }} %}
+需要显示的代码
+{{ "{% endcodeblock" }} %}
+</code></pre>
+
+<p>{% codeblock %}
+需要显示的代码
+{% endcodeblock %}</p>
+
+<p>实例2 - 高亮显示：</p>
+
+<pre><code>{% raw %}{% codeblock lang:objc %}
+[rectangle setX: 10 y: 10 width: 20 height: 20];
+{% endcodeblock %}{% endraw %}
+</code></pre>
+
+<p>{% codeblock lang:objc %}
+[rectangle setX: 10 y: 10 width: 20 height: 20];
+{% endcodeblock %}</p>
+
+<p>实例3 - 高亮显示（交互）：</p>
+
+<pre><code>{{ "{% codeblock Time to be Awesome - awesome.rb" }} %}
+puts "Awesome!" unless lame
+{{ "{% endcodeblock" }} %}
+</code></pre>
+
+<p>{% codeblock Time to be Awesome - awesome.rb %}
+puts "Awesome!" unless lame
+{% endcodeblock %}</p>
+
+<p>实例4 - 高亮显示（强制）：</p>
+
+<pre><code>{{ "{% codeblock Here's an example .rvmrc file. lang:ruby" }} %}
+rvm ruby-1.8.6 # ZOMG, seriously? We still use this version?
+{{ "{% endcodeblock" }} %}
+</code></pre>
+
+<p>{% codeblock Here's an example .rvmrc file. lang:ruby %}
+rvm ruby-1.8.6 # ZOMG, seriously? We still use this version?
+{% endcodeblock %}</p>
+
+<p>实例5 - 添加url：</p>
+
+<pre><code>{% raw %}{% codeblock Javascript Array Syntax lang:js http://j.mp/pPUUmW MDN Documentation %}
+var arr1 = new Array(arrayLength);
+var arr2 = new Array(element0, element1, ..., elementN);
+{% endcodeblock %}{% endraw %}
+</code></pre>
+
+<p>{% codeblock Javascript Array Syntax lang:js http://j.mp/pPUUmW MDN Documentation %}
+var arr1 = new Array(arrayLength);
+var arr2 = new Array(element0, element1, ..., elementN);
+{% endcodeblock %}</p>
+
+<p>实例6 - 添加行信息：</p>
+
+<pre><code>{% raw %}{% codeblock Coffeescript Tricks lang:coffeescript start:51 %}
+# Given an alphabet:
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+# Iterate over part of the alphabet:
+console.log letter for letter in alphabet[4..8]
+{% endcodeblock %}{% endraw %}
+</code></pre>
+
+<p>{% codeblock lang:coffeescript Coffeescript Tricks start:51 %}</p>
+
+<h1>Given an alphabet:</h1>
+
+<p>alphabet = 'abcdefghijklmnopqrstuvwxyz'</p>
+
+<h1>Iterate over part of the alphabet:</h1>
+
+<p>console.log letter for letter in alphabet[4..8]
+{% endcodeblock %}</p>
+
+<h2 id="includecode">2. 代码包含</h2>
+
+
+<p>语法：</p>
+
+<pre><code>{{ "{% include_code [title] [lang:language] path/to/file [start:#] [end:#] [range:#,#]" }} %}
+</code></pre>
+
+<p>实例1 - 基本用法：   <br/>
+文件路径<code>source/downloads/code/test.js</code>，include_code的默认路径可修改。</p>
+
+<pre><code>{{ "{% include_code test.js" }} %}
+</code></pre>
+
+<p>{% include_code test.js %}</p>
+
+<p>实例2 - 定制标题：   <br/>
+默认情况<code>&lt;figcaption&gt;</code> 为文件名称，但可以修改为任意你喜欢的标题，如下：</p>
+
+<pre><code>{{ "{% include_code Add to_fraction for floats test.rb" }} %}
+</code></pre>
+
+<p>{% include_code Add to_fraction for floats test.rb %}</p>
+
+<p>实例3 - 强制高亮：</p>
+
+<pre><code>{{ "{% include_code test.coffee lang:coffeescript" }} %}
+</code></pre>
+
+<p>{% include_code test.coffee lang:coffeescript %}</p>
+
+<h2 id="blockquote">3. 引用</h2>
+
+
+<p>语法：</p>
+
+<pre><code>{{ "{% blockquote [author[, source]] [link] [source_link_title]" }} %}
+Quote string
+{{ "{% endblockquote" }} %}
+</code></pre>
+
+<p>实例1 - 基本用法：</p>
+
+<pre><code>{{ "{% blockquote" }} %}
+Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.
+{{ "{% endblockquote" }} %}
+</code></pre>
+
+<p>{% blockquote %}
+Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.
+{% endblockquote %}</p>
+
+<p>实例2 - 名言：</p>
+
+<pre><code>{{ "{% blockquote Douglas Adams, The Hichhikers Guide to the Galaxy" }} %}
+Flying is learning how to throw yourself at the ground and miss.
+{{ "{% endblockquote" }} %}
+</code></pre>
+
+<p>{% blockquote Douglas Adams, The Hitchhikers Guide to the Galaxy %}
+Flying is learning how to throw yourself at the ground and miss.
+{% endblockquote %}</p>
+
+<p>实例3 - 网络引用：</p>
+
+<pre><code>{{ "{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing" }} %}
+Every interaction is both precious and an opportunity to delight.
+{{ "{% endblockquote" }} %}
+</code></pre>
+
+<p>{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
+Every interaction is both precious and an opportunity to delight.
+{% endblockquote %}</p>
+
+<h2 id="gist">4. gist</h2>
+
+
+<p>语法：</p>
+
+<pre><code>{{ "{% gist gist_id [filename]" }} %}
+</code></pre>
+
+<p>实例：</p>
+
+<pre><code>{{ "{% gist 996818" }} %}
+</code></pre>
+
+<p>{% gist 996818 %}</p>
+
+<p>包含多个文件：</p>
+
+<pre><code>{{ "{% gist 1059334 svg_bullets.rb" }} %}
+{{ "{% gist 1059334 usage.scss" }} %}
+</code></pre>
+
+<h2 id="img">5. 图片</h2>
+
+
+<p>语法：</p>
+
+<pre><code>{{ "{% img [class names] /path/to/image [width] [height] [title text [alt text]]" }} %}
+</code></pre>
+
+<p>实例：</p>
+
+<pre><code>{{ "{% img http://placekitten.com/890/280" }} %}
+{{ "{% img left http://placekitten.com/320/250 Place Kitten #2" }} %}
+{{ "{% img right http://placekitten.com/300/500 150 250 Place Kitten #3" }} %}
+{{ "{% img right http://placekitten.com/300/500 150 250 'Place Kitten #4' 'An image of a very cute kitten'" }} %}
+</code></pre>
+
+<p>效果如下：  <br/>
+{% img http://placekitten.com/890/280 %}
+Bacon ipsum dolor sit amet exercitation ball tip consectetur tempor.
+Biltong exercitation aliqua, ribeye consequat veniam consectetur.</p>
+
+<p>{% img left http://placekitten.com/320/250 Place Kitten #2 %}
+{% img right http://placekitten.com/300/500 150 250 Place Kitten #3 %}
+Aliquip nulla do tempor, ball tip dolore anim esse strip steak nisi nostrud.
+Tri-tip mollit deserunt ut duis, commodo brisket short loin est hamburger sunt
+consequat rump meatloaf. Exercitation enim aliqua tempor dolore. Non eu venison,
+officia boudin tri-tip enim beef ribs flank cupidatat in aute.
+Tail voluptate fugiat aute flank, venison sint.</p>
+
+<p>{% img right http://placekitten.com/300/500 150 250 "Place Kitten #4" "An image of a very cute kitten" %}</p>
+
+<p>Brisket quis velit bresaola. Pork loin pork chop beef duis.
+Short loin fugiat officia short ribs magna. Ullamco eu proident jerky,
+fugiat chuck nostrud ham rump meatloaf eiusmod adipisicing. Qui et reprehenderit,
+magna biltong consequat short ribs pancetta. Tail tenderloin sausage,
+hamburger corned beef drumstick ad. Eu labore enim velit.</p>
+
+<p>Filler text courtesy of <a href="http://baconipsum.com">Bacon Ipsum</a>,
+Images courtesy of <a href="http://placekitten.com">Place Kitten</a>.</p>
+
+<h2 id="video">6. 视频</h2>
+
+
+<p>语法：</p>
+
+<pre><code>{{ "{% video url/to/video [width height] [url/to/poster]" }} %}
+</code></pre>
+
+<p>实例：</p>
+
+<pre><code>{{ "{% video http://s3.imathis.com/video/zero-to-fancy-buttons.mp4 640 320 http://s3.imathis.com/video/zero-to-fancy-buttons.png" }} %}
+</code></pre>
+
+<p>效果如下：
+{% video http://s3.imathis.com/video/zero-to-fancy-buttons.mp4 640 320 http://s3.imathis.com/video/zero-to-fancy-buttons.png %}</p>
+
+<h2 id="category">7. category</h2>
+
+
+<p>修改plugin，生成categories，补丁文件如下：  <br/>
+{% include_code lang:diff category_generator.rb.diff %}</p>
+
+<p>Category列表添加到右侧，跟最近博客显示在一起，补丁文件如下：  <br/>
+{% include_code lang:diff recent_posts.html.diff %}</p>
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[创建Octopress博客模板]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/05/30/create-octopress-blog-temple/"/>
+    <updated>2012-05-30T15:11:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/05/30/create-octopress-blog-temple</id>
+    <content type="html"><![CDATA[<p>开始此节内容之前，参考以下内容：</p>
+
+<ul>
+<li><a href="http://help.github.com/linux-set-up-git/">gitweb git使用</a></li>
+<li><a href="http://help.github.com/pages/">gitweb page</a></li>
+<li><a href="http://octopress.org">Octopress doc</a></li>
+<li><a href="/blog/2012/05/29/config-octopress-env">配置Octopress环境</a></li>
+</ul>
+
+
+<h3>1. 创建个人主页</h3>
+
+<p><code>github</code>提供一个二级域名给所有用户，地址为<code>http://username.github.com</code>,注册完用户后，创建一个
+<code>username.github.com</code>的git仓库，在<code>master</code>分支下随意写一个<code>index.html</code>，上传后约十分钟可以通过二级
+域名浏览刚才的<code>index.html</code>内容。</p>
+
+<h3>2. 使用Octopress上传模板</h3>
+
+<p>现从<a href="https://github.com/imathis/octopress">Octopress</a>克隆git版本库，进入该文件夹，查看分支：</p>
+
+<pre><code>git branch -a
+* master
+  remotes/octopress/2.1
+  remotes/octopress/HEAD -&gt; octopress/master
+  remotes/octopress/gh-pages
+  remotes/octopress/linklog
+  remotes/octopress/master
+  remotes/octopress/refactor_with_tests
+  remotes/octopress/rubygemcli
+  remotes/octopress/site
+  remotes/origin/source
+</code></pre>
+
+<p>在<code>master</code>分支，执行如下命令：</p>
+
+<pre><code>rake setup_github_pages
+</code></pre>
+
+<p>意义如下：</p>
+
+<ol>
+<li>Ask you for your Github Pages repository url.</li>
+<li>Rename the remote pointing to imathis/octopress from ‘origin’ to ‘octopress’</li>
+<li>Add your Github Pages repository as the default origin remote.</li>
+<li>Switch the active branch from master to source.</li>
+<li>Configure your blog’s url according to your repository.</li>
+<li>Setup a master branch in the _deploy directory for deployment.</li>
+</ol>
+
+
+<p>安装、生成、部署：</p>
+
+<pre><code>rake install
+rake generate
+rake deploy
+</code></pre>
+
+<p>上传源码：</p>
+
+<pre><code>git add .
+git commit -m 'your message'
+git push origin source
+</code></pre>
+
+<p>octopress的工作到此已经完成。</p>
+
+<h3>3. 使用Octopress生成的模板</h3>
+
+<p>先checkout版本，如下：</p>
+
+<pre><code>git clone git@github.com:meegoo-tsui/meegoo-tsui.github.com.git
+cd meegoo-tsui.github.com
+rake setup_github_pages # 此条命令必须，不然deploy失败
+git branch -a
+  master                # 此分支为主页显示的内容，source分支deploy自动push生成
+* source                # 所有源程序及文档
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/master
+  remotes/origin/source
+git checkout source     # 切换到source分支操作
+rake generate
+rake new_post[test-blog]# 生成博客，也可以手动生成
+rake preview
+rake deploy
+</code></pre>
+
+<p>在<code>master</code>分支查看结果:</p>
+
+<pre><code>git checkout master
+git pull --rebase origin master
+jekyll --server         # http://127.0.0.1:4000
+</code></pre>
+
+<p><code>master</code>分支为主页显示所需要的内容，因此需要在github上配置当前分支为<code>master</code>；  <br/>
+<code>source</code>分支为源代码，在此分支上写代码然后使用<code>rake deploy</code>就可以修改<code>master</code>的内容，也就
+更新了主页。</p>
+
+<hr />
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[配置Octopress环境]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/05/29/config-octopress-env/"/>
+    <updated>2012-05-29T13:11:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/05/29/config-octopress-env</id>
+    <content type="html"><![CDATA[<p><a href="http://octopress.org">Octopress</a>的官方网站上有详细文档，可先参考此网站上的相关文档。
+配置完后，已安装jekyll。</p>
+
+<hr />
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<ul>
+<li> <a href="#windows7">Windows7 环境</a></li>
+<li> <a href="#linux">Linux 环境</a></li>
+</ul>
+
+
+<hr />
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<h2 id="windows7">配置Octopress - windows7 环境</h2>
+
+
+<h3>1. 安装msysgit</h3>
+
+<p>下载<a href="http://code.google.com/p/msysgit/downloads/list">msysgit</a>，当前版本为<code>Git-1.7.8-preview20111206.exe</code>,
+安装在D:\Git-1.7.8，默认安装即可，其他路径也可以，但是路径中不要包含中文和空格，免得自找麻烦。</p>
+
+<h3>2. 安装<a href="https://github.com/scottmuc/yari">yari</a></h3>
+
+<p>使用刚才的工具下载，输入命令如下：</p>
+
+<pre><code>$ git clone git://github.com/scottmuc/yari.git /d/yari
+</code></pre>
+
+<p>完成后添加<code>D:\yari\bin</code>到windoes环境变量<code>PATH</code>，打开dos，运行命令如下：</p>
+
+<pre><code>D:\yari&gt;yari 1.9.2
+</code></pre>
+
+<h3>3. 安装<a href="http://www.python.org/getit/">python2.7.3 - Python 2.7.3 Windows Installer </a></h3>
+
+<p>安装路径：<code>D:\Python27</code></p>
+
+<h3>4. 添加git环境变量PATH</h3>
+
+<p>修改文件<code>D:\Git-1.7.8\etc\profile</code>:</p>
+
+<pre><code>export PATH="/d/Python27:/d/yari/ruby-1.9.2-p290-i386-mingw32/bin:$PATH"
+</code></pre>
+
+<h3>5. 安装gem包</h3>
+
+<pre><code>git clone git@github.com:meegoo-tsui/meegoo-tsui.github.com.git
+git chehckout source
+gem install bundler
+bundle install
+</code></pre>
+
+<h3>6. 解决rake generate的错误</h3>
+
+<p>错误内容如下：</p>
+
+<pre><code>...
+ruby-1.9.2-p290-i386-mingw32/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib
+/jekyll/convertible.rb:29:in `read_yaml': invalid byte sequence in GB2312 (ArgumentError)
+...
+</code></pre>
+
+<p>修改<code>D:\yari\ruby-1.9.2-p290-i386-mingw32\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\tags\include.rb</code></p>
+
+<pre><code>source = File.read(@file)
+</code></pre>
+
+<p>替换为</p>
+
+<pre><code>source = File.read(@file, :encoding =&gt; "utf-8")
+</code></pre>
+
+<p>修改<code>D:\yari\ruby-1.9.2-p290-i386-mingw32\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\convertible.rb</code></p>
+
+<pre><code>self.content = File.read(File.join(base, name))
+</code></pre>
+
+<p>替换为</p>
+
+<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; "utf-8")   
+</code></pre>
+
+<h3>7. 测试</h3>
+
+<pre><code>git generate
+git preview
+</code></pre>
+
+<p>查看：http://127.0.0.1:4000/</p>
+
+<hr />
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<h2 id="linux">配置Octopress - linux 环境</h2>
+
+
+<h3>ubuntu10.04安装rvm</h3>
+
+<h3>1. 安装ruby依靠包、curl、ruby</h3>
+
+<pre><code>sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+sudo apt-get install ruby
+</code></pre>
+
+<h3>2. 通过下面指令安装rvm</h3>
+
+<pre><code>bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+</code></pre>
+
+<h3>3. 查询安装结果</h3>
+
+<p>添加如下内容到<code>~/.bashrc</code>，删除<code>~/.bash_profile</code>：</p>
+
+<pre><code>[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"
+</code></pre>
+
+<p>重新进入终端使环境变量生效，然后运行如下命令：</p>
+
+<pre><code>rvm list known
+[ruby-]1.9.3-[xxx]
+</code></pre>
+
+<p>如上所示，显示出可安装的ruby版本，至此rvm的安装完成。</p>
+
+<h3>ubuntu10.04安装ruby及依靠包</h3>
+
+<h3>1. 安装ruby</h3>
+
+<p><code>Octopress</code>当前使用的<code>ruby</code>版本为<code>1.9.3</code>，因此使用如下命令安装<code>ruby</code>，按提示安装相关软件包：</p>
+
+<pre><code>rvm install 1.9.3
+</code></pre>
+
+<p>需要重装时：</p>
+
+<pre><code>rvm reinstall 1.9.3
+</code></pre>
+
+<p>设置环境：</p>
+
+<pre><code>. ~/.rvm/scripts/rvm
+rvm use 1.9.3
+</code></pre>
+
+<h3>2. 克隆<code>Octopress</code>的版本库</h3>
+
+<p><code>Octopress</code>的版本库托管在<code>github</code>，使用如下命令<code>checkout</code>：</p>
+
+<pre><code>git clone git://github.com/imathis/octopress.git octopress
+cd octopress    # 当使用rvm时，提示是否信任.rvmrc文件，输入yes
+ruby --version  # 显示 Ruby 1.9.3
+</code></pre>
+
+<h3>3. 安装依靠包</h3>
+
+<p>Windows环境安装了<a href="http://railsinstaller.org/">RailsInstaller</a>，可直接安装下面内容，
+以下命令需要在<code>octopress</code>路径下执行，版本的锁定需要此路径下的<code>Gemfile</code>文件：</p>
+
+<pre><code>gem install bundler
+bundle install
+</code></pre>
+
+<p>到此已完成<code>Octopress</code>环境的配置，可以使用<code>Octopress</code>的相关命令：</p>
+
+<pre><code>rake install
+rake generate
+rake preview
+</code></pre>
+
+<p>查看：http://127.0.0.1:4000/</p>
+
+<hr />
+
+]]></content>
+  </entry>
+  
+</feed>

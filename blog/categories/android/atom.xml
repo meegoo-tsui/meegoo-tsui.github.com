@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: android | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[android平台搭建]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/07/25/android-setting/"/>
+    <updated>2012-07-25T10:55:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/07/25/android-setting</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>

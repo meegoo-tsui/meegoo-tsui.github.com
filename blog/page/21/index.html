@@ -9,10 +9,9 @@
   <meta name="author" content="Meegoo Tsui">
 
   
-  <meta name="description" content="<!---
+  <meta name="description" content="系统环境： ubuntu10.04 tftp服务器安装 tftp服务器使用 <!---
 ################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+--> tftp服务器安装 1. 安装软件包 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/page/21">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +86,7 @@ Switch to the Diff &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/06/05/tftp-server-and-usage/">Tftp服务器安装及用法</a></h1>
     
     
       <p class="meta">
@@ -103,52 +102,108 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2012-06-05T13:56:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="/blog/2012/06/05/tftp-server-and-usage/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
+  <div class="entry-content"><p>系统环境： ubuntu10.04</p>
+
+<ul>
+<li> <a href="#install">tftp服务器安装</a></li>
+<li> <a href="#usage">tftp服务器使用</a></li>
+</ul>
+
+
+<!---
 ################################################################################
 -->
-
-
-<h3>Diff</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Merge</h3>
-
-<ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
-
-<ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
-</ul>
-</li>
-</ul>
 
 
 <hr />
 
 
+<h3 id="install">tftp服务器安装</h3>
 
+
+<h3>1. 安装软件包</h3>
+
+<pre><code>sudo apt-get install tftpd tftp xinetd
+</code></pre>
+
+<h3>2. 修改配置文件</h3>
+
+<pre><code>sudo vim /etc/xinetd.d/tftp
+</code></pre>
+
+<p>添加内容如下：</p>
+
+<pre><code>service tftp
+{
+    socket_type = dgram
+    protocol = udp
+    wait = yes
+    user = root
+    server = /usr/sbin/in.tftpd
+    server_args = -s /tftpboot
+    disable = no
+    per_source = 11
+    cps = 100 2
+    flags = IPv4
+} 
+</code></pre>
+
+<p>配置文件生效：</p>
+
+<pre><code>sudo chmod ugo+rwx /tftpboot
+sudo /etc/init.d/xinetd restart 
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="usage">tftp服务器使用</h3>
+
+
+<h3>1. 显示帮助信息</h3>
+
+<pre><code>meegoo@lenovo:~$ tftp
+tftp&gt; ?
+Commands may be abbreviated.  Commands are:
+
+connect     connect to remote tftp
+mode        set file transfer mode
+put         send file
+get         receive file
+quit        exit tftp
+verbose     toggle verbose mode
+trace       toggle packet tracing
+status      show current status
+binary      set mode to octet
+ascii       set mode to netascii
+rexmt       set per-packet retransmission timeout
+timeout     set total retransmission timeout
+?           print help information
+tftp&gt;
+</code></pre>
+
+<h3>2. 常见用法</h3>
+
+<pre><code>tftp&gt; connect 192.168.0.238
+tftp&gt; binary    
+tftp&gt; get uImage
+Received 2144888 bytes in 0.1 seconds
+tftp&gt;
+</code></pre>
 </div>
   
   
@@ -158,9 +213,11 @@ Switch to the Diff &hellip;">
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/22/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/20/">Newer &rarr;</a>
     
   </div>
 </div>

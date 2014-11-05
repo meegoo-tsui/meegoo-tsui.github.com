@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: linux | 明牯工作室 - 嵌入式软件服务]]></title>
+  <link href="http://meegoo-tsui.github.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://meegoo-tsui.github.com/"/>
+  <updated>2014-11-05T10:28:29+08:00</updated>
+  <id>http://meegoo-tsui.github.com/</id>
+  <author>
+    <name><![CDATA[Meegoo Tsui]]></name>
+    <email><![CDATA[meegoo.tsui@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[脚本笔记]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2013/06/07/script-skill/"/>
+    <updated>2013-06-07T10:11:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2013/06/07/script-skill</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<table>
+<thead>
+<tr>
+<th align="left">1                 </th>
+<th align="center">2                 </th>
+<th align="center">3                 </th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="#awk">awk</a>       </td>
+<td align="center"><a href="#sed">sed</a>       </td>
+<td align="center"><a href="#shell">shell</a>   </td>
+<td align="right"><a href="#python">python</a></td>
+</tr>
+</tbody>
+</table>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="sed">sed</h3>
+
+
+<ol>
+<li><a href="http://www.brunolinux.com/02-The_Terminal/Find_and%20Replace_with_Sed.html">FIND AND REPLACE with SED</a></li>
+</ol>
+
+
+<p>replace all the words "ugly" with "beautiful"：</p>
+
+<pre><code>sed -i 's/ugly/beautiful/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<p>replace all the words "ugly*" with "beautiful"：</p>
+
+<pre><code>sed -i 's/ugly.*/beautiful/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<p>replace all the words "ugly*" with $VAR：</p>
+
+<pre><code>sed -i 's/ugly.*/'"$VAR"'/g' /home/bruno/old-friends/sue.txt
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="shell">shell</h3>
+
+
+<ol>
+<li>rmp</li>
+</ol>
+
+
+<p>rmp command:</p>
+
+<pre><code>rpm -ivh *.rpm              # install
+rpm -qpl *.rpm              # list
+rpm2cpio *.rpm | cpio -div  # extract
+</code></pre>
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ubuntu常见问题集锦]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/05/21/ubuntu-skill/"/>
+    <updated>2012-05-21T13:11:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/05/21/ubuntu-skill</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<table>
+<thead>
+<tr>
+<th align="left">1                    </th>
+<th align="center">2                    </th>
+<th align="center">3                    </th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="#ubuntu_sources">ubuntu 源</a></td>
+<td align="center"><a href="#static_ip">静态IP</a></td>
+<td align="center"><a href="#grub_boot">grub启动项</a></td>
+<td align="right"><a href="#mta_delay">MTA延时解决</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#firefox_flash">firefox flash插件</a></td>
+<td align="center"><a href="#remote_desktop">远程桌面</a></td>
+<td align="center"><a href="#ramdisk">ramdisk</a></td>
+<td align="right"><a href="#firefox_cache">firefox cache</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#ibus_repaire">ibus 消失</a></td>
+<td align="center"><a href="#ubuntu_quicklaunch">ubuntu 桌面快捷方式</a></td>
+<td align="center"><a href="#stardict">stardict 星际译王</a></td>
+<td align="right"><a href="#terminal">terminal 终端快捷方式</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#gedit">gedit 乱码</a></td>
+<td align="center"><a href="#ldconfig">ldconfig - 动态库</a></td>
+<td align="center"><a href="#wireless_en">Wireless is disabled</a></td>
+<td align="right"><a href="#as_administrator">Open As Administrator</a></td>
+</tr>
+<tr>
+<td align="left"><a href="#aptget_proxy">Aptget proxy</a></td>
+<td align="center"><a href="#gnome-schedule">gnome-schedule</a></td>
+<td align="center"><a href="#xrdp">xrdp 远程桌面</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="ubuntu_sources">ubuntu 源</h3>
+
+
+<p>先备份原始文件：</p>
+
+<pre><code>$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+</code></pre>
+
+<p>以下面文件替换：</p>
+
+<ul>
+<li> ubuntu 10.04 - <a href='http://meegoo-tsui.github.com/downloads/config/ubuntu_10.04.sources.list' id='blog-link' title='Tar'>sources.list</a></li>
+<li> ubuntu 12.04 - <a href='http://meegoo-tsui.github.com/downloads/config/ubuntu_12.04.sources.list' id='blog-link' title='Tar'>sources.list</a></li>
+</ul>
+
+
+<p>消除ID警告：</p>
+
+<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv ID_xxxxxxxxx
+</code></pre>
+
+<p>运行命令更新：</p>
+
+<pre><code>$ sudo apt-get update
+$ sudo spt-get upgrade
+</code></pre>
+
+<p>代理设置：</p>
+
+<pre><code>meegoo@mg:~$ cat /etc/apt/apt.conf
+Acquire::http::proxy "http://192.168.15.1:8080/"; 
+Acquire::ftp::proxy "ftp://192.168.15.1:8080/"; 
+Acquire::https::proxy "https://192.168.15.1:8080/";
+</code></pre>
+
+<h3>修改更新错误</h3>
+
+<h3>error 1</h3>
+
+<p>E: Could not get lock /var/lib/apt/lists/lock - open (11: Resource temporarily unavailable)   <br/>
+E: Unable to lock the list directory  <br/>
+解决方法：</p>
+
+<pre><code>$ ps -e | grep apt
+</code></pre>
+
+<p>删除相关进程：</p>
+
+<pre><code>$ sudo kill xxxx
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="static_ip">静态IP - ubuntu 12.04 server</h3>
+
+
+<p>执行命令如下：</p>
+
+<pre><code>sudo vi /etc/network/interfaces
+</code></pre>
+
+<p>替换：</p>
+
+<pre><code>auto eth0
+iface eth0 inet dhcp
+</code></pre>
+
+<p>为：</p>
+
+<pre><code>auto eth0
+iface eth0 inet static
+    address 192.168.0.2
+    netmask 255.255.255.0
+    network 192.168.0.0
+    broadcast 192.168.0.255
+    gateway 192.168.0.1
+    dns-nameservers 192.168.0.1
+</code></pre>
+
+<p>重启服务：</p>
+
+<pre><code>sudo /etc/init.d/networking restart
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="grub_boot">grub启动项</h3>
+
+
+<p>执行命令如下：</p>
+
+<pre><code>sudo vi /etc/default/grub
+</code></pre>
+
+<p>修改启动项，替换：</p>
+
+<pre><code>GRUB_DEFAULT=0
+</code></pre>
+
+<p>为：</p>
+
+<pre><code>GRUB_DEFAULT=4
+</code></pre>
+
+<p>修改为文本模式启动，替换：</p>
+
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+</code></pre>
+
+<p>为：</p>
+
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT="quiet splash text"
+</code></pre>
+
+<p>使设置生效：</p>
+
+<pre><code>sudo update-grub 
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="mta_delay">MTA延时解决</h3>
+
+
+<p>修改文件：</p>
+
+<pre><code>sudo vim /etc/hosts
+</code></pre>
+
+<p>修改内容如下：</p>
+
+<pre><code>127.0.0.1       localhost.localdomain localhost
+127.0.1.1       server.localdomain server
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="firefox_flash">firefox flash插件</h3>
+
+
+<p>下载<a href="http://get.adobe.com/flashplayer/"> adobe flash player </a>, 格式为*.tar.gz:</p>
+
+<ol>
+<li>解压：<code>tar -zxf xxx.tar.gz</code></li>
+<li>拷贝：<code>sudo sudo cp -r usr/* /usr</code></li>
+<li>插件：<code>sudo cp libflashplayer.so /usr/lib/mozilla/plugins</code></li>
+<li>重启</li>
+</ol>
+
+
+<p>已测试： ubuntu 12.04</p>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="remote_desktop">远程桌面</h3>
+
+
+<ol>
+<li><code>sudo apt-get install xrdp</code></li>
+<li><code>echo "gnome-session --session=ubuntu-2d" &gt; ~/.xsession</code></li>
+<li><code>sudo apt-get install gnome-session-fallback</code></li>
+<li><code>sudo reboot</code></li>
+</ol>
+
+
+<p>已测试： windows xp</p>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="ramdisk">ramdisk</h3>
+
+
+<p>修改文件<code>/etc/rc.local</code></p>
+
+<pre><code>mount -t tmpfs -o size=2048M tmpfs /mnt/ramdisk
+</code></pre>
+
+<p>创建挂载点：</p>
+
+<pre><code>sudo mkdir /mnt/ramdisk
+</code></pre>
+
+<p>已测试： ubuntu 12.04</p>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="firefox_cache">firefox cache</h3>
+
+
+<p>打开firefox输入：<code>about:config</code></p>
+
+<ul>
+<li> 设置字符串browser.cache.disk.parent_directory，值为路径</li>
+<li> 设置字符串browser.cache.offline.parent_directory，值为路径</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="ibus_repaire">ibus 消失</h3>
+
+
+<p>在终端输入如下内容：</p>
+
+<pre><code>gconftool -- type boolean -s /desktop/ibus/panel/show_icon_on_systray true
+gconftool -- type boolean -s /desktop/ibus/panel/show true
+gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
+</code></pre>
+
+<hr />
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="ubuntu_quicklaunch">ubuntu 12.04 桌面快捷方式</h3>
+
+
+<p>安装：</p>
+
+<pre><code>sudo apt-get install --no-install-recommends gnome-panel
+sudo apt-get install compizconfig-settings-manager
+</code></pre>
+
+<p>运行：</p>
+
+<pre><code>gnome-desktop-item-edit ~/Desktop/ --create-new
+ccsm # show desktop
+ls /usr/share/applications/ # show *.desktop
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="stardict">stardict 星际译王</h3>
+
+
+<p>软件安装：</p>
+
+<pre><code>sudo apt-get install stardict
+</code></pre>
+
+<p>字典下载地址 - <a href="http://abloz.com/huzheng/stardict-dic/">stardict</a></p>
+
+<p>字典安装：</p>
+
+<pre><code>sudo tar -xjvf a.tar.bz2 -C /usr/share/stardict/dic
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="terminal">terminal 终端快捷方式</h3>
+
+
+<p>快捷键方式：</p>
+
+<pre><code>ctrl + alt + t
+</code></pre>
+
+<p>右键打开终端的工具安装，安装后需重启：</p>
+
+<pre><code>sudo apt-get install -y nautilus-open-terminal
+</code></pre>
+
+<p>minicom权限，需重启电脑：</p>
+
+<pre><code>ls -al /dev/ttyS0
+id -Gn
+sudo adduser meegoo dialout
+minicom -c on -w
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="gedit">gedit 乱码</h3>
+
+
+<p>执行如下命令：</p>
+
+<pre><code>gsettings set org.gnome.gedit.preferences.encodings auto-detected "['UTF-8','GB18030','GB2312','GBK','BIG5','CURRENT','UTF-16']" 
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="ldconfig">ldconfig - 动态库</h3>
+
+
+<ul>
+<li> 添加相关路径 - /etc/ld.so.conf.d</li>
+<li> 生成cache - sudo ldconfig</li>
+<li> 查看结果 - ldconfig -p</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="wireless_en">Wireless is disabled - ubuntu 12.04</h3>
+
+
+<ul>
+<li> Enable - sudo rfkill unblock wifi</li>
+<li> List - sudo rfkill list all</li>
+<li> tool - sudo apt-get install wicd-daemon</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="as_administrator">Add Open As Administrator to the Context Menu</h3>
+
+
+<pre><code>wget http://www.liberiangeek.net/blog/tools/libnautilus-gksu.so     
+sudo cp libnautilus-gksu.so /usr/lib/nautilus/extensions-3.0/    
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="aptget_proxy">Aptget proxy</h3>
+
+
+<p>配置firefox使用代理上网,然后修改配置文件</p>
+
+<pre><code>sudo vim /etc/apt/apt.conf
+</code></pre>
+
+<p>内容如下：</p>
+
+<pre><code>Acquire::http::proxy "http://192.168.15.1:8080/"; 
+Acquire::ftp::proxy "ftp://192.168.15.1:8080/"; 
+Acquire::https::proxy "https://192.168.15.1:8080/";
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="gnome-schedule">gnome-schedule</h3>
+
+
+<p>安装软件：</p>
+
+<pre><code>sudo apt-get install gnome-schedule
+</code></pre>
+
+<p>格式说明：</p>
+
+<pre><code># *    *    *    *    *  command to execute
+# ┬    ┬    ┬    ┬    ┬
+# │    │    │    │    │
+# │    │    │    │    │
+# │    │    │    │    └───── day of week (0 - 6) (0 to 6 are Sunday to Saturday, or use names)
+# │    │    │    └────────── month (1 - 12)
+# │    │    └─────────────── day of month (1 - 31)
+# │    └──────────────────── hour (0 - 23)
+# └───────────────────────── min (0 - 59)
+</code></pre>
+
+<p>添加：</p>
+
+<pre><code>sudo crontab -e
+</code></pre>
+
+<p>内容如下：</p>
+
+<pre><code>0 12 * * * /sbin/poweroff
+0 18 * * * /sbin/poweroff
+</code></pre>
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="xrdp">xrdp 远程桌面</h3>
+
+
+<p>run the commands below to install xRDP package:</p>
+
+<pre><code>sudo apt-get install xrdp
+</code></pre>
+
+<p>If you have a problem connecting, run the commands below and restart Ubuntu, then try again.</p>
+
+<pre><code>echo "gnome-session --session=ubuntu-2d" &gt; ~/.xsession
+</code></pre>
+
+<hr />
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[linux快捷键]]></title>
+    <link href="http://meegoo-tsui.github.com/blog/2012/05/16/linux-shortcuts/"/>
+    <updated>2012-05-16T13:11:00+08:00</updated>
+    <id>http://meegoo-tsui.github.com/blog/2012/05/16/linux-shortcuts</id>
+    <content type="html"><![CDATA[<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3>终端与X窗口</h3>
+
+<pre><code>Ctrl + Alt + F1              # 切换到第一个终端
+Ctrl + Alt + Fn              # 切换到第n个终端，n的范围1~6
+tty                          # 终端模式下告诉你所处的终端
+Ctrl + Alt + F7              # 从终端切换回X窗口
+</code></pre>
+
+<h3>命令行 - 输入</h3>
+
+<pre><code>Home or Ctrl + a             # 移动光标到输入的开头
+End or Ctrl + e              # 移动光标到输入的结尾
+Alt + b                      # 向前移动光标一个字符
+Alt + f                      # 向后移动光标一个字符
+Tab                          # 补齐
+Ctrl + u                     # 删除光标前的内容
+Ctrl + k                     # 删除当前行所有内容
+Ctrl + w                     # 删除光标前的一个单词
+</code></pre>
+
+<h3>命令行 - 输出</h3>
+
+<pre><code>history                      # 显示所有执行过的命令记录
+ArrowUp or Ctrl + p          # 向上显示执行过的命令记录
+ArrowDown or Ctrl + n        # 向下显示执行过的命令记录
+Ctrl + r                     # 查找包含输入字符的最后命令
+</code></pre>
+
+<hr />
+
+]]></content>
+  </entry>
+  
+</feed>

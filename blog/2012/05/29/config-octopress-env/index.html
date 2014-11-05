@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>配置Octopress环境 - 明牯工作室 - 嵌入式软件服务</title>
+  <meta name="author" content="Meegoo Tsui">
+
+  
+  <meta name="description" content="Octopress的官方网站上有详细文档，可先参考此网站上的相关文档。
+配置完后，已安装jekyll。 <!---
+################################################################################
+--> &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/2012/05/29/config-octopress-env">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="明牯工作室 - 嵌入式软件服务" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="/stylesheets/google-fonts.css" rel="stylesheet" type="text/css">
+
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32418871-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">明牯工作室 - 嵌入式软件服务</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://www.baidu.com" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:meegoo-tsui.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">主页</a></li>
+  <li><a href="/blog/archives">博客</a></li>
+  <li><a href="/topic">专题</a></li>
+  <li><a href="/aboutme">关于我</a></li>
+</ul>
+
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">配置Octopress环境</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T13:11:00+08:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://octopress.org">Octopress</a>的官方网站上有详细文档，可先参考此网站上的相关文档。
+配置完后，已安装jekyll。</p>
+
+<hr />
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<ul>
+<li> <a href="#windows7">Windows7 环境</a></li>
+<li> <a href="#linux">Linux 环境</a></li>
+</ul>
+
+
+<hr />
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<h2 id="windows7">配置Octopress - windows7 环境</h2>
+
+
+<h3>1. 安装msysgit</h3>
+
+<p>下载<a href="http://code.google.com/p/msysgit/downloads/list">msysgit</a>，当前版本为<code>Git-1.7.8-preview20111206.exe</code>,
+安装在D:\Git-1.7.8，默认安装即可，其他路径也可以，但是路径中不要包含中文和空格，免得自找麻烦。</p>
+
+<h3>2. 安装<a href="https://github.com/scottmuc/yari">yari</a></h3>
+
+<p>使用刚才的工具下载，输入命令如下：</p>
+
+<pre><code>$ git clone git://github.com/scottmuc/yari.git /d/yari
+</code></pre>
+
+<p>完成后添加<code>D:\yari\bin</code>到windoes环境变量<code>PATH</code>，打开dos，运行命令如下：</p>
+
+<pre><code>D:\yari&gt;yari 1.9.2
+</code></pre>
+
+<h3>3. 安装<a href="http://www.python.org/getit/">python2.7.3 - Python 2.7.3 Windows Installer </a></h3>
+
+<p>安装路径：<code>D:\Python27</code></p>
+
+<h3>4. 添加git环境变量PATH</h3>
+
+<p>修改文件<code>D:\Git-1.7.8\etc\profile</code>:</p>
+
+<pre><code>export PATH="/d/Python27:/d/yari/ruby-1.9.2-p290-i386-mingw32/bin:$PATH"
+</code></pre>
+
+<h3>5. 安装gem包</h3>
+
+<pre><code>git clone git@github.com:meegoo-tsui/meegoo-tsui.github.com.git
+git chehckout source
+gem install bundler
+bundle install
+</code></pre>
+
+<h3>6. 解决rake generate的错误</h3>
+
+<p>错误内容如下：</p>
+
+<pre><code>...
+ruby-1.9.2-p290-i386-mingw32/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib
+/jekyll/convertible.rb:29:in `read_yaml': invalid byte sequence in GB2312 (ArgumentError)
+...
+</code></pre>
+
+<p>修改<code>D:\yari\ruby-1.9.2-p290-i386-mingw32\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\tags\include.rb</code></p>
+
+<pre><code>source = File.read(@file)
+</code></pre>
+
+<p>替换为</p>
+
+<pre><code>source = File.read(@file, :encoding =&gt; "utf-8")
+</code></pre>
+
+<p>修改<code>D:\yari\ruby-1.9.2-p290-i386-mingw32\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\convertible.rb</code></p>
+
+<pre><code>self.content = File.read(File.join(base, name))
+</code></pre>
+
+<p>替换为</p>
+
+<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; "utf-8")   
+</code></pre>
+
+<h3>7. 测试</h3>
+
+<pre><code>git generate
+git preview
+</code></pre>
+
+<p>查看：http://127.0.0.1:4000/</p>
+
+<hr />
+
+
+
+
+<!---
+################################################################################
+-->
+
+
+<h2 id="linux">配置Octopress - linux 环境</h2>
+
+
+<h3>ubuntu10.04安装rvm</h3>
+
+<h3>1. 安装ruby依靠包、curl、ruby</h3>
+
+<pre><code>sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion
+sudo apt-get install ruby
+</code></pre>
+
+<h3>2. 通过下面指令安装rvm</h3>
+
+<pre><code>bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+</code></pre>
+
+<h3>3. 查询安装结果</h3>
+
+<p>添加如下内容到<code>~/.bashrc</code>，删除<code>~/.bash_profile</code>：</p>
+
+<pre><code>[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"
+</code></pre>
+
+<p>重新进入终端使环境变量生效，然后运行如下命令：</p>
+
+<pre><code>rvm list known
+[ruby-]1.9.3-[xxx]
+</code></pre>
+
+<p>如上所示，显示出可安装的ruby版本，至此rvm的安装完成。</p>
+
+<h3>ubuntu10.04安装ruby及依靠包</h3>
+
+<h3>1. 安装ruby</h3>
+
+<p><code>Octopress</code>当前使用的<code>ruby</code>版本为<code>1.9.3</code>，因此使用如下命令安装<code>ruby</code>，按提示安装相关软件包：</p>
+
+<pre><code>rvm install 1.9.3
+</code></pre>
+
+<p>需要重装时：</p>
+
+<pre><code>rvm reinstall 1.9.3
+</code></pre>
+
+<p>设置环境：</p>
+
+<pre><code>. ~/.rvm/scripts/rvm
+rvm use 1.9.3
+</code></pre>
+
+<h3>2. 克隆<code>Octopress</code>的版本库</h3>
+
+<p><code>Octopress</code>的版本库托管在<code>github</code>，使用如下命令<code>checkout</code>：</p>
+
+<pre><code>git clone git://github.com/imathis/octopress.git octopress
+cd octopress    # 当使用rvm时，提示是否信任.rvmrc文件，输入yes
+ruby --version  # 显示 Ruby 1.9.3
+</code></pre>
+
+<h3>3. 安装依靠包</h3>
+
+<p>Windows环境安装了<a href="http://railsinstaller.org/">RailsInstaller</a>，可直接安装下面内容，
+以下命令需要在<code>octopress</code>路径下执行，版本的锁定需要此路径下的<code>Gemfile</code>文件：</p>
+
+<pre><code>gem install bundler
+bundle install
+</code></pre>
+
+<p>到此已完成<code>Octopress</code>环境的配置，可以使用<code>Octopress</code>的相关命令：</p>
+
+<pre><code>rake install
+rake generate
+rake preview
+</code></pre>
+
+<p>查看：http://127.0.0.1:4000/</p>
+
+<hr />
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Meegoo Tsui</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T13:11:00+08:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/octopress/'>octopress</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/21/ubuntu-skill/" title="Previous Post: ubuntu常见问题集锦">&laquo; ubuntu常见问题集锦</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/05/30/create-octopress-blog-temple/" title="Next Post: 创建Octopress博客模板">创建Octopress博客模板 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/10/submin/">submin 安装</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/04/slickedit/">slickedit基本操作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/raspberry-pi-ruby/">4. Raspberry pi ruby</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/10/vmware/">vmware</a>
+      </li>
+    
+  </ul>
+
+  <h1>Categories</h1>
+  <ul>
+    <li>
+      <a class='category' href='/blog/categories/raspberrypi/'>RaspberryPi</a>, <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/build/'>build</a>, <a class='category' href='/blog/categories/davinci/'>davinci</a>, <a class='category' href='/blog/categories/doxygen/'>doxygen</a>, <a class='category' href='/blog/categories/editor/'>editor</a>, <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/markdown/'>markdown</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/qt/'>qt</a>, <a class='category' href='/blog/categories/server/'>server</a>, <a class='category' href='/blog/categories/url/'>url</a>, <a class='category' href='/blog/categories/vmware/'>vmware</a>
+    </li>
+  </ul>
+
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Meegoo Tsui -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'meegootsui';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://meegoo-tsui.github.com/blog/2012/05/29/config-octopress-env/';
+        var disqus_url = 'http://meegoo-tsui.github.com/blog/2012/05/29/config-octopress-env/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

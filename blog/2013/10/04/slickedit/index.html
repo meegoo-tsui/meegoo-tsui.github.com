@@ -5,14 +5,17 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>明牯工作室 - 嵌入式软件服务</title>
+  <title>slickedit基本操作 - 明牯工作室 - 嵌入式软件服务</title>
   <meta name="author" content="Meegoo Tsui">
 
   
   <meta name="description" content="<!---
 ################################################################################
---> Diff Launch TortoiseGit | Settings
-Switch to the Diff &hellip;">
+--> 下载安装
+系统设置
+显示设置
+编辑设置
+快捷使用 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +24,7 @@ Switch to the Diff &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://meegoo-tsui.github.com">
+  <link rel="canonical" href="http://meegoo-tsui.github.com/blog/2013/10/04/slickedit">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,15 +82,12 @@ Switch to the Diff &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/04/tortoiseGit-with-BC/">TortoiseGit With Beyond Compare 3</a></h1>
+      <h1 class="entry-title">Slickedit基本操作</h1>
     
     
       <p class="meta">
@@ -103,46 +103,142 @@ Switch to the Diff &hellip;">
   
 
 
-<time datetime="2014-08-04T22:33:00+08:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+<time datetime="2013-10-04T15:00:00+08:00" pubdate data-updated="true">Oct 4<span>th</span>, 2013</time>
         
-         | <a href="/blog/2014/08/04/tortoiseGit-with-BC/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><!---
+<div class="entry-content"><!---
 ################################################################################
 -->
 
 
-<h3>Diff</h3>
+<ol>
+<li><a href="#install">下载安装</a></li>
+<li><a href="#system">系统设置</a></li>
+<li><a href="#display">显示设置</a></li>
+<li><a href="#edit">编辑设置</a></li>
+<li><a href="#hotkey">快捷使用</a></li>
+</ol>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="install">下载安装</h3>
+
 
 <ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Diff Viewer section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+<li><p>下载地址 - <a href="http://www.slickedit.com/trial/slickedit">http://www.slickedit.com/trial/slickedit</a></p></li>
+<li><p>ubuntu 12.04 桌面快捷键 SlickEdit-18.0.1.2.desktop 内容：</p></li>
+</ul>
+
+
+<pre><code> 
+    [Desktop Entry]
+    Version=1.0
+    Name=SlickEdit 2013
+    Comment=SlickEdit 2013 version 18.0.1.2
+    Exec=/usr/local/slickedit/bin/vs -sc "/home/meegoo/.slickedit/" %F +new
+    Icon=/usr/local/slickedit/bitmaps/vse32.xpm
+    Type=Application
+    Categories=Application;Development;IDE;
+</code></pre>
+
 
 <ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %base %mine /title1=%bname /title2=%yname /leftreadonly</li>
-</ul>
-</li>
+<li>清除配置文件, ubuntu - <code>rm -rf /home/meegoo/.slickedit</code>, windows - <code>meegoo/Documents/My SlickEdit Config</code></li>
 </ul>
 
 
-<h3>Merge</h3>
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="system">系统设置</h3>
+
 
 <ul>
-<li><p>Launch TortoiseGit | Settings</p></li>
-<li><p>Switch to the Merge Tool section under External Programs</p></li>
-<li><p>Change the radio buttons from TortoiseMerge to External.In the path edits, enter:</p>
+<li>设置本身的设置 - Tool -> Option -> Application Option -> Exit -> Save Configuration 选择"***immediately"</li>
+<li>启动多个SE实例 - 修改启动命令行，加多一个+new作为参数传进去</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="display">显示设置</h3>
+
 
 <ul>
-<li>&#8220;D:\Program Files (x86)\Beyond Compare 3\BComp.exe&#8221; %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname</li>
+<li>设置Tab宽度 - Tools -> Options -> Languages -> All Languages -> Formatting -> Indent, 选择Indent，Syntax 4, Tabs:4,C++ -> formatting 修改My default</li>
+<li>显示行数 - Tool -> Option -> Languages -> All Language -> View</li>
+<li>折叠功能 - 在主窗口的工具栏上面右击，然后选择 Toolbars -> Selective Display</li>
+<li>编辑器风格 - Tool -> Option -> Keyboard and mouse -> Emulation -> Vim</li>
+<li>编码设置 - Tools -> Options -> File Options -> Load -> encoding, UTF-8</li>
+<li>字体设置 - Tools -> Options -> Appearance -> Fonts -> Unicode Source Windows，SBCS/DBCS Source Windows</li>
+<li>单行显示 - Tools -> Options -> Languages -> All Languages -> Word Wrap, 全部不选</li>
+<li>特殊符号 - Tool -> Option -> Languages -> All Language -> View -> Special Characters</li>
+<li>显示竖线 - Tools->Options->Appearance->General, Vertical line column设成80，下面可以设置一个颜色。字体设置时，三个选项全选。</li>
+<li>颜色方案 - Tools -> Options -> Appearance -> Colors, Black</li>
+<li>修改颜色 - Tool -> Option -> Languages -> All Language -> View， 全选</li>
 </ul>
-</li>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="edit">编辑设置</h3>
+
+
+<ul>
+<li>if格式风格 - Tools -> Options -> Languages -> All Languages -> Formatting -> Begin/end style</li>
+<li>注释与反注释 - Document->Comment Lines和Document->Uncomment Lines, 注释命令行为:comment, 反注释命令行为:comment-erase</li>
 </ul>
+
+
+<!---
+################################################################################
+-->
+
+
+<hr />
+
+
+<h3 id="hotkey">快捷使用</h3>
+
+
+<ul>
+<li>高亮显示 -</li>
+</ul>
+
+
+<!---
+################################################################################
+-->
 
 
 <hr />
@@ -150,20 +246,65 @@ Switch to the Diff &hellip;">
 
 
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Meegoo Tsui</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2013-10-04T15:00:00+08:00" pubdate data-updated="true">Oct 4<span>th</span>, 2013</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/blog/categories/editor/'>editor</a>
+  
+</span>
+
+
+    </p>
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/07/28/raspberry-pi-ruby/" title="Previous Post: 4. Raspberry pi ruby">&laquo; 4. Raspberry pi ruby</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/12/10/submin/" title="Next Post: submin 安装">submin 安装 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -208,6 +349,7 @@ Switch to the Diff &hellip;">
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -222,7 +364,10 @@ Switch to the Diff &hellip;">
       var disqus_shortname = 'meegootsui';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://meegoo-tsui.github.com/blog/2013/10/04/slickedit/';
+        var disqus_url = 'http://meegoo-tsui.github.com/blog/2013/10/04/slickedit/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
